@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/dash.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--- Bulma ---->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <title>MONNAIE | MEMBER DASHBOARD</title>
+
+</head>
+
+<body>
+    <div class="section">
+        <div class="columns">
+            <aside class="column is-2">
+                <img class="userAvatar" src="./images/gracekelly.png" alt="">
+                <nav class="menu">
+                    <br>
+                    <p class="menu-label">
+                        DASHBOARD
+                    </p>
+                    <ul class="menu-list">
+                        <li><a class="is-active" style="background-color:transparent; color: #0e1111;" href="/budget">Budget</a></li>
+                        <li><a class="is-active" style="background-color:transparent; color: #0e1111;" href="/tasks">Tasks</a></li>
+                        <!-- <li><a class="is-active" style="background-color:transparent; color: #0e1111;">Countdown</a></li>
+                        <li><a class="is-active" style="background-color:transparent; color: #0e1111;">Vendors</a></li> -->
+                        <li><a class="is-outlined" style="background-color:transparent; color:tomato;" href="/logout">Sign-Out</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="column">
+                <div class="level" style="justify-content: center;">
+                    <div class="level-left">
+                        <div class="level-item ">
+                            <header>
+                                <div >
+                                    <link rel="preconnect" href="https://fonts.gstatic.com">
+                                    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap"
+                                        rel="stylesheet">
+                                    <a class="navbar-item" href="/dash"
+                                        style="font-family: 'Berkshire Swash', cursive; text-align: center!important; color: #e17055; font-size: 40px;">
+                                        Monnaie
+                                    </a>
+                                </div>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DASHBOARD ITEMS --->
+                <div class="columns is-multiline">
+                    <div class="column is-6">
+                        <div class="panel">
+                            <p class="panel-heading">
+                                BUDGET
+                            </p>
+                            <a href="/chart"><div class="panel-block">
+                            <canvas class="image is-16x9" id="dashChart"></canvas>
+                            </div></a>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="panel">
+                            <p class="panel-heading">
+                                TASKS
+                            </p>
+                            <a href="/tasks"><div class="panel-block">
+                                <figure class="image is-16x9">
+                                    <img src="./images/checkmark.jpg">
+                                </figure>
+                            </div></a>
+                        </div>
+                    </div>
+                    <!-- <div class="column is-6">
+                        <div class="panel">
+                            <p class="panel-heading">
+                                COUNTDOWN
+                            </p>
+                            <div class="panel-block">
+                                <figure class="image is-16x9">
+                                    <img src="./images/1280x720.png">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="panel">
+                            <p class="panel-heading">
+                                VENDORS
+                            </p>
+                            <div class="panel-block">
+                                <figure class="image is-16x9">
+                                    <img src="./images/1280x720.png">
+                                </figure>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </main>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Copyright © 2021 Monnaie</strong>
+            <p>Contributors: Kevin Cho, Chad Cook, Katie Cowan, and Charli Spilecki</p>
+            </p>
+        </div>
+    </footer>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="./js/dash.js"></script>
+
+</html>

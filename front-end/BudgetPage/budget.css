@@ -1,0 +1,19 @@
+th {
+  background-color: #f1f2f6;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#top {
+  font-weight: 600;
+  margin: 20px;
+}
+
+.table {
+  margin: 20px;
+}
+
+.navbar-item {
+  display: flex;
+  justify-content: center;
+}

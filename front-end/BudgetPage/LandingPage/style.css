@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.landing {
+  height: 900px;
+  margin: 0px;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.centered {
+  color: whitesmoke;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.navbar-item {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 4px;
+}
+
+.columns {
+  background-color: #f5f6fa;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+#icon {
+  background-color: #f5f6fa;
+  margin-top: 20px;
+  margin-left: 300px;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+}
+
+.subtitle.is-5 {
+  background-color: #f5f6fa;
+  margin-left: 280px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+
+.button {
+  margin-left: 10px;
+}
+
+.center {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin: 45px;
+}
+
+.border-right {
+  border-right: 1px solid black;
+}

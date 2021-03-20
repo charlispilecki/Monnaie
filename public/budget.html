@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---- BULMA ---->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <title>Monnaie | Budget</title>
+</head>
+
+<body>
+
+    <div id="category-form" class="modal">
+        <div hide-category-form class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Add a Category</p>
+                <button hide-category-form class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <input id="category-form-desc" class="input" placeholder="Description">
+            </section>
+            <footer class="modal-card-foot">
+                <button add-category class="button is-success">Save</button>
+                <button hide-category-form class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+    <div id="lineitem-form" class="modal ">
+        <div hide-lineitem-form class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Add a Line Item for <span id="lineitem-form-category-desc"></span></p>
+                <button hide-lineitem-form class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <input id="lineitem-form-desc" class="input" placeholder="Description">
+                <input id="lineitem-form-vendor" class="input" placeholder="Vendor">
+                <input id="lineitem-form-estimated-cost" class="input" placeholder="Estimated Cost">
+                <input id="lineitem-form-actual-cost" class="input" placeholder="Actual Cost">
+            </section>
+            <footer class="modal-card-foot">
+                <button add-line id="lineitem-form-save" class="button is-success">Save</button>
+                <button hide-lineitem-form class="button">Cancel</button>
+            </footer>
+        </div>
+    </div>
+
+    <header>
+        <div>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+            <a class="is-justify-content-center navbar-item mb-6" href="/dash"
+                style="font-family: 'Berkshire Swash', cursive; font-size: 50px; color: #e17055;">
+                Monnaie
+            </a>
+            <div class="is-flex is-justify-content-center">
+                <div class="card mr-2 has-background-primary-light">
+                    <div class="card-header">
+                        <p class="card-header-title">
+                            Estimated Costs Total:
+                        </p>
+                    </div>
+                    <div class="card-content is-flex is-justify-content-center" id="total-estimated-cost">
+                        <div class="content">
+                        </div>
+                    </div>
+                </div>
+                <div class="card ml-2 has-background-info-light">
+                    <div class="card-header pr-3 pl-3">
+                        <p class="card-header-title">
+                            Actual Costs Total:
+                        </p>
+                    </div>
+                    <div class="card-content is-flex is-justify-content-center" id="total-actual-cost">
+                        <div class="content">
+                        </div>
+                    </div>
+                </div>
+                <!-- <span class="pr-2">Total Estimated Cost: <span id="total-estimated-cost"></span> </span> -->
+                <!-- <span class="pl-2">Total Actual Cost: <span id="total-actual-cost"></span> </span> -->
+            </div>
+        </div>
+    </header>
+    <button show-category-form class="button is-info is-outlined ml-2 mb-2" id="top"> Add Category</button>
+    <!-- <button class="button is-success is-outlined ml-2" id="top"> Add Budget Item </button> -->
+
+    <table id="categories" class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <!-- <thead>
+
+            <button class="button is-info is-outlined ml-2" id="top"> Add Category</button>
+            <button class="button is-success is-outlined ml-2" id="top"> Add Budget Item </button>
+            
+            <tr>
+                <th class="is-flex is-justify-content-space-between" style="background-color:#fab1a0; color: white;">Venue<button class="button"> + </button></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="is-flex is-justify-content-space-between is-align-items-center">
+                    <div class="is-flex is-align-items-center">
+                    <input class="input is-rounded mr-1" style="width:500px" type="text" placeholder="Your Budget Line Item">
+                    <input class="input is-rounded is-small mr-1" style="width:400px" type="text" placeholder="Vendor">
+                    <input class="input is-rounded is-small" style="width:200px" type="text" placeholder="Estimated Amount">
+                    <input class="input is-rounded is-small" style="width:200px" type="text" placeholder="Actual Amount">
+                    </div>
+                    <button class="delete is-medium ml-2"></button>
+                </td>
+            </tr>
+            <hr>
+            <tr>
+            </tr>
+
+        </tbody> -->
+
+    </table>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Copyright © 2021 Monnaie</strong>
+            <p>Contributors: Kevin Cho, Chad Cook, Katie Cowan, and Charli Spilecki</p>
+            </p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dinero.js"></script>
+    <script src="./js/budget.js"></script>
+
+    <script src="./js/budget.js"></script> 
+
+</body>
+
+</html>
+
+
+<!--- Choose Category Dropdown --->
+<!---- CATEGORY DROP DOWN FOR USER INPUT ----->
+<!-- <div class="dropdown is-hoverable">
+                <div class="dropdown-trigger">
+                    <button class="button" id="top" aria-haspopup="true" aria-controls="dropdown-menu4">
+                        <span>Category</span>
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <a href="" class="dropdown-item">
+                                Venue
+                            </a>
+                            <a class="dropdown-item">
+                                Rings
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Music & Entertainment
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Catering
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Drinks & Alcohol
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Event Staff
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Invitations
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Wedding Couple Outfits
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Wedding Party Outfits
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Hair & Make-up
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Rentals
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Gifts
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Florals
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Photographer & Video
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Decorations
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Wedding Planner
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Officiant
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Transportation
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Hotel
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Wedding Favors
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Tips for vendors
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Honeymoon
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                Other
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+<!---- END OF DROP DOWN FOR USER INPUT CODE ----->
