@@ -1,0 +1,36 @@
+{
+    "name": "@types/react-text-mask",
+    "version": "5.4.6",
+    "description": "TypeScript definitions for react-text-mask",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Guilherme Hübner",
+            "url": "https://github.com/guilhermehubner",
+            "githubUsername": "guilhermehubner"
+        },
+        {
+            "name": "Deividi Cavarzan",
+            "url": "https://github.com/cavarzan",
+            "githubUsername": "cavarzan"
+        },
+        {
+            "name": "Artem Lyubchuk",
+            "url": "https://github.com/needpower",
+            "githubUsername": "needpower"
+        }
+    ],
+    "main": "",
+    "types": "index",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/react-text-mask"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/react": "*"
+    },
+    "typesPublisherContentHash": "c20ac1b3c181930922167665f377ba08d214a70605ad7b3c1455f6739ecf7884",
+    "typeScriptVersion": "2.8"
+}
