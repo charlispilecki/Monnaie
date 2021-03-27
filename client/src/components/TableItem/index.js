@@ -27,27 +27,27 @@ export function TableData({ children }) {
 
 
 
-export function Table({ style, children }) {
-    return <table className={style}>{children}</table>;
-}
+// export function Table({ style, children }) {
+//     return <table className={style}>{children}</table>;
+// }
 
-export function TableHead({ style, children }) {
-    return <thead className={style}>{children}</thead>;
-}
+// export function TableHead({ style, children }) {
+//     return <thead className={style}>{children}</thead>;
+// }
 
-export function TableBody({ style, children }) {
-    return <tbody className={style}>{children}</tbody>;
-}
+// export function TableBody({ style, children }) {
+//     return <tbody className={style}>{children}</tbody>;
+// }
 
-export function TableRow({ style, children }) {
-    return <table className={style}>{children}</table>;
-}
+// export function TableRow({ style, children }) {
+//     return <table className={style}>{children}</table>;
+// }
 
-export function TableHeader({ style, children }) {
-    return <th className={style}>{children}</th>;
-}
+// export function TableHeader({ style, children }) {
+//     return <th className={style}>{children}</th>;
+// }
 
-export function TableData({ style, children }) {
-    return <td className={style}>{ children }</td>;
-}
+// export function TableData({ style, children }) {
+//     return <td className={style}>{ children }</td>;
+// }
 
