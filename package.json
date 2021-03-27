@@ -25,7 +25,8 @@
   "homepage": "https://github.com/charlispilecki/Monnaie#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.12.2"
+    "mongoose": "^5.12.2",
+    "react-table": "^7.6.3"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
