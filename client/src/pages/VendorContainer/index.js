@@ -4,6 +4,7 @@ import Jumbotron from "../../components/Jumbotron/index";
 import SearchForm from "../../components/SearchForm/index";
 import SmoothScroll from "../../components/SmoothScroll";
 import VendorContext from "../../utils/VendorContext";
+import Carousel from "../../components/Carousel";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 
@@ -75,7 +76,7 @@ console.log("adding vendor");
                 {/* <PopUpForm /> */}
                 {/* <Header />  */}
                 <Navbar />
-               
+               <Carousel />
                 <SmoothScroll>
                     <Jumbotron>
                         {/* <ModalVendor /> */}
