@@ -1,0 +1,15 @@
+form{
+    /* margin-top: 3px;
+    margin-left:3px; */
+    
+    
+}
+.form-group{
+    width: 220px;
+    font-size: 3px;
+    margin-top: 3px;
+    margin-left:3px;
+    display:flex;
+   
+}
+

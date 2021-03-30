@@ -1,15 +1,14 @@
 
  .nav-item{ 
     padding-left: 30px;
+    
   justify-content:right;
     
 }
 
-/* .nav-left{ 
-  margin-right: 0;
-
-} */
-
-/* .ml-auto .nav-item{ 
-    margin-left: 50px;
-} */
+ .Navbar{
+      background-color: #353b48;  
+} 
+.nav-left{
+  list-style: none;
+}

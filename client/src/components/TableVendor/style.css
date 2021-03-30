@@ -1,0 +1,28 @@
+
+ /* tr {
+        border: 2px solid #095484;
+      }  */
+     
+
+
+   table {
+    border-collapse: separate;
+    border-spacing: 0 15px;
+  }
+  
+  th {
+    background-color: #353b48;
+    color: white;
+  }
+  
+  /* th,
+  tr {
+    width: 150px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+  }
+   */
+  h2 {
+    color: #4287f5;
+  }
