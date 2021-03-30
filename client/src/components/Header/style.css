@@ -1,0 +1,24 @@
+.header{
+    width:100%;
+    cursor:pointer;
+    /* border-bottom: 2px solid black; */
+    position:fixed;
+    display:flex;
+    justify-content: center;
+    text-transform: uppercase;
+    background-color: #353b48;
+    font-family:'Berkshire Swash', cursive;
+    font-size: 5vw;   /* %vw width od website acc*/
+    padding-bottom:15px;
+    box-shadow:0 px 1px 5px 3a0c4ff;
+    color: #e17055;
+    z-index: 100;
+    }
+    
+    
+    @media(max-width:1100px){
+        .header{
+            padding-top:15px;
+            font-size:6.4vw;
+        }
+    }
