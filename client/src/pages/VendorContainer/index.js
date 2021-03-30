@@ -73,8 +73,8 @@ console.log("adding vendor");
         <>
             <VendorContext.Provider value={formInputState, searchState}>
                 {/* <PopUpForm /> */}
-                <Header /> 
-                {/* <Navbar /> */}
+                {/* <Header />  */}
+                <Navbar />
                
                 <SmoothScroll>
                     <Jumbotron>
