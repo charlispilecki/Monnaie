@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => ({
 
 }));
 
-const Profile = ({ className, ...rest }) => {
+const UserNav = ({ className, ...rest }) => {
     const classes = useStyles();
 
     return (
@@ -92,7 +92,7 @@ const Profile = ({ className, ...rest }) => {
                     variant="text"
                     size="5px"
                 >
-                    Upload picture
+                    Edit Profile
         </Button>
             </CardActions>
             <Divider />
@@ -124,8 +124,8 @@ const Profile = ({ className, ...rest }) => {
     );
 };
 
-Profile.propTypes = {
+UserNav.propTypes = {
     className: PropTypes.string
 };
 
-export default Profile;
+export default UserNav;
