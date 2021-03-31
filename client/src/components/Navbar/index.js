@@ -21,7 +21,7 @@ export default function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div id="main-menu" className="collapse navbar-collapse">
-                    <ul className="navbar-nav ml-auto ">
+                    <ul className="navbar-nav mr-auto ">
                         <li className="nav-item" ><a href="Your Profile" className="nav-link">Your Profile</a></li>
                         <li className="nav-item"><Link to="/community" className="nav-link">Community</Link></li>
                         <li className="nav-item"><Link to="task" className="nav-link">Task</Link></li>
