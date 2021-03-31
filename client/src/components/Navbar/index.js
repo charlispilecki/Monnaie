@@ -26,8 +26,9 @@ export default function Navbar() {
                         <li className="nav-item"><Link to="/community" className="nav-link">Community</Link></li>
                         <li className="nav-item"><Link to="task" className="nav-link">Task</Link></li>
                         <li className="nav-item"><Link to="/budget" className="nav-link">Budget</Link></li>
-                        <li className="nav-left" ><a href="Logout" className="nav-link">Logout</a></li>
+                       
                     </ul>
+                    <span className="nav-left" > <a href="Logout" className="nav-link">Logout</a>  </span>
                 </div>
             </div>
         </nav>
