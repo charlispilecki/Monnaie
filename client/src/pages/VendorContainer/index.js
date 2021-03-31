@@ -7,9 +7,12 @@ import VendorContext from "../../utils/VendorContext";
 import Carousel from "../../components/Carousel";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
+// import AddBtn from "../../components/AddBtn";
+// import Row from "react-bootstrap/Row";
 
-// import PopUpForm from "../../component/PopUpForm";
-// import ModalVendor from "../../component/ModalVendor";
+
+import PopUpForm from "../../components/PopUpForm";
+import ModalVendor from "../../components/ModalVendor";
 import "./style.css";
 
 function VendorContainer() {
@@ -19,24 +22,29 @@ function VendorContainer() {
             inputName: "one Name",
             inputLocation: "one location",
             inputPhoneNo: "one phone",
-            inputEmail: "one Email"
+            inputEmail: "one Email",
+            inputWebsite:"dde"
         },
         {
             inputName: "two name",
             inputLocation: "Two Location",
             inputPhoneNo: "Two phone",
-            inputEmail: "Two Email"
+            inputEmail: "Two Email",
+            inputWebsite:"ddecf"
         },
         {
             inputName: "Three name",
             inputLocation: "Three Location",
             inputPhoneNo: "Three phone",
-            inputEmail: "Three Email"
+            inputEmail: "Three Email",
+            inputWebsite:"dfdvf"
         }
     ]);
 
-    const addVendor=() =>{
-console.log("adding vendor");
+    const addVendor = () => {
+        console.log("adding vendor");
+
+
     }
     // useEffect(()=>{
 
@@ -73,19 +81,25 @@ console.log("adding vendor");
     return (
         <>
             <VendorContext.Provider value={formInputState, searchState}>
-                {/* <PopUpForm /> */}
-                {/* <Header />  */}
-                <Navbar />
-               <Carousel />
+
+                <Header />
+                {/* <Navbar /> */}
+                <Carousel />
                 <SmoothScroll>
-                    <Jumbotron>
-                        {/* <ModalVendor /> */}
+                    <Jumbotron onClick={addVendor}>
+
+                        <ModalVendor >
+                            <PopUpForm />
+                        </ModalVendor >
+
+                        {/* <Row> */}
                         <SearchForm
                         // handleFormSubmit={handleFormSubmit}
                         // handleInputChange={handleInputChange}
                         // results={searchState}
                         />
-
+                        {/* <AddBtn /> */}
+                        {/* </Row> */}
                         {/* {formInputState.map(item => {
                             return <TableVendor />
                         })

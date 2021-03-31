@@ -8,7 +8,7 @@ import Jumbotron from "../Jumbotron/index";
 import "./style.css";
 
 const SmoothScroll = (props) => {
-  const scrollContainerStyle = { width: "600px", maxHeight: "400px" };
+  const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
   return (
     // <MDBContainer>
     <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>

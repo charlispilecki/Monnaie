@@ -4,20 +4,21 @@ import VendorContext from "../../utils/VendorContext";
 import { FaPlusCircle } from 'react-icons/fa';
 
 
-function Jumbotron({children}) {
+function Jumbotron({children,onClick}) {
   const {addVendor} = useContext(VendorContext);
- 
+  
   return (
  
     <div
-      style={{  clear: "both",  textAlign: "center",width: "600px" }}
+      style={{  clear: "both", textAlign: "center",width: "800px"  }}
       className="jumbotron border border-success"
     >
-      {children}
-      <span role="button" onClick={addVendor} >
+      
+      {/* <span role="button" onClick={onClick} >
         <FaPlusCircle />
  
-        </span>
+        </span> */}
+        {children}
     </div>
   );
 }

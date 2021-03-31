@@ -3,12 +3,14 @@ import "./style.css";
 import VendorContext from "../../utils/VendorContext";
 import { FaSearch } from 'react-icons/fa';
 
+
 function SearchForm() {
   const {value,handleFormSubmit,handleInputChange} = useContext(VendorContext);
  
   return (
+    <span>
     <form>
-      <div className="form-group">
+      <span className="form-group">
         <label htmlFor="search"></label>
         <input
           onChange={handleInputChange}
@@ -24,8 +26,9 @@ function SearchForm() {
         <FaSearch />
  
         </button>
-      </div>
+      </span>
     </form>
+    </span>
   );
 }
 
