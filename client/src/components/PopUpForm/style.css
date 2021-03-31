@@ -5,11 +5,25 @@ body{
 
 .container{
      
-     height:400px; 
+     height:350px; 
      width:300px;
     background-color: rgb(218, 118, 52);
 }
 
 .form-group{
-    width:250px;
+    padding-left:10px;
+}
+
+/* .hide{
+    display:none;
+
+} */
+
+form{
+    padding-top:15px;
+}
+
+.container {
+    display:flex;
+    direction:column;
 }

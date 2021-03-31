@@ -1,5 +1,9 @@
 .sliderimg{
-    width: 100%;
+    width: 70%;
+    margin-left:200px;
     height: 500px;
-    object-fit: cover
+    margin-top:200px;
+    object-fit: cover;
+    border-bottom: solid;
+    border-bottom: orange;
   }

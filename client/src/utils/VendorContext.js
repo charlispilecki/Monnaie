@@ -4,7 +4,8 @@ const VendorContext = React.createContext([{
     inputName: "",
     inputLocation: "",
     inputPhoneNo:"",
-    inputEmail:""
+    inputEmail:"",
+    inputWebsite:""
 }]);
 
 export default VendorContext;

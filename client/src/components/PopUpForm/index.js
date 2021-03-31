@@ -4,13 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import VendorContext from "../../utils/VendorContext";
 
 function PopUpForm() {
-  const {inputName,inputLocation,inputPhoneNo,inputEmail,handleFormSubmit} = useContext(VendorContext);
+  const {inputName,inputLocation,inputPhoneNo,inputEmail,inputWebsite,handleFormSubmit} = useContext(VendorContext);
   return (
-
-    <div className="container">
+    // Name Of the Vendor
+    // Location
+    // Phone Number
+    // Email address
+    <div className="container ">
       <form>
+        <h3>Vendor Details</h3>
         <div className="form-group">
-          <label for="inputName">Name Of the Vendor</label>
+          <label for="inputName"></label>
           <input 
           value={inputName}
           name="inputName"
@@ -21,7 +25,7 @@ function PopUpForm() {
         </div>
 
         <div className="form-group">
-          <label for="inputLocation">Location</label>
+          <label for="inputLocation"></label>
           <input 
           value={inputLocation}
           name="inputLocation"
@@ -32,7 +36,7 @@ function PopUpForm() {
         </div>
 
         <div className="form-group">
-          <label for="inputPhoneNo">Phone Number</label>
+          <label for="inputPhoneNo"></label>
           <input 
           value={inputPhoneNo}
           name="inputPhoneNo"
@@ -43,7 +47,7 @@ function PopUpForm() {
         </div>
 
         <div className="form-group">
-          <label for="inputEmail">Email address</label>
+          <label for="inputEmail"></label>
           <input 
           value={inputEmail}
           name="inputEmail"
@@ -53,9 +57,20 @@ function PopUpForm() {
           placeholder="vendor email" />
         </div>
 
-        <button onClick={handleFormSubmit} className="btn btn-primary">
+        <div className="form-group">
+          <label for="inputWebsite"></label>
+          <input 
+          value={inputWebsite}
+          name="inputWebsite"
+          type="text" 
+          className="form-control" 
+          id="inputWebsite" 
+          placeholder="vendor Website" />
+        </div>
+
+        {/* <button onClick={handleFormSubmit} className="btn btn-primary">
           Submit
-        </button>
+        </button> */}
       </form>
     </div>
 

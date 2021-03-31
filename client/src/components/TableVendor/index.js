@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import "./style.css";
 // import VendorContext from "../../utils/VendorContext";
-import { MdDelete } from 'react-icons/md';
+// import { MdDelete } from 'react-icons/md';
+import { FiTrash2 } from "react-icons/fi";
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 function TableVendor(props) {
   // const {inputName,inputLocation,inputPhoneNo,inputEmail,handleFormSubmit} = useContext(VendorContext);
@@ -14,6 +16,8 @@ function TableVendor(props) {
         <th>Location</th>
         <th>Phone no</th>
         <th>Email</th>
+        <th>Website</th>
+        <th >  </th>
       </tr>
 
       <tr>
@@ -21,35 +25,46 @@ function TableVendor(props) {
         <td>Austin</td>
         <td>2107887</td>
         <td>me@gmail.com</td>
-        <td>{MdDelete}</td>
+        <td>dfdfvfdv@google.com</td>
+        
+        <FaRegTrashAlt />
+
+        {/* <span role="button" >
+        <FaRegTrashAlt />
+        </span> */}
+       
       </tr>
       <tr>
         <td>Katie</td>
         <td>Austin</td>
         <td>2107887</td>
         <td>me@gmail.com</td>
-        <td><i className="fas fa-trash"></i></td>
+        <td>dfdfvfdv@google.com</td>
+        <FaRegTrashAlt />
       </tr>
       <tr>
         <td>Kevin</td>
         <td>Austin</td>
         <td>2107887</td>
         <td>me@gmail.com</td>
-        <td><i className="fas fa-trash"></i></td>
+        <td>dfdfvfdv@google.com</td>
+        <FaRegTrashAlt />
       </tr>
       <tr>
         <td>Chad</td>
         <td>Austin</td>
         <td>2107887</td>
         <td>me@gmail.com</td>
-        <td><i className="fas fa-trash"></i></td>
+        <td>dfdfvfdv@google.com</td>
+        <FaRegTrashAlt />
       </tr>
       <tr>
         <td>Priya</td>
         <td>Austin</td>
         <td>2107887</td>
         <td>me@gmail.com</td>
-        <td><i className="fas fa-trash"></i></td>
+        <td>dfdfvfdv@google.com</td>
+        <FaRegTrashAlt />
       </tr>
     </table>
 
