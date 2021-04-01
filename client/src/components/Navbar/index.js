@@ -6,6 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import 'jquery/dist/jquery';
 // import circleLogo from '../../assets/circleLogo.png';
 import logoCrop from '../../assets/logoCrop.png';
+// import weddingLogo from "../../assets/weddingLogo.png";
 
 export default function Navbar() {
     return (
@@ -21,13 +22,14 @@ export default function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div id="main-menu" className="collapse navbar-collapse">
-                    <ul className="navbar-nav ml-auto ">
+                    <ul className="navbar-nav mr-auto ">
                         <li className="nav-item" ><a href="Your Profile" className="nav-link">Your Profile</a></li>
                         <li className="nav-item"><Link to="/community" className="nav-link">Community</Link></li>
                         <li className="nav-item"><Link to="task" className="nav-link">Task</Link></li>
                         <li className="nav-item"><Link to="/budget" className="nav-link">Budget</Link></li>
-                        <li className="nav-left" ><a href="Logout" className="nav-link">Logout</a></li>
+                       
                     </ul>
+                    <span className="nav-left" > <a href="Logout" className="nav-link">Logout</a>  </span>
                 </div>
             </div>
         </nav>
