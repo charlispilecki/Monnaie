@@ -11,9 +11,11 @@ import "./App.css";
 function App() { 
   return (    
    
+    
 
     <Router>
-      
+    
+    {/* <Profile /> */}
     
      <VendorContainer />
      

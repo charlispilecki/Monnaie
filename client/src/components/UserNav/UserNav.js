@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import './App.css'
+import Box from '@material-ui/core/Box';
+import makeStyles from '@material-ui/core/makeStyles';
+
 import {
     Avatar,
-    Box,
     Button,
     Card,
     CardActions,
     CardContent,
     Divider,
     Typography,
-    makeStyles,
+   
     List,
     ListItem
 } from '@material-ui/core';
@@ -92,6 +93,7 @@ const UserNav = ({ className, ...rest }) => {
                     variant="text"
                     size="5px"
                 >
+
                     Edit Profile
         </Button>
             </CardActions>
