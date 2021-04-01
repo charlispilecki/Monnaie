@@ -11,6 +11,7 @@ import Header from "../../components/Header";
 // import AddBtn from "../../components/AddBtn";
 // import Row from "react-bootstrap/Row";
 import PopUpForm from "../../components/PopUpForm";
+// import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
 import "./style.css";
 
@@ -88,7 +89,10 @@ function VendorContainer() {
 
                 <Header />
                 <Navbar />
+                {/* <Profile /> */}
+              
                 <Carousel />
+                
                 <SmoothScroll>
                     <Jumbotron onClick={addVendor}>
 
