@@ -11,11 +11,11 @@ import TasksList from "./pages/Tasks";
 function App() { 
   return (    
    
-
+    
     <Router>
       
+      <VendorContainer />
     
-     <VendorContainer />
      
       {/* <Route path="/budget" exact component = {Budget} />  */}
       <Route exact path="/task" exact component = {TasksList} />
