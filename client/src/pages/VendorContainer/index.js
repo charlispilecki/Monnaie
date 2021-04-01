@@ -5,18 +5,19 @@ import SearchForm from "../../components/SearchForm/index";
 import SmoothScroll from "../../components/SmoothScroll";
 import VendorContext from "../../utils/VendorContext";
 import Carousel from "../../components/Carousel";
+// import API from "../utils/API";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 // import AddBtn from "../../components/AddBtn";
 // import Row from "react-bootstrap/Row";
-
-
 import PopUpForm from "../../components/PopUpForm";
 import ModalVendor from "../../components/ModalVendor";
 import "./style.css";
 
 function VendorContainer() {
     const [searchState, setSearchState] = useState("wedding event");
+    // const [userTemp, setUserTemp] = useState([]);
+
     const [formInputState, setformInputState] = useState([
         {
             inputName: "one Name",
@@ -56,15 +57,18 @@ function VendorContainer() {
     //     }
     // }
 
-    const handleFormSubmit = event => {
-        event.preventDefault();
+    const handleFormSubmit = e => {
+        e.preventDefault();
+        // console.log("Name is " + formInputState.inputName);
+        // console.log("Location is " + formInputState.inputLocation);
+        // console.log("Phone nO is " + formInputState.inputPhoneNo);
+        // console.log("Email is " + formInputState.inputEmail);
+      };
 
-    };
+    // const handleInputChange = event => {
+    //     setSearchState(event.target.value);
 
-    const handleInputChange = event => {
-        setSearchState(event.target.value);
-
-    };
+    // };
 
     // map function of all vendor
     {/* <div>
@@ -80,16 +84,17 @@ function VendorContainer() {
 
     return (
         <>
-            <VendorContext.Provider value={formInputState, searchState}>
+            <VendorContext.Provider value={{formInputState, searchState}}>
 
                 <Header />
-                {/* <Navbar /> */}
+                <Navbar />
                 <Carousel />
                 <SmoothScroll>
                     <Jumbotron onClick={addVendor}>
 
-                        <ModalVendor >
-                            <PopUpForm />
+                        <ModalVendor handleFormSubmit={handleFormSubmit}>
+                            <PopUpForm >
+                                </PopUpForm>
                         </ModalVendor >
 
                         {/* <Row> */}

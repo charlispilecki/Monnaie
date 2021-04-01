@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import "./style.css";
+import VendorContext from "../../utils/VendorContext";
 
 // const ModalVendor = () => {
  function ModalVendor({children}){
-
+  const {handleFormSubmit} = useContext(VendorContext);
     const [vendorState, setVendorState] = useState(false);
     
     // const handleSubmit = e => {
@@ -38,7 +39,7 @@ import "./style.css";
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button onClick={handleFormSubmit} type="button" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </div>
