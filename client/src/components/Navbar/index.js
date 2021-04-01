@@ -10,12 +10,13 @@ import logoCrop from '../../assets/logoCrop.png';
 
 export default function Navbar() {
     return (
+        <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <div className="navbar-header">
                     {/* <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
         <img src="Assets/images/king_logo.png" alt=""> */}
-                    <img src={logoCrop} className="navbar-brand" alt="monnaie logo"></img>
+                    {/* <img src={logoCrop} className="navbar-brand" alt="monnaie logo"></img> */}
                     {/* <a href="/" className="navbar-brand">Monnaie</a> */}
                 </div>
                 <button data-target="#main-menu" data-toggle="collapse" className="navbar-toggler">
@@ -33,5 +34,6 @@ export default function Navbar() {
                 </div>
             </div>
         </nav>
+        </div>
     );
 }
