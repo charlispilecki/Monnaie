@@ -5,15 +5,7 @@
 // import DeleteBtn from "../components/DeleteBtn";
 // import AddBtn from "../components/AddBtn";
 
-
 // const TasksList = () => {
-
-
-
-
-
-
-
 
 //     return (
 //         <Header />,
