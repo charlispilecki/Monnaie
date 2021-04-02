@@ -2,9 +2,9 @@ import React, { useState, useEffect ,useContext}from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VendorContext from "../../utils/VendorContext";
-
 function PopUpForm() {
-  const {inputName,inputLocation,inputPhoneNo,inputEmail,inputWebsite,handleFormSubmit} = useContext(VendorContext);
+  const {setformInputState} = useContext(VendorContext);
+  // handleInputChange
   return (
     // Name Of the Vendor
     // Location
@@ -22,8 +22,8 @@ function PopUpForm() {
           className="form-control" 
           id="inputName" 
           placeholder="vendor name" />
+           onChange={e => setformInputState.inputName(e.target.value)}
         </div>
-
         <div className="form-group">
           <label for="inputLocation"></label>
           <input 
@@ -33,8 +33,8 @@ function PopUpForm() {
           className="form-control" 
           id="inputLocation" 
           placeholder="Location of vendor" />
+          onChange={e => setformInputState.inputLocation(e.target.value)}
         </div>
-
         <div className="form-group">
           <label for="inputPhoneNo"></label>
           <input 
@@ -44,8 +44,8 @@ function PopUpForm() {
           className="form-control" 
           id="inputPhoneNo" 
           placeholder="vendor phone no" />
+          onChange={e => setformInputState.inputPhoneNo(e.target.value)}
         </div>
-
         <div className="form-group">
           <label for="inputEmail"></label>
           <input 
@@ -55,8 +55,8 @@ function PopUpForm() {
           className="form-control" 
           id="inputEmail" 
           placeholder="vendor email" />
+          onChange={e => setformInputState.inputEmail(e.target.value)}
         </div>
-
         <div className="form-group">
           <label for="inputWebsite"></label>
           <input 
@@ -67,13 +67,12 @@ function PopUpForm() {
           id="inputWebsite" 
           placeholder="vendor Website" />
         </div>
-
+        onChange={e => setformInputState.inputWebsite(e.target.value)}
         {/* <button onClick={handleFormSubmit} className="btn btn-primary">
           Submit
         </button> */}
       </form>
     </div>
-
   );
 }
 export default PopUpForm;
