@@ -2,6 +2,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import VendorContainer from './pages/VendorContainer/index';
+// import PopUpForm from './components/PopUpForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 // import TasksList from "./pages/Tasks";
@@ -14,6 +15,7 @@ function App() {
 
     <Router>
       
+      {/* <PopUpForm /> */}
     
      <VendorContainer />
      

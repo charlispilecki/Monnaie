@@ -4,8 +4,8 @@ import VendorContext from "../../utils/VendorContext";
 // import { MdDelete } from 'react-icons/md';
 import { FiTrash2 } from "react-icons/fi";
 import { FaRegTrashAlt } from 'react-icons/fa';
-function TableVendor(props) {
-  const {formInputState} = useContext(VendorContext);
+function TableVendor({results}) {
+  // const {formInputState} = useContext(VendorContext);
   return (
     // <td >
     <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" >
@@ -17,18 +17,19 @@ function TableVendor(props) {
         <th>Website</th>
         <th >  </th>
       </tr>
-      <tr>
-      <td>{formInputState[0].inputName}</td>
-      <td>{formInputState[0].inputLocation}</td>
-      <td>{formInputState[0].inputPhoneNo}</td>
-      <td>{formInputState[0].inputEmail}</td>
-      <td>{formInputState[0].inputWebsite}</td>
+      { results.map(item=>( <tr>
+      <td>{item.inputName}</td>
+      <td>{item.inputLocation}</td>
+      <td>{item.inputPhoneNo}</td>
+      <td>{item.inputEmail}</td>
+      <td>{item.inputWebsite}</td>
         <FaRegTrashAlt />
         {/* <span role="button" >
         <FaRegTrashAlt />
         </span> */}
-      </tr>
-      <tr>
+      </tr>))}
+     
+      {/* <tr>
       <td>{formInputState[1].inputName}</td>
       <td>{formInputState[1].inputLocation}</td>
       <td>{formInputState[1].inputPhoneNo}</td>
@@ -42,8 +43,8 @@ function TableVendor(props) {
       <td>{formInputState[2].inputPhoneNo}</td>
       <td>{formInputState[2].inputEmail}</td>
       <td>{formInputState[2].inputWebsite}</td>
-        <FaRegTrashAlt />
-      </tr>
+        <FaRegTrashAlt /> */}
+      {/* </tr> */}
       {/* <tr>
       <td>{formInputState[3].inputName}</td>
       <td>{formInputState[3].inputLocation}</td>

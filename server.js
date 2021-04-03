@@ -17,7 +17,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/database_name"
+  process.env.MONGODB_URI || "mongodb://localhost/vendor_database"
 );
 
 // Start the API server
