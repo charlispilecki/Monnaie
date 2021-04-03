@@ -16,5 +16,17 @@ export default {
   // Saves a vendor to the database
   saveVendor: function(vendorData) {
     return axios.post("/api/vendors", vendorData);
+  },
+  // Gets the logged in user
+  getUser: function() {
+    return axios.get("/api/user");
+  },
+
+  addBudgetCategory: function(category) {
+    return axios.post("/api/categories", category);
+  },
+
+  addLineItem: function(lineItem) {
+    return axios.post("/api/lineitems", lineItem);
   }
 };
