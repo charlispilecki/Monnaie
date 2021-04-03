@@ -1,6 +1,21 @@
-form{
-    /* margin-top: 3px;
-    margin-left:3px; */
+form.search {
+    overflow: auto;
+    margin-bottom: 10px;
+  }
+  
+  form.search button[type="submit"] {
+    float: right;
+    margin-top: 10px;
+  }
+  
+
+
+
+
+
+
+/* form{
+    
     padding:0;
     
     
@@ -12,5 +27,5 @@ form{
     margin-left:3px;
     display:flex;
    
-}
+} */
 
