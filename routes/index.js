@@ -4,21 +4,11 @@ const apiRoutes = require("./api");
 const User = require("../models/userModel");
 var passport = require('passport');
 
-
 // API Routes
 router.use("/api", apiRoutes);
 
-
-router.get('/', function (req, res) {
-  console.log('getting ' + req.user.username)
-  res.json({ user : req.user });
-});
-
-router.get('/register', function(req, res) {
-  res.json({});
-});
-
-router.post('/register', function(req, res) {
+// signup route for new users
+router.post('/signup', function(req, res) {
   User.register(new User({ username : req.body.username }), req.body.password, function(err, account) {
       if (err) {
         console.log('ERRROR while signing up user')
@@ -27,7 +17,8 @@ router.post('/register', function(req, res) {
             error: 'Error while signing up'
           })
       }
-
+      // authenticates the user and puts the user's username into a session;
+      // anytime you make another request, it automatically has the username w/o the user providing it
       passport.authenticate('local')(req, res, function () {
         console.log('Authenticated user: ' + req.user.username)
         res.redirect('/');
@@ -35,25 +26,18 @@ router.post('/register', function(req, res) {
   });
 });
 
-router.get('/login', function(req, res) {
-  res.json({ user : req.user });
-});
-
+// Login route for the user
 router.post('/login', passport.authenticate('local'), function(req, res) {
   res.redirect('/');
 });
 
+// Logouts the user
 router.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
 
-router.get('/ping', function(req, res){
-  res.send("pong!", 200);
-});
-
-
-
+// Returns the name of the logged in user or test_user if no one is logged in
 function getUserName(req) {
   if (req.user) {
     return req.user.username
@@ -63,7 +47,7 @@ function getUserName(req) {
   }
 }
 
-
+// gets the user; and the user table has all the properties/data of the user
 router.get("/api/user", (req, res) => {
   let username = getUserName(req)
   User.findOne({username: username})
@@ -75,16 +59,7 @@ router.get("/api/user", (req, res) => {
     });
 });
 
-// router.post("/api/user", (req, res) => {
-//   User.create(req.body)
-//     .then(dbUser => {
-//       res.json(dbUser);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
+// inserts a new category for the logged in user
 router.post("/api/categories", (req, res) => {
   console.log('POST categories')
   let username = getUserName(req)
@@ -99,35 +74,25 @@ router.post("/api/categories", (req, res) => {
     .catch(err => {
       res.send(err);
     });
-
-
-
 })
 
-// router.put("/api/user", (req, res) => {
-//   let username = getUserName(req)
+router.put("/api/categories", (req, res) => {
+  console.log('PUT categories')
+  let username = getUserName(req)
+  User.findOne({username: username})
+    .then(user => {
+      user.budgetCategories = req.body
+      return user.save()
+    })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => {
+      res.send(err);
+    });
+})
 
-//   User.findOneAndUpdate({username: username})
-//     .then()
-
-//   User.findOne({username: username})
-//     .then(dbUser => {
-//       console.log('New user data:')
-//       console.log(req.body)
-//       dbUser.budgetCategories = req.body.budgetCategories
-//       console.log('Updated user:')
-//       console.log(dbUser)
-//       return dbUser.save()
-//     })
-//     .then(dbUser => {
-//       res.json(dbUser);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-
+// gets all the users
 router.get("/api/users", (req, res) => {
   User.find({})
     .then(dbUser => {

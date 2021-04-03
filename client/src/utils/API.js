@@ -26,7 +26,7 @@ export default {
     return axios.post("/api/categories", category);
   },
 
-  addLineItem: function(lineItem) {
-    return axios.post("/api/lineitems", lineItem);
+  updateBudgetCategories: function(categories) {
+    return axios.put("/api/categories", categories);
   }
 };

@@ -26,7 +26,7 @@ const LoginDemo = () => {
 
 const SignUpDemo = () => {
     return (
-        <form action="/register" method="post" style={{maxWidth: '300px'}}>
+        <form action="/signup" method="post" style={{maxWidth: '300px'}}>
             <h1>Sign Up</h1>
             User: <input name="username"></input>
             <br></br>

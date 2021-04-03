@@ -30,24 +30,54 @@ export default function() {
         })
     }
 
+    function deleteCategory(category) {
+        console.log('deleteCategory')
+        if (!category?.trim()) {
+            return
+        }
+        let categories = user.budgetCategories
+            .filter(c => c.desc !== category)
+        API.updateBudgetCategories(categories).then(resp => {
+            setUser(resp.data)
+        })
+    }
+
     function handleShowLineItemForm(categoryDesc) {
         setLineItemCategory(categoryDesc)
         setShowLineItemForm(true)
     }
 
-    function saveLineItem(lineItem) {
+    function saveLineItem(category, lineItem) {
         console.log('saveLineItem')
         if (!lineItem.desc?.trim()) {
             return
         }
-        API.addLineItem(lineItem).then(resp => {
+        user.budgetCategories
+            .find(c => c.desc === category)
+            .lineItems
+            .push(lineItem)
+
+        API.updateBudgetCategories(user.budgetCategories).then(resp => {
             setUser(resp.data)
             setShowLineItemForm(false)
         })
     }
 
-    function deleteLineItem() {
-
+    function deleteLineItem(category, lineItem) {
+        console.log('deleteLineItem')
+        if (!lineItem?.desc?.trim()) {
+            return
+        }
+        let lineItems = user.budgetCategories
+            .find(c => c.desc === category)
+            .lineItems
+            .filter(i => i.desc !== lineItem.desc)
+        user.budgetCategories
+            .find(c => c.desc === category)
+            .lineItems = lineItems
+        API.updateBudgetCategories(user.budgetCategories).then(resp => {
+            setUser(resp.data)
+        })
     }
 
     return (
@@ -60,7 +90,14 @@ export default function() {
             <table id="categories" className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                 {
                     user.budgetCategories.map(budgetCategory => {
-                        return <Category key={budgetCategory.desc} category={budgetCategory} handleShowLineItemForm={handleShowLineItemForm}/>
+                        return (
+                            <Category key={budgetCategory.desc} 
+                                category={budgetCategory} 
+                                handleShowLineItemForm={handleShowLineItemForm} 
+                                deleteCategory={deleteCategory}
+                                deleteLineItem={deleteLineItem}
+                                />
+                        )
                     })
                 }
             </table>
@@ -68,7 +105,9 @@ export default function() {
     )
 }
 
-function Category({category, handleShowLineItemForm}) {
+function Category({
+    category, handleShowLineItemForm, deleteCategory, deleteLineItem
+}) {
 
     return (
         <>
@@ -80,7 +119,7 @@ function Category({category, handleShowLineItemForm}) {
                         <button onClick={()=>handleShowLineItemForm(category.desc)} className="button">
                         + 
                         </button>
-                        <button category-id="{categoryId}" className="delete is-medium ml-2"></button>
+                        <button onClick={() => deleteCategory(category.desc)}className="delete is-medium ml-2"></button>
                         </div>
                     </th>
                 </tr>
@@ -90,10 +129,9 @@ function Category({category, handleShowLineItemForm}) {
                     category.lineItems.map(lineItem => {
                         return <LineItem 
                             key={lineItem.desc}
-                            desc={lineItem.desc}
-                            vendor={lineItem.vendor}
-                            estimatedCost={lineItem.estimatedCost}
-                            actualCost={lineItem.actualCost}
+                            category={category.desc}
+                            lineItem={lineItem}
+                            deleteLineItem={deleteLineItem}
                             />
                     })
                 }
@@ -104,7 +142,7 @@ function Category({category, handleShowLineItemForm}) {
 }
 
 function LineItem({
-    id, desc, vendor, estimatedCost, actualCost
+    category, lineItem, deleteLineItem
 }) {
     return (
         <tr>
@@ -112,19 +150,19 @@ function LineItem({
                 <div className="is-flex is-align-items-center">
                     <span>
                         <span>
-                            <input value={desc} className="input is-rounded mr-1" style={{width:'500px'}} type="text" placeholder="Your Budget Line Item" />
+                            <input value={lineItem.desc} className="input is-rounded mr-1" style={{width:'500px'}} type="text" placeholder="Your Budget Line Item" />
                         </span>
                     </span>
 
                     <span>
                         <span>
-                            <input value={vendor} className="input is-rounded is-small mr-1" style={{width:'400px'}} type="text" placeholder="Vendor" />
+                            <input value={lineItem.vendor} className="input is-rounded is-small mr-1" style={{width:'400px'}} type="text" placeholder="Vendor" />
                         </span>
                     </span>
                     
                     <div className="field mb-0">
                         <p className="control has-icons-left">
-                        <input value={estimatedCost} className="input is-primary has-background-primary-light is-rounded is-small" style={{width:'200px'}} type="number" min="0.00" step="1.00" placeholder="Estimated Amount" />
+                        <input value={lineItem.estimatedCost} className="input is-primary has-background-primary-light is-rounded is-small" style={{width:'200px'}} type="number" min="0.00" step="1.00" placeholder="Estimated Amount" />
                             <span className="icon is-small is-left">
                             <i className="fas fa-dollar-sign"></i>
                             </span>
@@ -132,7 +170,7 @@ function LineItem({
                     </div>
                     <div className="field">
                         <p className="control has-icons-left">
-                        <input value={actualCost} className="input is-info has-background-info-light is-rounded is-small" style={{width:'200px'}} type="number" min="0.00" step="1.00" placeholder="Actual Amount" />
+                        <input value={lineItem.actualCost} className="input is-info has-background-info-light is-rounded is-small" style={{width:'200px'}} type="number" min="0.00" step="1.00" placeholder="Actual Amount" />
                             <span className="icon is-small is-left">
                             <i className="fas fa-dollar-sign"></i>
                             </span>
@@ -140,7 +178,7 @@ function LineItem({
                     </div>
 
                 </div>
-                <button line-id={id} className="delete is-medium ml-2"></button>
+                <button onClick={()=>deleteLineItem(category, lineItem)} className="delete is-medium ml-2"></button>
             </td>
         </tr>
     )
@@ -193,7 +231,7 @@ function LineItemForm({
                 <input value={actualCost} onChange={e=>setActualCost(e.target.value)} className="input" placeholder="Actual Cost"/>
             </section>
             <footer className="modal-card-foot">
-                <button onClick={() => saveLineItem({desc, vendor, estimatedCost, actualCost})} className="button is-success">Save</button>
+                <button onClick={() => saveLineItem(category, {desc, vendor, estimatedCost, actualCost})} className="button is-success">Save</button>
                 <button onClick={() => setShowLineItemForm(false)} className="button">Cancel</button>
             </footer>
         </div>
