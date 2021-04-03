@@ -1,0 +1,14 @@
+.card {
+    margin: 40px;
+    width: 10vw;
+}
+
+.card-header {
+    margin: auto;
+    width: 10vw;
+    max-height: 3rem;
+}
+
+.card-content {
+    height: 5rem;
+}

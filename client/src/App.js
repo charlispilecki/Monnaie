@@ -8,31 +8,15 @@ import TasksList from "./pages/Tasks";
 // import ThreeComponent from './components/three-component.comonent.js';
 
 function App() { 
-  return (    
-   
-<<<<<<< HEAD
-    
+  return (        
     <Router>
       <Switch>
-        <Route exact path="/" exact component = {VendorContainer} />
-      {/* <Route path="/budget" exact component = {Budget} /> */}
-      <Route exact path="/task" exact component = {TasksList} />
-      {/* <Route path="/community" exact component = {Community} /> */}
-      </Switch>
-      
+        {/* <Route exact path="/" exact component = {VendorContainer} /> */}
+        {/* <Route path="/budget" exact component = {Budget} /> */}
+        <Route exact path="/task" exact component = {TasksList} />
+        {/* <Route path="/community" exact component = {Community} /> */}
+      </Switch>      
     </Router>
-=======
-    
-    <Router>
-      
-      <VendorContainer />
-    
-     
-      {/* <Route path="/budget" exact component = {Budget} />  */}
-      <Route exact path="/task" exact component = {TasksList} />
-       {/* <Route path="/community" exact component = {Community} /> */}
-    </Router> 
->>>>>>> 9c2d891b7524f290d3763882374ae1be8f6a0301
   );
 }
 
