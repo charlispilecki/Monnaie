@@ -5,9 +5,11 @@ import SearchForm from "../../components/SearchForm/index";
 import SmoothScroll from "../../components/SmoothScroll";
 import VendorContext from "../../utils/VendorContext";
 import Carousel from "../../components/Carousel";
+// import API from "../utils/API";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import PopUpForm from "../../components/PopUpForm";
+// import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
 import API from "../../utils/API";
 import "./style.css";
@@ -136,6 +138,7 @@ const inputEmail=useRef();
                 <Header />
                 <Navbar />
                 <Carousel />
+                
                 <SmoothScroll>
                     <Jumbotron >
                         <ModalVendor handleFormSubmit={handleFormSubmit}>
