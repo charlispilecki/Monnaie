@@ -1,6 +1,6 @@
 
  .nav-item{ 
-    padding-left: 30px;
+    /* padding-top: 30px; */
     
   justify-content:right;
     
@@ -8,6 +8,10 @@
 
  .Navbar{
       background-color: #353b48;  
+      /* top: 0;
+      left:0; */
+      /* position:fixed; */
+
 } 
 .nav-left{
   list-style: none;

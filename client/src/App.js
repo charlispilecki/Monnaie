@@ -10,6 +10,7 @@ import TasksList from "./pages/Tasks";
 function App() { 
   return (    
    
+<<<<<<< HEAD
     
     <Router>
       <Switch>
@@ -20,6 +21,18 @@ function App() {
       </Switch>
       
     </Router>
+=======
+    
+    <Router>
+      
+      <VendorContainer />
+    
+     
+      {/* <Route path="/budget" exact component = {Budget} />  */}
+      <Route exact path="/task" exact component = {TasksList} />
+       {/* <Route path="/community" exact component = {Community} /> */}
+    </Router> 
+>>>>>>> 9c2d891b7524f290d3763882374ae1be8f6a0301
   );
 }
 

@@ -5,18 +5,20 @@ import SearchForm from "../../components/SearchForm/index";
 import SmoothScroll from "../../components/SmoothScroll";
 import VendorContext from "../../utils/VendorContext";
 import Carousel from "../../components/Carousel";
+// import API from "../utils/API";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 // import AddBtn from "../../components/AddBtn";
 // import Row from "react-bootstrap/Row";
-
-
 import PopUpForm from "../../components/PopUpForm";
+// import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
 import "./style.css";
 
 function VendorContainer() {
     const [searchState, setSearchState] = useState("wedding event");
+    // const [userTemp, setUserTemp] = useState([]);
+
     const [formInputState, setformInputState] = useState([
         {
             inputName: "one Name",
@@ -56,15 +58,18 @@ function VendorContainer() {
     //     }
     // }
 
-    const handleFormSubmit = event => {
-        event.preventDefault();
+    const handleFormSubmit = e => {
+        e.preventDefault();
+        // console.log("Name is " + formInputState.inputName);
+        // console.log("Location is " + formInputState.inputLocation);
+        // console.log("Phone nO is " + formInputState.inputPhoneNo);
+        // console.log("Email is " + formInputState.inputEmail);
+      };
 
-    };
+    // const handleInputChange = event => {
+    //     setSearchState(event.target.value);
 
-    const handleInputChange = event => {
-        setSearchState(event.target.value);
-
-    };
+    // };
 
     // map function of all vendor
     {/* <div>
@@ -80,7 +85,44 @@ function VendorContainer() {
 
     return (
         <>
+<<<<<<< HEAD
             <p>text</p>
+=======
+            <VendorContext.Provider value={{formInputState, searchState}}>
+
+                <Header />
+                <Navbar />
+                {/* <Profile /> */}
+              
+                <Carousel />
+                
+                <SmoothScroll>
+                    <Jumbotron onClick={addVendor}>
+
+                        <ModalVendor handleFormSubmit={handleFormSubmit}>
+                            <PopUpForm >
+                                </PopUpForm>
+                        </ModalVendor >
+
+                        {/* <Row> */}
+                        <SearchForm
+                        // handleFormSubmit={handleFormSubmit}
+                        // handleInputChange={handleInputChange}
+                        // results={searchState}
+                        />
+                        {/* <AddBtn /> */}
+                        {/* </Row> */}
+                        {/* {formInputState.map(item => {
+                            return <TableVendor />
+                        })
+                        } */}
+                        <TableVendor />
+
+                        {/* <TableVendor /> */}
+                    </Jumbotron >
+                </SmoothScroll>
+            </VendorContext.Provider>
+>>>>>>> 9c2d891b7524f290d3763882374ae1be8f6a0301
 
         </>
     );

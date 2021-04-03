@@ -1,11 +1,11 @@
 .header{
     width:100%;
     cursor:pointer;
-    position:fixed;
+    /* position:fixed; */
     display:flex;
     justify-content: center;
     text-transform: uppercase;
-    background-color: #353b48;
+    /* background-color: #353b48; */
     font-family:'Berkshire Swash', cursive;
     font-size: 4vw;   /* %vw width od website acc*/
     padding-bottom:15px;
