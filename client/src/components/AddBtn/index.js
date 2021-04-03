@@ -2,11 +2,11 @@ import React from "react";
 import "./style.css"
 
 
-function AddBtn({style, props}) {
+function AddBtn({custStyle, children}) {
     return (
         
-        <span className={style} role="button" tabIndex="0">
-            {props.children}
+        <span className={custStyle} role="button" tabIndex="0">
+            {children}
         </span>
     );
 }

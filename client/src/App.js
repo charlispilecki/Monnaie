@@ -1,6 +1,5 @@
-
 import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import VendorContainer from './pages/VendorContainer/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
@@ -11,15 +10,15 @@ import TasksList from "./pages/Tasks";
 function App() { 
   return (    
    
-
-    <Router>
-      
     
-     <VendorContainer />
-     
+    <Router>
+      <Switch>
+        <Route exact path="/" exact component = {VendorContainer} />
       {/* <Route path="/budget" exact component = {Budget} /> */}
       <Route exact path="/task" exact component = {TasksList} />
       {/* <Route path="/community" exact component = {Community} /> */}
+      </Switch>
+      
     </Router>
   );
 }

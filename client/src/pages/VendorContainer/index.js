@@ -80,36 +80,7 @@ function VendorContainer() {
 
     return (
         <>
-            <VendorContext.Provider value={formInputState, searchState}>
-
-                <Header />
-                {/* <Navbar /> */}
-                <Carousel />
-                <SmoothScroll>
-                    <Jumbotron onClick={addVendor}>
-
-                        <ModalVendor >
-                            <PopUpForm />
-                        </ModalVendor >
-
-                        {/* <Row> */}
-                        <SearchForm
-                        // handleFormSubmit={handleFormSubmit}
-                        // handleInputChange={handleInputChange}
-                        // results={searchState}
-                        />
-                        {/* <AddBtn /> */}
-                        {/* </Row> */}
-                        {/* {formInputState.map(item => {
-                            return <TableVendor />
-                        })
-                        } */}
-                        <TableVendor />
-
-                        {/* <TableVendor /> */}
-                    </Jumbotron >
-                </SmoothScroll>
-            </VendorContext.Provider>
+            <p>text</p>
 
         </>
     );

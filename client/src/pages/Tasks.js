@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import 'bulma/css/bulma.css';
-import { NavBar } from "../components/Navbar";
+import  Header  from "../components/Header";
+import Navbar from "../components/Navbar";
 import { Table, TableHead, TableHeader } from "../components/TableItem";
 // import DeleteBtn from "../components/DeleteBtn";
 import AddBtn from "../components/AddBtn";
-import Header from "../components/Header";
+
 
 
 const TasksList = () => {
@@ -17,15 +18,16 @@ const TasksList = () => {
 
 
     return (
-        <Header />,
-        <NavBar />,
-        <AddBtn style="">Add Task</AddBtn>,
+        <>
+        {/* <Header /> */}
+        <Navbar />
+        <AddBtn custStyle="button is-info is-outlined ml-2 mb-2">Add Task</AddBtn>
         <Table>
             <TableHead>
                 <TableHeader></TableHeader>
             </TableHead>
         </Table>
-
+        </>
 
     )
 }
