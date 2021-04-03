@@ -1,6 +1,5 @@
-
 import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import VendorContainer from './pages/VendorContainer/index';
 // import PopUpForm from './components/PopUpForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,9 +9,7 @@ import TasksList from "./pages/Tasks";
 // import ThreeComponent from './components/three-component.comonent.js';
 
 function App() { 
-  return (    
-   
-    
+  return (        
     <Router>
       
       {/* <PopUpForm /> */}
