@@ -13,10 +13,10 @@ function App() {
     <Router>
       
       {/* <PopUpForm /> */}
-    
+    <VendorContainer />
      
       {/* <Route path="/budget" exact component = {Budget} />  */}
-      <Route exact path="/task" exact component = {TasksList} />
+      {/* <Route exact path="/task" exact component = {TasksList} /> */}
        {/* <Route path="/community" exact component = {Community} /> */}
     </Router> 
   );
