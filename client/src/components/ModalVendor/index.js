@@ -7,24 +7,24 @@ import VendorContext from "../../utils/VendorContext";
   const {handleFormSubmit} = useContext(VendorContext);
     const [vendorState, setVendorState] = useState(false);
     
-    // const handleSubmit = e => {
-    //   e.preventDefault();
+//     // const handleSubmit = e => {
+//     //   e.preventDefault();
     
-    // };
+//     // };
   
-// const toggle = () => {
-//   if (vendorState){
-//     setVendorState(false);
-//   }
-//   else{
-//     setVendorState(true);
-//   }
-// }
-  return (
-   <span>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add Vendor
-    </button>
+// // const toggle = () => {
+// //   if (vendorState){
+// //     setVendorState(false);
+// //   }
+// //   else{
+// //     setVendorState(true);
+// //   }
+// // }
+//   return (
+//    <span>
+//     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+//       Add Vendor
+//     </button>
     
     
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,27 +44,25 @@ import VendorContext from "../../utils/VendorContext";
         </div>
       </div>
     </div>
-    </span>
+    // </span>
 
 
 
-    // <MDBContainer>
-    //   <MDBBtn onClick={toggle}>Add vendor</MDBBtn> 
-    //   <MDBModal isOpen={vendorState} toggle={toggle}> 
-    //     <MDBModalHeader toggle={toggle}>MDBModal title</MDBModalHeader>
-    //     <MDBModalBody>
-    //       (Tesing Modal Priya)
-    //     </MDBModalBody>
-    //    <MDBModalFooter>
-    //       <MDBBtn color="secondary" onClick={toggle}>Close</MDBBtn>
-    //       <MDBBtn color="primary">Save changes</MDBBtn>
-    //     </MDBModalFooter>
-    //    </MDBModal>
-    // </MDBContainer>
-    );
+//     // <MDBContainer>
+//     //   <MDBBtn onClick={toggle}>Add vendor</MDBBtn> 
+//     //   <MDBModal isOpen={vendorState} toggle={toggle}> 
+//     //     <MDBModalHeader toggle={toggle}>MDBModal title</MDBModalHeader>
+//     //     <MDBModalBody>
+//     //       (Tesing Modal Priya)
+//     //     </MDBModalBody>
+//     //    <MDBModalFooter>
+//     //       <MDBBtn color="secondary" onClick={toggle}>Close</MDBBtn>
+//     //       <MDBBtn color="primary">Save changes</MDBBtn>
+//     //     </MDBModalFooter>
+//     //    </MDBModal>
+//     // </MDBContainer>
+//     );
   }
 
 
-export default ModalVendor;
-
-
+// export default ModalVendor;
