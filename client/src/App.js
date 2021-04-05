@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Chart from './components/Chart/index.jsx';
-import Task from './components/Task/index.js';
+import Chart from './components/Chart/index.js';
+import UserNav from './components/UserNav/UserNav';
 import VendorContainer from './pages/VendorContainer/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
@@ -21,6 +21,10 @@ function App() {
         </Route>
         <Route path="/VendorContainer">
           <VendorContainer />
+          
+        </Route>
+        <Route path="/UserNav">
+          <UserNav />
           
         </Route>
       </Switch>

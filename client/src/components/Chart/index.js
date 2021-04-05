@@ -1,5 +1,7 @@
 import React from 'react';
 import Footer from '../Footer/index';
+import Header from '../Header/index';
+import Navbar from '../Navbar/index';
 import { Bar } from "react-chartjs-2";
 
 const data = {
@@ -42,19 +44,32 @@ const options = {
 function colorPicker() {
   let letters = '0123456789ABCDEFabcdef'.split('');
   let color = '#';
-  for (let i = 0; i < 6; i++ ) {
-      color += letters[Math.floor(Math.random() * 16)];
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
   }
   return color;
 }
 
-function Chart() {
-    return (
-      <div className="App">
-        <Bar data={data} options={options}/>
-      </div>
-    );
+const styles = {
+  paddingUp: {
+    paddingTop: "100px"
   }
+}
+
+function Chart() {
+  return (
+    <div className="App">
+      <Header />
+      <div style={styles.paddingUp}>        
+        <Navbar />
+      </div>
+      <Bar data={data} options={options} />
+
+      <Footer />
+    </div>
+
+  );
+}
 
 export default Chart;
 

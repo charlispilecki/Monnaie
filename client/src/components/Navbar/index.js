@@ -24,9 +24,9 @@ export default function Navbar() {
                 <div id="main-menu" className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto ">
                         <li className="nav-item" ><a href="Your Profile" className="nav-link">Your Profile</a></li>
-                        <li className="nav-item"><Link to="/community" className="nav-link">Community</Link></li>
-                        <li className="nav-item"><Link to="task" className="nav-link">Task</Link></li>
-                        <li className="nav-item"><Link to="/budget" className="nav-link">Budget</Link></li>
+                        <li className="nav-item"><Link to="/Community" className="nav-link">Community</Link></li>
+                        <li className="nav-item"><Link to="Task" className="nav-link">Task</Link></li>
+                        <li className="nav-item"><Link to="/Budget" className="nav-link">Budget</Link></li>
                        
                     </ul>
                     <span className="nav-left" > <a href="Logout" className="nav-link">Logout</a>  </span>
