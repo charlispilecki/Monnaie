@@ -13,7 +13,6 @@ import PopUpForm from "../../components/PopUpForm";
 import ModalVendor from "../../components/ModalVendor";
 import API from "../../utils/API";
 import "./style.css";
-import { FaTemperatureHigh } from "react-icons/fa";
 
 function VendorContainer() {
   const inputName = useRef();
@@ -25,90 +24,48 @@ function VendorContainer() {
   const [searchState, setSearchState] = useState("flower");
   const [formInputState, setformInputState] = useState([]);
 
-  //  const [formTableState, setformTableState] = useState([
-  //       {
-  //           inputName: "Two Name",
-  //           inputLocation: "one location",
-  //           inputPhoneNo: "one phone",
-  //           inputEmail: "one Email",
-  //           inputWebsite:"dde"
-  //       },
-  //         {
-  //           inputName: "Two Name",
-  //           inputLocation: "one location",
-  //           inputPhoneNo: "one phone",
-  //           inputEmail: "one Email",
-  //           inputWebsite:"dde"
-  //       }
-  //   ]);
-
-
   useEffect(() => {
     loadVendors()
   }, [])
 
   // Loads all books and sets them to books
   function loadVendors() {
-    API.getVendors()
-      .then(res => {
+    API.getVendors().then(res => {
         console.log(res);
-        setformInputState(res.data)
-      }
-      )
-      .catch(err => console.log(err));
+        setformInputState(res.data);
+    }).catch(err => console.log(err));
   };
 
 
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    // console.log(e);
-let temp={
-  name: inputName.current.value,
-  location: inputLocation.current.value,
-  email: inputEmail.current.value,
-  phone_no: inputPhoneNo.current.value,
+   
+    let temp = {
+      name: inputName.current.value,
+      location: inputLocation.current.value,
+      email: inputEmail.current.value,
+      phone_no: inputPhoneNo.current.value,
+      // website:inputWebsite.current.value,
+    };
 
-  // email:inputWebsite.current.value,
-};
-console.log(temp);
-    API.saveVendor(temp)
-      .then(res => {
+    console.log(temp);
+
+    API.saveVendor(temp).then(res => {
         if (res.data.length === 0) {
           throw new Error("No results found.");
         }
         if (res.data.status === "error") {
           throw new Error(res.data.message);
         }
-        setformInputState([...formInputState,temp]);
-        // loadVendors();
+        setformInputState([...formInputState, res.data]);
       });
   };
 
- 
-  //   const handleFormSubmit = event => {
-  //   event.preventDefault();
-
-  //   API.saveVendor(formInputState)
-  //     .then(res => {
-  //       if (res.data.length === 0) {
-  //         throw new Error("No results found.");
-  //       }
-  //       if (res.data.status === "error") {
-  //         throw new Error(res.data.message);
-  //       }
-  //       loadVendors();
-  //       });
-  // };
-
-
-
   const handleSearchChange = event => {
+    console.log(event.target.value);
     setSearchState(event.target.value);
   };
-
-
-
 
   // const handleSearchChange = (event) => {
   //   const searchState = event.target.value.toLowerCase(); //Priya
@@ -129,8 +86,6 @@ console.log(temp);
   //     setManipulateState(employeeState);
   //   }
 
-
-
   return (
     <>
       <Header />
@@ -143,9 +98,7 @@ console.log(temp);
             <PopUpForm inputName={inputName} inputLocation={inputLocation} inputEmail={inputEmail} inputWebsite={inputWebsite}
               inputPhoneNo={inputPhoneNo} />
           </ModalVendor >
-          <SearchForm
-            handleSearchChange={handleSearchChange}
-            results={searchState} />
+          <SearchForm handleSearchChange={handleSearchChange} results={searchState} />
           <TableVendor results={formInputState} />
         </Jumbotron >
       </SmoothScroll>
