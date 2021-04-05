@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
     "axios": "^0.18.0",
     "bootstrap": "^4.6.0",
     "mdbreact": "^5.0.1",
