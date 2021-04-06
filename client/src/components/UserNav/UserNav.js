@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import './App.css'
+// import './App.css'
 import {
     Avatar,
     Box,
@@ -91,7 +91,7 @@ const UserNav = ({ className, ...rest }) => {
                     fullWidth
                     variant="text"
                     size="5px"
-                    onClick={}
+                    
                 >
                     Edit Profile
         </Button>

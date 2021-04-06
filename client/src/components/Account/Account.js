@@ -411,7 +411,7 @@ const AccountDetails = ({ className, ...rest }) => {
                     </Grid>
                 </CardContent>
                 <Divider />
-                <Box
+                {/* <Box
                     display="flex"
                     justifyContent="flex-end"
                     p={2}
@@ -419,11 +419,10 @@ const AccountDetails = ({ className, ...rest }) => {
                     <Button
                         color="primary"
                         variant="contained"
-                        onClick={}
                     >
                         Save
           </Button>
-                </Box>
+                </Box> */}
             </Card>
         </form>
     );
