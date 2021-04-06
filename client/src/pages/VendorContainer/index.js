@@ -16,6 +16,12 @@ import PopUpForm from "../../components/PopUpForm";
 import ModalVendor from "../../components/ModalVendor";
 import "./style.css";
 
+const styles = {
+    paddingUp: {
+        paddingTop: "100px"
+    }
+}
+
 function VendorContainer() {
     const [searchState, setSearchState] = useState("wedding event");
     const [formInputState, setformInputState] = useState([
@@ -24,21 +30,21 @@ function VendorContainer() {
             inputLocation: "one location",
             inputPhoneNo: "one phone",
             inputEmail: "one Email",
-            inputWebsite:"dde"
+            inputWebsite: "dde"
         },
         {
             inputName: "two name",
             inputLocation: "Two Location",
             inputPhoneNo: "Two phone",
             inputEmail: "Two Email",
-            inputWebsite:"ddecf"
+            inputWebsite: "ddecf"
         },
         {
             inputName: "Three name",
             inputLocation: "Three Location",
             inputPhoneNo: "Three phone",
             inputEmail: "Three Email",
-            inputWebsite:"dfdvf"
+            inputWebsite: "dfdvf"
         }
     ]);
 
@@ -84,9 +90,11 @@ function VendorContainer() {
             <VendorContext.Provider value={formInputState, searchState}>
 
                 <Header />
-                <Navbar />
+                <div style={styles.paddingUp}>               
+                     <Navbar />
+                </div>
                 <Carousel />
-                <UserNav/>
+                <UserNav />
 
                 <SmoothScroll>
 
