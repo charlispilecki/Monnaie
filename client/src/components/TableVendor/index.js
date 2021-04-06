@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./style.css";
-import VendorContext from "../../utils/VendorContext";
+// import VendorContext from "../../utils/VendorContext";
 // import { MdDelete } from 'react-icons/md';
 import { FiTrash2 } from "react-icons/fi";
 import { FaRegTrashAlt } from 'react-icons/fa';
