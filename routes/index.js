@@ -2,6 +2,7 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 const User = require("../models/userModel");
+const getDefaultCategories = require('./default-categories')
 var passport = require('passport');
 
 // API Routes
@@ -9,7 +10,9 @@ router.use("/api", apiRoutes);
 
 // signup route for new users
 router.post('/signup', function(req, res) {
-  User.register(new User({ username : req.body.username }), req.body.password, function(err, account) {
+  let user = new User({ username : req.body.username })
+  user.budgetCategories = getDefaultCategories()
+  User.register(user, req.body.password, function(err, account) {
       if (err) {
         console.log('ERRROR while signing up user')
         console.log(err)
@@ -43,7 +46,7 @@ function getUserName(req) {
     return req.user.username
   } else {
     // TODO: hard code a test user for now
-    return username = "test_user"
+    return username = "test"
   }
 }
 

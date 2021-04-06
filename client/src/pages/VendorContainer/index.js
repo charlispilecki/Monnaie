@@ -7,12 +7,19 @@ import VendorContext from "../../utils/VendorContext";
 import Carousel from "../../components/Carousel";
 // import API from "../utils/API";
 import Navbar from "../../components/Navbar";
+import UserNav from "../../components/UserNav/UserNav"
 import Header from "../../components/Header";
 import PopUpForm from "../../components/PopUpForm";
 // import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
 import API from "../../utils/API";
 import "./style.css";
+
+const styles = {
+    paddingUp: {
+        paddingTop: "100px"
+    }
+}
 
 function VendorContainer() {
   const inputName = useRef();
@@ -104,5 +111,26 @@ function VendorContainer() {
       </SmoothScroll>
     </>
   );
+    return (
+        <>
+                <Header />
+                <div style={styles.paddingUp}>               
+                     <Navbar />
+                </div>
+                <Carousel />
+                <SmoothScroll>
+                    <Jumbotron >
+                        <ModalVendor handleFormSubmit={handleFormSubmit}>
+                            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputEmail={inputEmail} inputWebsite={inputWebsite}
+                            inputPhoneNo={inputPhoneNo} />
+                        </ModalVendor >
+                        <SearchForm
+                        handleSearchChange={handleSearchChange}
+                        results={searchState}/>
+              <TableVendor results={formInputState} />
+                   </Jumbotron >
+                </SmoothScroll>
+        </>
+    );
 }
 export default VendorContainer;
