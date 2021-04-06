@@ -14,7 +14,8 @@
 #text {
   font-size: 25px;
   letter-spacing: 2px;
-  color: #353b48;
+  color: #E17055;
+  font-weight: 600;
 }
 h1 {
   font-weight: bold;
@@ -62,8 +63,8 @@ button:focus {
 }
 
 button.ghost {
-  background-color: transparent;
-  border-color: #ffffff;
+  background-color: #2f3640;
+  border-color: #353b48;
 }
 
 form {
@@ -94,7 +95,6 @@ input {
   width: 768px;
   max-width: 100%;
   min-height: 480px;
-  font-family: Nunito;
 }
 
 .form-container {
@@ -110,6 +110,20 @@ input {
   z-index: 2;
 }
 
+#sub-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+#under-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
 .sign-up-container {
   left: 0;
   width: 50%;
