@@ -3,7 +3,6 @@ import Account from "./components/Account/Account"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Chart from './components/Chart/index.js';
 import UserNav from './components/UserNav/UserNav';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import VendorContainer from './pages/VendorContainer/index';
 // import PopUpForm from './components/PopUpForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
