@@ -419,6 +419,7 @@ const AccountDetails = ({ className, ...rest }) => {
                     <Button
                         color="primary"
                         variant="contained"
+                        onClick={}
                     >
                         Save
           </Button>

@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import TableVendor from "../../components/TableVendor/index";
 import Jumbotron from "../../components/Jumbotron/index";
 import SearchForm from "../../components/SearchForm/index";
 import SmoothScroll from "../../components/SmoothScroll";
 import VendorContext from "../../utils/VendorContext";
 import Carousel from "../../components/Carousel";
+// import API from "../utils/API";
 import Navbar from "../../components/Navbar";
 import UserNav from "../../components/UserNav/UserNav"
 import Header from "../../components/Header";
-// import AddBtn from "../../components/AddBtn";
-// import Row from "react-bootstrap/Row";
-
-
 import PopUpForm from "../../components/PopUpForm";
+// import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
+import API from "../../utils/API";
 import "./style.css";
 
 const styles = {
@@ -23,185 +22,144 @@ const styles = {
 }
 
 function VendorContainer() {
-    const [searchState, setSearchState] = useState("wedding event");
+const inputName=useRef();
+const inputLocation=useRef();
+const inputPhoneNo=useRef();
+const inputWebsite=useRef();
+const inputEmail=useRef();
+
+    const [searchState, setSearchState] = useState("flower");
     const [formInputState, setformInputState] = useState([
         {
             inputName: "one Name",
             inputLocation: "one location",
             inputPhoneNo: "one phone",
             inputEmail: "one Email",
-            inputWebsite: "dde"
-        },
-        {
-            inputName: "two name",
-            inputLocation: "Two Location",
-            inputPhoneNo: "Two phone",
-            inputEmail: "Two Email",
-            inputWebsite: "ddecf"
-        },
-        {
-            inputName: "Three name",
-            inputLocation: "Three Location",
-            inputPhoneNo: "Three phone",
-            inputEmail: "Three Email",
-            inputWebsite: "dfdvf"
+            inputWebsite:"dde"
         }
-    ]);
+      ]);
 
-    const addVendor = () => {
-        console.log("adding vendor");
+       const [formTableState, setformTableState] = useState([
+            {
+                inputName: "Two Name",
+                inputLocation: "one location",
+                inputPhoneNo: "one phone",
+                inputEmail: "one Email",
+                inputWebsite:"dde"
+            },
+              {
+                inputName: "Two Name",
+                inputLocation: "one location",
+                inputPhoneNo: "one phone",
+                inputEmail: "one Email",
+                inputWebsite:"dde"
+            }
+        ]);
+  
+
+    useEffect(() => {
+        loadVendors()
+      }, [])
+    
+      // Loads all books and sets them to books
+      function loadVendors() {
+        API.getVendors()
+          .then(res => {
+            console.log(res);
+            setformTableState(res.data)
+          }
+          )
+          .catch(err => console.log(err));
+      };
+    
+   
+  
+    const handleFormSubmit = e => {
+        e.preventDefault();
+        // console.log(e);
+        setformInputState([{inputName:inputName.current.value,
+             inputLocation:inputLocation.current.value,
+             inputEmail:inputEmail.current.value,
+             inputPhoneNo:inputPhoneNo.current.value,
+             inputWebsite:inputWebsite.current.value,
+        }]);
+          API.saveVendor(formInputState)
+          .then(res => {
+            if (res.data.length === 0) {
+              throw new Error("No results found.");
+            }
+            if (res.data.status === "error") {
+              throw new Error(res.data.message);
+            }
+            // loadVendors();
+            });
+      };
+
+      //   const handleFormSubmit = event => {
+      //   event.preventDefault();
+
+      //   API.saveVendor(formInputState)
+      //     .then(res => {
+      //       if (res.data.length === 0) {
+      //         throw new Error("No results found.");
+      //       }
+      //       if (res.data.status === "error") {
+      //         throw new Error(res.data.message);
+      //       }
+      //       loadVendors();
+      //       });
+      // };
 
 
-    }
-    // useEffect(()=>{
-
-    // })
-
-    // const hideOrShow = () => {
-    //     if (!vendorState) {
-
-    //     }
-    // }
-
-    const handleFormSubmit = event => {
-        event.preventDefault();
-
-    };
-
-    const handleInputChange = event => {
+   
+      const handleSearchChange = event => {
         setSearchState(event.target.value);
+      };
 
-    };
 
-    // map function of all vendor
-    {/* <div>
-{formInputState.map(item => { 
-    <table>
-        <tr>{item.inputName}</tr>
-    </table>
-    </
-})
-}
-    </div> */}
+
+
+      // const handleSearchChange = (event) => {
+      //   const searchState = event.target.value.toLowerCase(); //Priya
+      //   console.log(searchState);
+      //   // setTempSearch(searchState);
+      //   const results = formInputState.filter(mySearch => {
+      //     console.log(mySearch.inputName);
+      //     return mySearch.inputName.toLowerCase().includes(event.target.value) || mySearch.inputLocation.toLowerCase().includes(event.target.value)
+      //   });  
+      //   console.log(results);
+    
+      //   if (InputSearch) {
+      //     console.log("results");
+      //     setManipulateState(results);
+    
+      //   }
+      //   else {
+      //     setManipulateState(employeeState);
+      //   }
+    
 
 
     return (
         <>
-            <VendorContext.Provider value={formInputState, searchState}>
-
                 <Header />
                 <div style={styles.paddingUp}>               
                      <Navbar />
                 </div>
                 <Carousel />
-                <UserNav />
-
                 <SmoothScroll>
-
-                    <Jumbotron onClick={addVendor}>
-
-                        <ModalVendor >
-                            <PopUpForm />
+                    <Jumbotron >
+                        <ModalVendor handleFormSubmit={handleFormSubmit}>
+                            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputEmail={inputEmail} inputWebsite={inputWebsite}
+                            inputPhoneNo={inputPhoneNo} />
                         </ModalVendor >
-
-                        {/* <Row> */}
                         <SearchForm
-                        // handleFormSubmit={handleFormSubmit}
-                        // handleInputChange={handleInputChange}
-                        // results={searchState}
-                        />
-                        {/* <AddBtn /> */}
-                        {/* </Row> */}
-                        {/* {formInputState.map(item => {
-                            return <TableVendor />
-                        })
-                        } */}
-                        <TableVendor />
-
-                        {/* <TableVendor /> */}
-                    </Jumbotron >
+                        handleSearchChange={handleSearchChange}
+                        results={searchState}/>
+              <TableVendor results={formInputState} />
+                   </Jumbotron >
                 </SmoothScroll>
-            </VendorContext.Provider>
-
         </>
     );
 }
-
 export default VendorContainer;
-
-
-
-// import React, { useState, useEffect } from "react";
-// import TableVendor from "../../component/TableVendor/index";
-// import Jumbotron from "../../component/Jumbotron/index";
-// import SearchForm from "../../component/SearchForm/index";
-// import SmoothScroll from "../../component/SmoothScroll/index";
-// import AddBtn from "../../component/AddBtn/index";
-// import VendorContext from "../../utils/VendorContext";
-// import "./style.css";
-
-// function Search() {
-//   const [vendorState, setVendorState] = useState({
-//     inputName: "",
-//     inputLocation: "",
-//     inputPhoneNo:"",
-//     inputEmail:""
-
-//   });
-
-// //   const [search, setSearch] = useState("Wikipedia");
-// //   const [error, setError] = useState("");
-
-//   // When the component mounts, update the title to be Wikipedia Searcher
-//   useEffect(() => {
-//     document.title = "Wikipedia Searcher";
-
-//     if (!search) {
-//       return;
-//     }
-
-//     API.searchTerms(search)
-//       .then(res => {
-//         if (res.data.length === 0) {
-//           throw new Error("No results found.");
-//         }
-//         if (res.data.status === "error") {
-//           throw new Error(res.data.message);
-//         }
-//         setArticleState({
-//           title: res.data[1][0],
-//           url: res.data[3][0]
-//         });
-//       })
-//       .catch(err => setError(err));
-//   }, [search]);
-
-//   const handleInputChange = event => {
-//     setSearch(event.target.value);
-//   };
-
-//   const handleFormSubmit = event => {
-//     event.preventDefault();
-//   };
-//   return (
-//     <VendorContext.Provider value={articleState}>
-//       <div>
-//         <Container style={{ minHeight: "100vh" }}>
-//           <h1 className="text-center">Search For Anything on Wikipedia</h1>
-//           <Alert type="danger" style={{ opacity: error ? 1 : 0, marginBottom: 10 }}>
-//             {error}
-//           </Alert>
-//           <SearchForm
-//             handleFormSubmit={handleFormSubmit}
-//             handleInputChange={handleInputChange}
-//             results={search}
-//           />
-//           <SearchResults />
-//         </Container>
-//       </div>
-//     </VendorContext.Provider>
-//   );
-// }
-
-// export default Search;
-

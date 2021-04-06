@@ -1,4 +1,5 @@
 module.exports = {
-    Vendor: require("./vendor")
+    Vendor: require("./Vendor"),
+    // User: require("./User")
   };
   
