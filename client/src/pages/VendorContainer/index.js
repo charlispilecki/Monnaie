@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import TableVendor from "../../components/TableVendor/index";
 import Jumbotron from "../../components/Jumbotron/index";
 import SearchForm from "../../components/SearchForm/index";
@@ -22,124 +22,95 @@ const styles = {
 }
 
 function VendorContainer() {
-const inputName=useRef();
-const inputLocation=useRef();
-const inputPhoneNo=useRef();
-const inputWebsite=useRef();
-const inputEmail=useRef();
+  const inputName = useRef();
+  const inputLocation = useRef();
+  const inputPhoneNo = useRef();
+  const inputWebsite = useRef();
+  const inputEmail = useRef();
 
-    const [searchState, setSearchState] = useState("flower");
-    const [formInputState, setformInputState] = useState([
-        {
-            inputName: "one Name",
-            inputLocation: "one location",
-            inputPhoneNo: "one phone",
-            inputEmail: "one Email",
-            inputWebsite:"dde"
+  const [searchState, setSearchState] = useState("flower");
+  const [formInputState, setformInputState] = useState([]);
+
+  useEffect(() => {
+    loadVendors()
+  }, [])
+
+  // Loads all books and sets them to books
+  function loadVendors() {
+    API.getVendors().then(res => {
+        console.log(res);
+        setformInputState(res.data);
+    }).catch(err => console.log(err));
+  };
+
+
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+   
+    let temp = {
+      name: inputName.current.value,
+      location: inputLocation.current.value,
+      email: inputEmail.current.value,
+      phone_no: inputPhoneNo.current.value,
+      // website:inputWebsite.current.value,
+    };
+
+    console.log(temp);
+
+    API.saveVendor(temp).then(res => {
+        if (res.data.length === 0) {
+          throw new Error("No results found.");
         }
-      ]);
+        if (res.data.status === "error") {
+          throw new Error(res.data.message);
+        }
+        setformInputState([...formInputState, res.data]);
+      });
+  };
 
-       const [formTableState, setformTableState] = useState([
-            {
-                inputName: "Two Name",
-                inputLocation: "one location",
-                inputPhoneNo: "one phone",
-                inputEmail: "one Email",
-                inputWebsite:"dde"
-            },
-              {
-                inputName: "Two Name",
-                inputLocation: "one location",
-                inputPhoneNo: "one phone",
-                inputEmail: "one Email",
-                inputWebsite:"dde"
-            }
-        ]);
-  
+  const handleSearchChange = event => {
+    console.log(event.target.value);
+    setSearchState(event.target.value);
+  };
 
-    useEffect(() => {
-        loadVendors()
-      }, [])
-    
-      // Loads all books and sets them to books
-      function loadVendors() {
-        API.getVendors()
-          .then(res => {
-            console.log(res);
-            setformTableState(res.data)
-          }
-          )
-          .catch(err => console.log(err));
-      };
-    
-   
-  
-    const handleFormSubmit = e => {
-        e.preventDefault();
-        // console.log(e);
-        setformInputState([{inputName:inputName.current.value,
-             inputLocation:inputLocation.current.value,
-             inputEmail:inputEmail.current.value,
-             inputPhoneNo:inputPhoneNo.current.value,
-             inputWebsite:inputWebsite.current.value,
-        }]);
-          API.saveVendor(formInputState)
-          .then(res => {
-            if (res.data.length === 0) {
-              throw new Error("No results found.");
-            }
-            if (res.data.status === "error") {
-              throw new Error(res.data.message);
-            }
-            // loadVendors();
-            });
-      };
+  // const handleSearchChange = (event) => {
+  //   const searchState = event.target.value.toLowerCase(); //Priya
+  //   console.log(searchState);
+  //   // setTempSearch(searchState);
+  //   const results = formInputState.filter(mySearch => {
+  //     console.log(mySearch.inputName);
+  //     return mySearch.inputName.toLowerCase().includes(event.target.value) || mySearch.inputLocation.toLowerCase().includes(event.target.value)
+  //   });  
+  //   console.log(results);
 
-      //   const handleFormSubmit = event => {
-      //   event.preventDefault();
+  //   if (InputSearch) {
+  //     console.log("results");
+  //     setManipulateState(results);
 
-      //   API.saveVendor(formInputState)
-      //     .then(res => {
-      //       if (res.data.length === 0) {
-      //         throw new Error("No results found.");
-      //       }
-      //       if (res.data.status === "error") {
-      //         throw new Error(res.data.message);
-      //       }
-      //       loadVendors();
-      //       });
-      // };
+  //   }
+  //   else {
+  //     setManipulateState(employeeState);
+  //   }
 
+  return (
+    <>
+      <Header />
+      <Navbar />
+      <Carousel />
 
-   
-      const handleSearchChange = event => {
-        setSearchState(event.target.value);
-      };
-
-
-
-
-      // const handleSearchChange = (event) => {
-      //   const searchState = event.target.value.toLowerCase(); //Priya
-      //   console.log(searchState);
-      //   // setTempSearch(searchState);
-      //   const results = formInputState.filter(mySearch => {
-      //     console.log(mySearch.inputName);
-      //     return mySearch.inputName.toLowerCase().includes(event.target.value) || mySearch.inputLocation.toLowerCase().includes(event.target.value)
-      //   });  
-      //   console.log(results);
-    
-      //   if (InputSearch) {
-      //     console.log("results");
-      //     setManipulateState(results);
-    
-      //   }
-      //   else {
-      //     setManipulateState(employeeState);
-      //   }
-    
-
-
+      <SmoothScroll>
+        <Jumbotron >
+          <ModalVendor handleFormSubmit={handleFormSubmit}>
+            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputEmail={inputEmail} inputWebsite={inputWebsite}
+              inputPhoneNo={inputPhoneNo} />
+          </ModalVendor >
+          <SearchForm handleSearchChange={handleSearchChange} results={searchState} />
+          <TableVendor results={formInputState} />
+        </Jumbotron >
+      </SmoothScroll>
+    </>
+  );
     return (
         <>
                 <Header />

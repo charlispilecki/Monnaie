@@ -1,34 +1,38 @@
 import React, { useContext } from "react";
 import "./style.css";
-import VendorContext from "../../utils/VendorContext";
+// import VendorContext from "../../utils/VendorContext";
 // import { MdDelete } from 'react-icons/md';
 import { FiTrash2 } from "react-icons/fi";
 import { FaRegTrashAlt } from 'react-icons/fa';
-function TableVendor({results}) {
+function TableVendor({ results }) {
   // const {formInputState} = useContext(VendorContext);
   return (
     // <td >
     <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" >
-      <tr>
+      <thead>
+        <tr>
         <th>Name</th>
         <th>Location</th>
         <th>Phone no</th>
         <th>Email</th>
         <th>Website</th>
         <th >  </th>
-      </tr>
-      { results.map(item=>( <tr>
-      <td>{item.inputName}</td>
-      <td>{item.inputLocation}</td>
-      <td>{item.inputPhoneNo}</td>
-      <td>{item.inputEmail}</td>
-      <td>{item.inputWebsite}</td>
-        <FaRegTrashAlt />
+        </tr>
+      </thead>
+      { results.map(item => (<tr key={item._id}>
+        <td>{item.name}</td>
+        <td>{item.location}</td>
+        <td>{item.phone_no}</td>
+        <td>{item.email}</td>
+        <td>{item.website}</td>
+        
+          <FaRegTrashAlt />
+        
         {/* <span role="button" >
         <FaRegTrashAlt />
         </span> */}
       </tr>))}
-     
+
       {/* <tr>
       <td>{formInputState[1].inputName}</td>
       <td>{formInputState[1].inputLocation}</td>

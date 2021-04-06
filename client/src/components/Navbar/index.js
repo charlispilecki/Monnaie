@@ -14,7 +14,7 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <div className="navbar-header">
-                    {/* <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                    {/* <div className="mdl-layout__tab-bar mdl-js-ripple-effect">
         <img src="Assets/images/king_logo.png" alt=""> */}
                     {/* <img src={logoCrop} className="navbar-brand" alt="monnaie logo"></img> */}
                     {/* <a href="/" className="navbar-brand">Monnaie</a> */}
