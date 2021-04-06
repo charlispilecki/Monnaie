@@ -91,6 +91,7 @@ const UserNav = ({ className, ...rest }) => {
                     fullWidth
                     variant="text"
                     size="5px"
+                    href="/Account"
                 >
                     Edit Profile
         </Button>

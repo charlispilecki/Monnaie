@@ -6,6 +6,7 @@ import SmoothScroll from "../../components/SmoothScroll";
 import VendorContext from "../../utils/VendorContext";
 import Carousel from "../../components/Carousel";
 import Navbar from "../../components/Navbar";
+import UserNav from "../../components/UserNav/UserNav"
 import Header from "../../components/Header";
 // import AddBtn from "../../components/AddBtn";
 // import Row from "react-bootstrap/Row";
@@ -83,9 +84,12 @@ function VendorContainer() {
             <VendorContext.Provider value={formInputState, searchState}>
 
                 <Header />
-                {/* <Navbar /> */}
+                <Navbar />
                 <Carousel />
+                <UserNav/>
+
                 <SmoothScroll>
+
                     <Jumbotron onClick={addVendor}>
 
                         <ModalVendor >

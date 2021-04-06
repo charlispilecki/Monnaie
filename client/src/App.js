@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Account from "./components/Account/Account"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Chart from './components/Chart/index.js';
 import UserNav from './components/UserNav/UserNav';
@@ -15,9 +16,15 @@ function App() {
 
     <BrowserRouter>
       <Switch>
+        {/* <Route path="/">
+        </Route> */}
         <Route path="/Chart">
           <Chart />
           
+        </Route>
+        <Route path="/Account">
+      
+          <Account/>
         </Route>
         <Route path="/VendorContainer">
           <VendorContainer />
