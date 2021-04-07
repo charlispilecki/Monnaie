@@ -22,8 +22,8 @@ export function CardHead({ children }) {
 
 export function CardBody({ children }) {
     return (
-        <div class="card-content is-flex is-justify-content-center">
-            <div class="content">{children}</div>
+        <div className="card-content is-flex is-justify-content-center">
+            <div className="content">{children}</div>
         </div>
     )    
 }

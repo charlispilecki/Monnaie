@@ -17,7 +17,7 @@ function PopUpForm(props) {
       <form>
         <h3>Vendor Details</h3>
         <div className="form-group">
-          <label for="inputName">Name Of the Vendor</label>
+          <label htmlFor="inputName">Name Of the Vendor</label>
           <input 
           // value={inputName}
           name="inputName"
@@ -31,7 +31,7 @@ function PopUpForm(props) {
            {/* onChange={e => handleInputChange(e.target.value)} */}
         </div>
         <div className="form-group">
-          <label for="inputLocation"></label>
+          <label htmlFor="inputLocation"></label>
           <input 
           // value={inputLocation}
           name="inputLocation"
@@ -45,7 +45,7 @@ function PopUpForm(props) {
           
         </div>
         <div className="form-group">
-          <label for="inputPhoneNo"></label>
+          <label htmlFor="inputPhoneNo"></label>
           <input 
           // value={inputPhoneNo}
           name="inputPhoneNo"
@@ -59,7 +59,7 @@ function PopUpForm(props) {
           {/* onChange={e => handleInputChange(e.target.value)} */}
         </div>
         <div className="form-group">
-          <label for="inputEmail"></label>
+          <label htmlFor="inputEmail"></label>
           <input 
           // value={inputEmail}
           name="inputEmail"
@@ -73,7 +73,7 @@ function PopUpForm(props) {
           {/* onChange={e => handleInputChange(e.target.value)} */}
         </div>
         <div className="form-group">
-          <label for="inputWebsite"></label>
+          <label htmlFor="inputWebsite"></label>
           <input 
           // value={inputWebsite}
           type="text" 

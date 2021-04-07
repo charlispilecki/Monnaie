@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBContainer } from "mdbreact";
+// import { MDBContainer } from "mdbreact";
 // import SearchForm from '../SearchForm/index';
 // import PopUpForm from '../PopUpForm/index';
 import Jumbotron from "../Jumbotron/index";

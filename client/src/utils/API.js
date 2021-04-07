@@ -3,19 +3,19 @@ import axios from "axios";
 export default {
   // Gets all books
   getVendors: function() {
-    return axios.get("/api/vendors");
+    return axios.get("/api/vendor");
   },
   // Gets the book with the given id
   getVendor: function(id) {
-    return axios.get("/api/vendors/" + id);
+    return axios.get("/api/vendor/" + id);
   },
   // Deletes the book with the given id
   deleteVendor: function(id) {
-    return axios.delete("/api/vendors/" + id);
+    return axios.delete("/api/vendor/" + id);
   },
   // Saves a book to the database
   saveVendor: function(vendorData) {
-    return axios.post("/api/vendors", vendorData);
+    return axios.post("/api/vendor", vendorData);
   },
   // Gets the logged in user
   getUser: function() {
