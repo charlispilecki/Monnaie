@@ -26,5 +26,11 @@ export default {
   },
   updateBudgetCategories: function(categories) {
     return axios.put("/api/categories", categories);
+  },
+  getPosts: function() {
+    return axios.get("/api/posts");
+  },
+  createPost: function(post) {
+    return axios.post("/api/posts", post);
   }
 };

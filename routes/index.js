@@ -2,6 +2,7 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 const User = require("../models/userModel");
+const Post = require("../models/postModel");
 const getDefaultCategories = require('./default-categories')
 var passport = require('passport');
 
@@ -98,12 +99,36 @@ router.put("/api/categories", (req, res) => {
 // gets all the users
 router.get("/api/users", (req, res) => {
   User.find({})
-    .then(dbUser => {
-      res.json(dbUser);
+    .then(users => {
+      res.json(users);
     })
     .catch(err => {
       res.json(err);
     });
+});
+
+// gets all the posts
+router.get("/api/posts", (req, res) => {
+  Post.find({})
+    .then(posts => {
+      res.json(posts);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+});
+
+// adds a post
+router.post("/api/posts", (req, res) => {
+
+  Post.create(req.body)
+    .then(posts => {
+      res.json(posts);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+    
 });
 
 // If no API routes are hit, send the React app
