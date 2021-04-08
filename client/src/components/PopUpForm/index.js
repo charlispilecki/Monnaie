@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import VendorContext from "../../utils/VendorContext";
 function PopUpForm(props) {
   return (
-    <div className="container ">
+    <div className="container">
       <form>
         <h3><u>Vendor Details</u></h3>
 
