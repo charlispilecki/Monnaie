@@ -14,3 +14,13 @@ router
   .delete(vendorsController.remove);
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
