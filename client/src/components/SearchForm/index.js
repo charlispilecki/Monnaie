@@ -1,7 +1,3 @@
-
-
-
-
 import React from "react";
 import "./style.css";
 
@@ -10,15 +6,15 @@ function SearchForm(props) {
   return (
     <form className="search">
       <div className="form-group">
-        <label htmlFor="language">Search for the vendor:</label>
+        <label htmlFor="language"></label>
         <input
-          value={props.search}
+          // value={props.search}
           onChange={props.handleSearchChange}
           name="term"
           list="term"
           type="text"
           className="form-control"
-          placeholder="Type in a search term to begin"
+          placeholder="Search for vendor"
           id="term"
         />
       </div>

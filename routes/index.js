@@ -44,7 +44,10 @@ router.get('/logout', function(req, res) {
 // Returns the name of the logged in user or test_user if no one is logged in
 function getUserName(req) {
   if (req.user) {
+    // if (req.params.username) {
     return req.user.username
+    // return req.params.username
+
   } else {
     // TODO: hard code a test user for now
     return username = "test"
@@ -96,6 +99,7 @@ router.put("/api/categories", (req, res) => {
     });
 })
 
+
 // gets all the users
 router.get("/api/users", (req, res) => {
   User.find({})
@@ -130,6 +134,26 @@ router.post("/api/posts", (req, res) => {
     });
     
 });
+
+//creating a vendor 
+
+router.post("/api/ve", (req, res) => {
+  console.log('POST vendor')
+  let username = getUserName(req)
+  console.log(username);
+  User.findOne({username: username})
+    .then(user => {
+      user.vendor.push(req.body)
+      return user.save()
+    })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => {
+      res.send(err);
+    });
+});
+
 
 // If no API routes are hit, send the React app
 router.use(function(req, res) {

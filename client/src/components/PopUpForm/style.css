@@ -5,19 +5,14 @@ body{
 
 .container{
      
-     height:350px; 
+     height:400px; 
      width:300px;
-    background-color: rgb(218, 118, 52);
+    background-color: #e17055;
 }
 
 .form-group{
     padding-left:10px;
 }
-
-/* .hide{
-    display:none;
-
-} */
 
 form{
     padding-top:15px;

@@ -28,10 +28,10 @@ const UserSchema = new Schema({
             paidOffAmount: Number,
         }]
     }],
-    vendors: [{
+    vendor: [{
         name: String,
         location: String,
-        contactInfo: String,
+        phone_no: String,
         website: String
     }],
     tasks: [{
