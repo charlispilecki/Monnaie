@@ -3,13 +3,13 @@ body {
     width: 100%;
 }
 
-.container {
-
-    height: 400px;
-    width: 300px;
+.container-vendor{
+     
+    height:400px; 
+    width:300px;
     background-color: #e17055;
-    display: flex;
-    direction: column;
+    display:flex;
+    direction:column;
 }
 
 .form-group {
