@@ -1,29 +1,21 @@
-body{
-    height:100%;
-    width:100%;
+body {
+    height: 100%;
+    width: 100%;
 }
 
-.container{
+.container-vendor{
      
-     height:350px; 
-     width:300px;
-    background-color: rgb(218, 118, 52);
-}
-
-.form-group{
-    padding-left:10px;
-}
-
-/* .hide{
-    display:none;
-
-} */
-
-form{
-    padding-top:15px;
-}
-
-.container {
+    height:400px; 
+    width:300px;
+    background-color: #e17055;
     display:flex;
     direction:column;
+}
+
+.form-group {
+    padding-left: 10px;
+}
+
+form {
+    padding-top: 15px;
 }

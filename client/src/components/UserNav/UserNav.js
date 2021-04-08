@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Box from '@material-ui/core/Box';
 import makeStyles from '@material-ui/core/makeStyles';
 
+import '../../App.css'
 import {
     Avatar,
     Button,
@@ -19,10 +20,11 @@ import {
 
 const user = {
     avatar: 'https://img1.wsimg.com/isteam/ip/35bece9a-24ba-4602-9b5d-42d937deffd9/0.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25',
-    city: 'Austin',
-    country: 'USA',
-    jobTitle: 'Senior Developer',
     name: 'Katie Cowan',
+    city: 'Austin, TX',
+    venue: 'Umlaf Sculpture Garden',
+    date: '09-30-2023',
+    guests: '100',
 };
 
 const useStyles = makeStyles(() => ({
@@ -75,7 +77,7 @@ const UserNav = ({ className, ...rest }) => {
                         color="textSecondary"
                         variant="body1"
                     >
-                        {`${user.city} ${user.country}`}
+                        {`${user.city}`}
                     </Typography>
                     <Typography
                         className={classes.dateText}
@@ -92,6 +94,7 @@ const UserNav = ({ className, ...rest }) => {
                     fullWidth
                     variant="text"
                     size="5px"
+                    href="/Account"
                 >
 
                     Edit Profile
@@ -115,9 +118,9 @@ const UserNav = ({ className, ...rest }) => {
                     variant="body1"
                 >
                     <List>
-                        <ListItem> Venue </ListItem>
-                        <ListItem>  Date </ListItem>
-                        <ListItem> Guests </ListItem>
+                        <ListItem> Venue: {user.venue} </ListItem>
+                        <ListItem>  Date: (user.date) </ListItem>
+                        <ListItem> Guests: {user.guests} </ListItem>
                     </List>
                 </Typography>
                 <hr />

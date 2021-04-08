@@ -4,7 +4,7 @@ import React from "react";
 // That way we don't have to define them all individually
 function DeleteBtn() {
   return (
-    <button class="delete is-medium ml-2"></button>
+    <button className="delete is-medium ml-2"></button>
   );
 }
 

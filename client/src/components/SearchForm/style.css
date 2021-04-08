@@ -1,16 +1,13 @@
-form{
-    /* margin-top: 3px;
-    margin-left:3px; */
-    padding:0;
+form.search {
+    overflow: auto;
+    margin-bottom: 10px;
+    width:500px;
+    margin-top: 0px;
+  }
+  
+  form.search button[type="submit"] {
+    float: right;
     
-    
-}
-.form-group{
-    width: 220px;
-    font-size: 3px;
-    margin-top: 3px;
-    margin-left:3px;
-    display:flex;
-   
-}
+  }
+  
 

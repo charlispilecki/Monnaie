@@ -1,9 +1,10 @@
 .sliderimg{
-    width: 70%;
-    margin-left:200px;
-    height: 500px;
-    margin-top:200px;
+    width: 800px;
+    margin-left:400px;
+    height: 400px;
+    margin-top:50px;
     object-fit: cover;
     border-bottom: solid;
-    border-bottom: orange;
+    border-bottom: #e17055;
+    border-radius: 30px ;
   }

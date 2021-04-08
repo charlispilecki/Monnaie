@@ -1,0 +1,8 @@
+.modal-backdrop.show {
+  opacity: 0 !important;
+}
+
+.modal-backdrop {
+  position: relative !important;
+}
+
