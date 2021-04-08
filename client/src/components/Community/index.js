@@ -26,7 +26,7 @@ export default function() {
     }
 
     return (
-        <div>
+        <div className="container">
 
             {showCreatePostForm && <CreatePostForm setShowCreatePostForm={setShowCreatePostForm} savePost={savePost}></CreatePostForm>}
 
