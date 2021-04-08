@@ -5,7 +5,7 @@ const VendorSchema = new Schema({
   name: { type: String },
   location: { type: String },
   phone_no: { type: String },
-  email: { type: String },
+  website: { type: String },
   date: { type: Date, default: Date.now }
 });
 

@@ -4,9 +4,7 @@ import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import 'jquery/dist/jquery';
-// import circleLogo from '../../assets/circleLogo.png';
 import logoCrop from '../../assets/logoCrop.png';
-// import weddingLogo from "../../assets/weddingLogo.png";
 
 export default function Navbar() {
     return (
