@@ -1,32 +1,36 @@
 import axios from "axios";
 
 export default {
-  // Gets all vendors
+  // Gets all books
   getVendors: function() {
-    return axios.get("/api/vendors");
+    return axios.get("/api/vendor");
   },
-  // Gets the vendor with the given id
+  // Gets the book with the given id
   getVendor: function(id) {
     return axios.get("/api/vendor/" + id);
   },
-  // Deletes the vendor with the given id
+  // Deletes the book with the given id
   deleteVendor: function(id) {
-    return axios.delete("/api/vendors/" + id);
+    return axios.delete("/api/vendor/" + id);
   },
-  // Saves a vendor to the database
+  // Saves a book to the database
   saveVendor: function(vendorData) {
-    return axios.post("/api/vendors", vendorData);
+    return axios.post("/api/vendor", vendorData);
   },
   // Gets the logged in user
   getUser: function() {
     return axios.get("/api/user");
   },
-
   addBudgetCategory: function(category) {
     return axios.post("/api/categories", category);
   },
-
-  addLineItem: function(lineItem) {
-    return axios.post("/api/lineitems", lineItem);
+  updateBudgetCategories: function(categories) {
+    return axios.put("/api/categories", categories);
+  },
+  getPosts: function() {
+    return axios.get("/api/posts");
+  },
+  createPost: function(post) {
+    return axios.post("/api/posts", post);
   }
 };

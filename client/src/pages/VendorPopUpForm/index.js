@@ -11,10 +11,10 @@ const InputForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("Name is " + inputNameState);
-    console.log("Location is " + inputLocationState);
-    console.log("Phone nO is " + inputPhoneNoState);
-    console.log("Email is " + inputEmailState);
+    // console.log("Name is " + inputNameState);
+    // console.log("Location is " + inputLocationState);
+    // console.log("Phone nO is " + inputPhoneNoState);
+    // console.log("Email is " + inputEmailState);
   };
 
   return (

@@ -14,7 +14,7 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <div className="navbar-header">
-                    {/* <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                    {/* <div className="mdl-layout__tab-bar mdl-js-ripple-effect">
         <img src="Assets/images/king_logo.png" alt=""> */}
                     {/* <img src={logoCrop} className="navbar-brand" alt="monnaie logo"></img> */}
                     {/* <a href="/" className="navbar-brand">Monnaie</a> */}
@@ -24,10 +24,10 @@ export default function Navbar() {
                 </button>
                 <div id="main-menu" className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto ">
-                        <li className="nav-item" ><a href="Your Profile" className="nav-link">Your Profile</a></li>
-                        <li className="nav-item"><Link to="/community" className="nav-link">Community</Link></li>
-                        <li className="nav-item"><Link to="task" className="nav-link">Task</Link></li>
-                        <li className="nav-item"><Link to="/budget" className="nav-link">Budget</Link></li>
+                        <li className="nav-item" ><a href="/UserNav" className="nav-link">Your Profile</a></li>
+                        <li className="nav-item"><Link to="/Community" className="nav-link">Community</Link></li>
+                        <li className="nav-item"><Link to="/Task" className="nav-link">Task</Link></li>
+                        <li className="nav-item"><Link to="/Budget" className="nav-link">Budget</Link></li>
                        
                     </ul>
                     <span className="nav-left" > <a href="Logout" className="nav-link">Logout</a>  </span>

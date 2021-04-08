@@ -1,22 +1,49 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Account from "./components/Account/Account"
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Chart from './components/Chart/index.js';
+import UserNav from './components/UserNav/UserNav';
 import VendorContainer from './pages/VendorContainer/index';
+// import PopUpForm from './components/PopUpForm';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import TasksList from "./pages/Tasks";
-// import AotherComonent from './components/another-component.component.js';
-// import ThreeComponent from './components/three-component.comonent.js';
+// import TasksList from "./pages/Tasks";
 
-function App() { 
-  return (        
-    <Router>
+function App() {
+  return (
+
+    <BrowserRouter>
       <Switch>
-        {/* <Route exact path="/" exact component = {VendorContainer} /> */}
-        {/* <Route path="/budget" exact component = {Budget} /> */}
-        <Route exact path="/task" exact component = {TasksList} />
-        {/* <Route path="/community" exact component = {Community} /> */}
-      </Switch>      
-    </Router>
+        {/* <Route path="/">
+        </Route> */}
+        <Route path="/Chart">
+          <Chart />
+          
+        </Route>
+        <Route path="/Account">
+      
+          <Account/>
+        </Route>
+        <Route path="/VendorContainer">
+          <VendorContainer />
+          
+        </Route>
+        <Route path="/UserNav">
+          <UserNav />
+          
+        </Route>
+      </Switch>
+    </BrowserRouter>
+
+    // <Router>
+
+
+    //  <Chart />
+     
+  //     {/* <Route path="/budget" exact component = {Budget} /> */ }
+  // {/* <Route exact path="/task" exact component = {TasksList} /> */ }
+  // {/* <Route path="/community" exact component = {Community} /> */ }
+  // {/* </Router> */ }
   );
 }
 
