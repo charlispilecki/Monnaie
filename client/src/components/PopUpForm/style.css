@@ -5,9 +5,11 @@ body{
 
 .container{
      
-     height:400px; 
-     width:300px;
+    height:400px; 
+    width:300px;
     background-color: #e17055;
+    display:flex;
+    direction:column;
 }
 
 .form-group{
@@ -18,7 +20,3 @@ form{
     padding-top:15px;
 }
 
-.container {
-    display:flex;
-    direction:column;
-}
