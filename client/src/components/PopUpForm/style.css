@@ -1,24 +1,21 @@
-body{
-    height:100%;
-    width:100%;
-}
-
-.container{
-     
-     height:400px; 
-     width:300px;
-    background-color: #e17055;
-}
-
-.form-group{
-    padding-left:10px;
-}
-
-form{
-    padding-top:15px;
+body {
+    height: 100%;
+    width: 100%;
 }
 
 .container {
-    display:flex;
-    direction:column;
+
+    height: 400px;
+    width: 300px;
+    background-color: #e17055;
+    display: flex;
+    direction: column;
+}
+
+.form-group {
+    padding-left: 10px;
+}
+
+form {
+    padding-top: 15px;
 }
