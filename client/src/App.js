@@ -14,37 +14,9 @@ import Footer from "./components/Footer";
 import LoginDemo from "./components/Demo/LoginDemo"
 import Community from "./components/Community"
 import TasksList from "./pages/Tasks";
+import Account from "./components/Account/Account"
+import AccountDetails from "./components/Account/Account";
 
-<<<<<<< HEAD
-import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import VendorContainer from './pages/VendorContainer/index';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css";
-// import TasksList from "./pages/Tasks";
-// import AotherComonent from './components/another-component.component.js';
-// import ThreeComponent from './components/three-component.comonent.js';
-
-function App() { 
-  return (    
-   
-    
-
-    <Router>
-    
-    {/* <Profile /> */}
-    
-     <VendorContainer />
-     
-      {/* <Route path="/budget" exact component = {Budget} /> */}
-      {/* <Route exact path="/task" exact component = {TasksList} /> */}
-      {/* <Route path="/community" exact component = {Community} /> */}
-    </Router>
-  );
-}
-
-export default App;
-=======
 export default function App() {
     return (
         <Router>
@@ -68,7 +40,7 @@ export default function App() {
                   <TasksList></TasksList>
               </Route>
               <Route path="/">
-                <LoginDemo></LoginDemo>
+                <Account />
               </Route>
             </Switch>
             <Footer></Footer>
@@ -76,4 +48,3 @@ export default function App() {
         </Router>
     )
 }
->>>>>>> c1480fd26203f892b30a913de87d9bba1cabf7f3
