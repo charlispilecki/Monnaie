@@ -1,4 +1,5 @@
 import React from "react";
+import BootstrapTable from "react-bootstrap-table-next";
 
 
 export function Table({ children }) {
@@ -51,3 +52,20 @@ export function TableData({ children }) {
 //     return <td className={style}>{ children }</td>;
 // }
 
+function Table(props) {
+    
+    return <BootstrapTable 
+    keyField="id"
+    data={ props.custData }
+    columns = { props.columns }
+    // sort={ [
+    //     { dataField: "name", order: "asc" },
+    //     { dataField: "location", order: "asc"},
+    //     { dataField: "email", order: "asc"}
+    // ]}
+    striped
+    hover    
+    />
+}
+
+export default Table;

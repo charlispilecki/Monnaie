@@ -37,6 +37,7 @@
     "passport": "^0.4.1",
     "passport-local-mongoose": "^6.1.0",
     "react-alice-carousel": "^2.4.0",
+    "react-bootstrap-table-next": "^4.0.3",
     "react-icons": "^4.2.0",
     "react-table": "^7.6.3",
     "v": "^0.3.0"
