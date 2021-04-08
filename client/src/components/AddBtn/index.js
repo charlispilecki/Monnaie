@@ -2,12 +2,14 @@ import React from "react";
 import "./style.css"
 
 
-function AddBtn({custStyle, children}) {
+function AddBtn({handleClick, children}) {
     return (
-        
-        <span className={custStyle} role="button" tabIndex="0">
+        <button className="button is-info is-outlined ml-2 mb-2" onClick={handleClick}>
             {children}
-        </span>
+        </button>
+        // <span className={custStyle} role="button" tabIndex="0">
+        //     {children}
+        // </span>
     );
 }
 
