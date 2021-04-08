@@ -105,14 +105,6 @@ const UserNav = ({ className, ...rest }) => {
                 flexDirection="column"
             >
                 <Typography
-                    color="textPrimary"
-                    fullWidth
-                    variant="h6"
-                    fontFamily="veranda"
-                >
-                    The Big Day
-      </Typography>
-                <Typography
                     color="textSecondary"
                     variant="body1"
                 >
