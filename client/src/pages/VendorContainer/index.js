@@ -109,8 +109,6 @@ function deleteVendor(id) {
     return (
       <>
         <Profile />
-        <Carousel />
-      
         <SmoothScroll>
           <Jumbotron >
             <ModalVendor handleFormSubmit={handleFormSubmit}>
@@ -121,6 +119,7 @@ function deleteVendor(id) {
             <TableVendor results={formInputState} deleteVendor={deleteVendor}/>
           </Jumbotron >
         </SmoothScroll>
+        <Carousel />
         
        
       </>

@@ -22,7 +22,7 @@ export default function Navbar() {
                 </button>
                 <div id="main-menu" className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto ">
-                        <li className="nav-item" ><a href="/UserNav" className="nav-link">Your Profile</a></li>
+                        <li className="nav-item" ><a href="/Profile" className="nav-link">Your Profile</a></li>
                         <li className="nav-item"><Link to="/Community" className="nav-link">Community</Link></li>
                         <li className="nav-item"><Link to="/Task" className="nav-link">Task</Link></li>
                         <li className="nav-item"><Link to="/Budget" className="nav-link">Budget</Link></li>
