@@ -6,8 +6,10 @@ import {
   Link
 } from "react-router-dom";
 import Budget from "./components/Budget/index";
+import Chart from "./components/Chart/index";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import Profile from "./pages/VendorContainer";
 import Footer from "./components/Footer";
 import LoginDemo from "./components/Demo/LoginDemo"
 import Community from "./components/Community"
@@ -22,6 +24,12 @@ export default function App() {
             <Switch>
               <Route path="/Budget">
                 <Budget />
+              </Route>
+              <Route path="/Chart">
+                <Chart />
+              </Route>
+              <Route path="/Profile">
+                <Profile />
               </Route>
               <Route path="/Community">
                   <Community></Community>

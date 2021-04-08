@@ -95,10 +95,9 @@ function VendorContainer() {
 
   return (
     <>
-      <Header />
-      <Navbar />
+     
       <Carousel />
-
+      <UserNav/>
       <SmoothScroll>
         <Jumbotron >
           <ModalVendor handleFormSubmit={handleFormSubmit}>
