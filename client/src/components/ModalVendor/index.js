@@ -1,27 +1,14 @@
-import React,{useState,useContext} from 'react';
+import React from 'react';
 import "./style.css";
-import VendorContext from "../../utils/VendorContext";
-// const ModalVendor = () => {
- function ModalVendor({children,handleFormSubmit}){
-  // const {handleFormSubmit,setformInputState,formInputState} = useContext(VendorContext);
-    const [vendorState, setVendorState] = useState(false);
-    // const handleSubmit = e => {
-    //   e.preventDefault();
-    // };
-// const toggle = () => {
-//   if (vendorState){
-//     setVendorState(false);
-//   }
-//   else{
-//     setVendorState(true);
-//   }
-// }
+import { FaPlusCircle } from 'react-icons/fa';
 
+ function ModalVendor({children,handleFormSubmit}){
   return (
    <span>
-    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add Vendor
-    </button>
+  <span role="button" className="fa" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        <FaPlusCircle />
+        </span>
+
     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">
         <div className="modal-content">

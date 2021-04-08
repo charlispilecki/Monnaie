@@ -4,9 +4,7 @@ import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import 'jquery/dist/jquery';
-// import circleLogo from '../../assets/circleLogo.png';
 import logoCrop from '../../assets/logoCrop.png';
-// import weddingLogo from "../../assets/weddingLogo.png";
 
 export default function Navbar() {
     return (
@@ -24,7 +22,7 @@ export default function Navbar() {
                 </button>
                 <div id="main-menu" className="collapse navbar-collapse">
                     <ul className="navbar-nav mr-auto ">
-                        <li className="nav-item" ><a href="/UserNav" className="nav-link">Your Profile</a></li>
+                        <li className="nav-item" ><a href="/Profile" className="nav-link">Your Profile</a></li>
                         <li className="nav-item"><Link to="/Community" className="nav-link">Community</Link></li>
                         <li className="nav-item"><Link to="/Task" className="nav-link">Task</Link></li>
                         <li className="nav-item"><Link to="/Budget" className="nav-link">Budget</Link></li>

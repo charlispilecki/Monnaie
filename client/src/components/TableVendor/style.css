@@ -1,7 +1,7 @@
 
- /* tr {
+ tr {
         border: 2px solid #095484;
-      }  */
+      } 
      
 
 
@@ -15,21 +15,16 @@
     color: white;
   
    
-  }
+   }  
   
-  /* th,
+  /* th, */
   tr {
-    width: 150px;
+    /* width: 150px; */
     text-align: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 5px;
   }
-   */
-  h2 {
+  
+  /* h2 {
     color: #4287f5;
-  }
-
-
-  /* .FaRegTrashAlt{
-    padding-top:4px;
   } */
