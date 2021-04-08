@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import Box from '@material-ui/core/Box';
-import makeStyles from '@material-ui/core/makeStyles';
-
 import '../../App.css'
 import {
     Avatar,
+    Box,
     Button,
     Card,
     CardActions,
     CardContent,
     Divider,
     Typography,
-   
+    makeStyles,
     List,
     ListItem
 } from '@material-ui/core';
@@ -23,8 +21,8 @@ const user = {
     name: 'Katie Cowan',
     city: 'Austin, TX',
     venue: 'Umlaf Sculpture Garden',
-    date: '09-30-2023',
     guests: '100',
+    fun: 'September 30th, 2023'
 };
 
 const useStyles = makeStyles(() => ({
@@ -37,7 +35,7 @@ const useStyles = makeStyles(() => ({
     },
     card: {
         width: 240,
-        height: 425,
+        height: 500,
         marginTop: 200,
         fontFamily: "Arial"
     }
@@ -110,17 +108,36 @@ const UserNav = ({ className, ...rest }) => {
                     color="textPrimary"
                     fullWidth
                     variant="h6"
+                    fontFamily="veranda"
                 >
-                    Wedding Details
+                    The Big Day
       </Typography>
                 <Typography
                     color="textSecondary"
                     variant="body1"
                 >
                     <List>
-                        <ListItem> Venue: {user.venue} </ListItem>
-                        <ListItem>  Date: (user.date) </ListItem>
-                        <ListItem> Guests: {user.guests} </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Venue: 
+                        </Typography>
+                        <Divider />
+                        <ListItem>{user.venue} </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Date: 
+                        </Typography>
+                        <Divider />
+                        <ListItem> {user.fun} </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Guests: 
+                        </Typography>
+                        <Divider />
+                        <ListItem>{user.guests} </ListItem>
                     </List>
                 </Typography>
                 <hr />
