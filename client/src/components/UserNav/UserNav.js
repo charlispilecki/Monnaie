@@ -29,7 +29,7 @@ const user = {
 
 const useStyles = makeStyles(() => ({
     root: {
-        backgroundColor: 'red'
+        
     },
     avatar: {
         height: 100,
