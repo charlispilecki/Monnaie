@@ -1,6 +1,6 @@
-body{
-    height:100%;
-    width:100%;
+body {
+    height: 100%;
+    width: 100%;
 }
 
 .container{
@@ -12,11 +12,10 @@ body{
     direction:column;
 }
 
-.form-group{
-    padding-left:10px;
+.form-group {
+    padding-left: 10px;
 }
 
-form{
-    padding-top:15px;
+form {
+    padding-top: 15px;
 }
-

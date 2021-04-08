@@ -59,13 +59,10 @@ const styles = {
 function Chart() {
   return (
     <div className="App">
-      <Header />
       <div style={styles.paddingUp}>        
-        <Navbar />
       </div>
       <Bar data={data} options={options} />
 
-      <Footer />
     </div>
 
   );

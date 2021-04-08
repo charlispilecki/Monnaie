@@ -7,7 +7,7 @@ import Carousel from "../../components/Carousel";
 import Navbar from "../../components/Navbar";
 import Header from "../../components/Header";
 import PopUpForm from "../../components/PopUpForm";
-// import Profile from "../../components/UserNav/UserNav";
+import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
 import API from "../../utils/API";
 import "./style.css";
@@ -108,9 +108,7 @@ function deleteVendor(id) {
 
     return (
       <>
-        <Header />
-        <Navbar />
-        {/* <Profile /> */}
+        <Profile />
         <Carousel />
       
         <SmoothScroll>
