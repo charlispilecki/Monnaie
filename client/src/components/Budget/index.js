@@ -141,10 +141,7 @@ export default function() {
             {showCategoryForm && <CategoryForm setShowCategoryForm={setShowCategoryForm} saveCategory={saveCategory}/>}
             {showLineItemForm && <LineItemForm setShowLineItemForm={setShowLineItemForm} saveLineItem={saveLineItem} deleteLineItem={deleteLineItem} category={lineItemCategory}  />}
 
-
-            
-
-            <div className="is-flex is-justify-content-center">
+            <div className="is-flex is-justify-content-center mt-4">
                 <div style={{width: '250px'}} className="card mr-2 has-background-primary-light">
                     <div style={{width: '250px'}} className="card-header ">
                         <p className="card-header-title">
@@ -280,7 +277,7 @@ function LineItem({
                         
                     <div className="field mb-0 ml-2">
                         <p className="control has-icons-left">
-                        <input value={estimatedCost} onChange={e=>setEstimatedCost(e.target.value)} onBlur={handleBlur} className="input is-primary has-background-primary-light is-rounded is-small" style={{width:'150px'}} type="number" min="0.00" step="1.00" placeholder="Estimated Amount" />
+                        <input value={estimatedCost || ''} onChange={e=>setEstimatedCost(e.target.value)} onBlur={handleBlur} className="input is-primary has-background-primary-light is-rounded is-small" style={{width:'150px'}} type="number" min="0.00" step="1.00" placeholder="Estimated Amount" />
                             <span className="icon is-small is-left">
                             <i className="fas fa-dollar-sign"></i>
                             </span>
@@ -288,7 +285,7 @@ function LineItem({
                     </div>
                     <div className="field mb-0 ml-2">
                         <p className="control has-icons-left">
-                        <input value={actualCost} onChange={e=>setActualCost(e.target.value)} onBlur={handleBlur} className="input is-info has-background-info-light is-rounded is-small" style={{width:'150px'}} type="number" min="0.00" step="1.00" placeholder="Actual Amount" />
+                        <input value={actualCost || ''} onChange={e=>setActualCost(e.target.value)} onBlur={handleBlur} className="input is-info has-background-info-light is-rounded is-small" style={{width:'150px'}} type="number" min="0.00" step="1.00" placeholder="Actual Amount" />
                             <span className="icon is-small is-left">
                             <i className="fas fa-dollar-sign"></i>
                             </span>
