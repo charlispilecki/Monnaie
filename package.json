@@ -25,6 +25,7 @@
   "homepage": "https://github.com/charlispilecki/Monnaie#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "bulma": "^0.9.2",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",

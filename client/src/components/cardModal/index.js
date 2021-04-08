@@ -18,7 +18,7 @@ export default function CardModal(handleClick) {
                 </section>
                 <footer className="modal-card-foot">
                     <button className="button is-success" onClick={handleClick}>Save</button>
-                    <button className="button" onClick={handleClick}>Cancel</button>
+                    <button className="button" onClick={this.handleClick}>Cancel</button>
                 </footer>
             </div>
         </div>

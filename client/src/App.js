@@ -34,7 +34,7 @@ export default function App() {
               <Route path="/Community">
                   <Community></Community>
               </Route>
-              <Route path="/Task">
+              <Route path="/task">
                   <TasksList></TasksList>
               </Route>
               <Route path="/">

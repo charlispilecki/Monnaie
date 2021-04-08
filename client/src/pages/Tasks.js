@@ -1,6 +1,5 @@
 import React from "react";
 import 'bulma/css/bulma.css';
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import "./style.css";
 import CardModal from "../components/cardModal";
 // import Header  from "../components/Header";
@@ -16,11 +15,6 @@ import AddBtn from "../components/AddBtn";
 function showTaskForm() {
     console.log("button click");
     $(".modal").addClass("is-active");
-}
-
-function handleClick() {
-    
-    showTaskForm();
 }
 
 // $(".addTask").onclick = function() {console.log("button pushed")};
@@ -40,7 +34,7 @@ const TasksList = () => {
             </Card>
         </CardsWrap>
         <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
-        <CardModal />
+        <CardModal/>
         {/* <Table>
             <TableHead>
                 <TableHeader></TableHeader>
