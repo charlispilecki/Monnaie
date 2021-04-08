@@ -1,50 +1,40 @@
-import React from 'react';
-import Account from "./components/Account/Account"
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Chart from './components/Chart/index.js';
-import UserNav from './components/UserNav/UserNav';
-import VendorContainer from './pages/VendorContainer/index';
-// import PopUpForm from './components/PopUpForm';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css";
-// import TasksList from "./pages/Tasks";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Budget from "./components/Budget/index";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import LoginDemo from "./components/Demo/LoginDemo"
+import Community from "./components/Community"
+import TasksList from "./pages/Tasks";
 
-function App() {
-  return (
-
-    <BrowserRouter>
-      <Switch>
-        {/* <Route path="/">
-        </Route> */}
-        <Route path="/Chart">
-          <Chart />
-          
-        </Route>
-        <Route path="/Account">
-      
-          <Account/>
-        </Route>
-        <Route path="/VendorContainer">
-          <VendorContainer />
-          
-        </Route>
-        <Route path="/UserNav">
-          <UserNav />
-          
-        </Route>
-      </Switch>
-    </BrowserRouter>
-
-    // <Router>
-
-
-    //  <Chart />
-     
-  //     {/* <Route path="/budget" exact component = {Budget} /> */ }
-  // {/* <Route exact path="/task" exact component = {TasksList} /> */ }
-  // {/* <Route path="/community" exact component = {Community} /> */ }
-  // {/* </Router> */ }
-  );
+export default function App() {
+    return (
+        <Router>
+          <div>
+            <Header></Header>
+            <Navbar></Navbar>
+            <Switch>
+              <Route path="/Budget">
+                <Budget />
+              </Route>
+              <Route path="/Community">
+                  <Community></Community>
+              </Route>
+              <Route path="/Task">
+                  <TasksList></TasksList>
+              </Route>
+              <Route path="/">
+                <LoginDemo></LoginDemo>
+              </Route>
+            </Switch>
+            <Footer></Footer>
+          </div>
+        </Router>
+    )
 }
-
-export default App;

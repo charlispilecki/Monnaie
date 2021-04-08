@@ -15,7 +15,7 @@ function Footer() {
             <div className="content">
                 <div>
                     <strong>Copyright © 2021 Monnaie</strong>
-                    <p>Contributors: Kevin Cho, Chad Cook, Katie Cowan, and Charli Spilecki</p>
+                    <p>Contributors: Priya Garg, Kevin Cho, Chad Cook, Katie Cowan, and Charli Spilecki</p>
                 </div>
             </div>
         </footer>
