@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Budget from "./components/Budget/index";
 import Chart from "./components/Chart/index";
@@ -36,7 +35,7 @@ export default function App() {
               <Route path="/Community">
                   <Community></Community>
               </Route>
-              <Route path="/Task">
+              <Route path="/task">
                   <TasksList></TasksList>
               </Route>
               <Route path="/">

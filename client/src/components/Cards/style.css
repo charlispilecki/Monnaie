@@ -1,11 +1,10 @@
 .card {
     margin: 40px;
-    width: 10vw;
+    width: 15rem;
 }
 
 .card-header {
-    margin: auto;
-    width: 10vw;
+    width: 15rem;
     max-height: 3rem;
 }
 
