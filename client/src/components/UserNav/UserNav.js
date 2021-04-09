@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import '../../App.css'
@@ -15,15 +15,8 @@ import {
     List,
     ListItem
 } from '@material-ui/core';
-
-const user = {
-    avatar: 'https://img1.wsimg.com/isteam/ip/35bece9a-24ba-4602-9b5d-42d937deffd9/0.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25',
-    name: 'Katie Cowan',
-    city: 'Austin, TX',
-    venue: 'Umlaf Sculpture Garden',
-    guests: '100',
-    fun: 'September 30th, 2023'
-};
+import API from "../../utils/API"
+import moment from "moment"
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -45,6 +38,21 @@ const useStyles = makeStyles(() => ({
 const UserNav = ({ className, ...rest }) => {
     const classes = useStyles();
 
+    const [user, setUser] = useState({
+        avatar: '',
+        name: '',
+        city: '',
+        venue: '',
+        guests: '',
+        date: ''
+    })
+    
+    useEffect(() => {
+        API.getUser().then(resp => {
+            setUser(resp.data)
+        })
+    }, [])
+
     return (
         /* Card on the left hand side of the page containing user information */
         <Card
@@ -60,7 +68,7 @@ const UserNav = ({ className, ...rest }) => {
                 >
                     <Avatar
                         className={classes.avatar}
-                        src={user.avatar}
+                        src="https://img1.wsimg.com/isteam/ip/35bece9a-24ba-4602-9b5d-42d937deffd9/0.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25"
                     />
                     <br />
                     <Typography
@@ -122,7 +130,7 @@ const UserNav = ({ className, ...rest }) => {
                             Date: 
                         </Typography>
                         <Divider />
-                        <ListItem> {user.fun} </ListItem>
+                        <ListItem> {moment(user.date).format('MM/DD/YYYY')} </ListItem>
                         <Typography
                             color="textPrimary"
                         >

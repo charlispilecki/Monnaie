@@ -21,6 +21,9 @@ export default {
   getUser: function() {
     return axios.get("/api/user")
   },
+  updateUserDetails: function(userDetails) {
+    return axios.put("/api/user", userDetails)
+  },
   addBudgetCategory: function(category) {
     return axios.post("/api/categories", category);
   },
@@ -47,5 +50,8 @@ export default {
   },
   createComment: function(comment) {
     return axios.post(`/api/posts/${comment.postID}/comments`, comment);
+  },
+  logout: function() {
+    return axios.get("/logout");
   }
 };

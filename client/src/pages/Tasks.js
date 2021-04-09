@@ -1,6 +1,6 @@
 import React from "react";
 import 'bulma/css/bulma.css';
-import "./style.css";
+// import "./style.css";
 import TaskCardModal from "../components/cardModal";
 // import Header  from "../components/Header";
 // import Navbar from "../components/Navbar";
