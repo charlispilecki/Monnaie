@@ -5,30 +5,30 @@ import { ADD_TASK, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
 
 function TaskCardModal() {
-  const descriptionRef = useRef();
-  const dueDateRef = useRef();
-  const [state, dispatch] = useStoreContext();
+//   const descriptionRef = useRef();
+//   const dueDateRef = useRef();
+//   const [state, dispatch] = useStoreContext();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    dispatch({ type: LOADING });
-    API.saveTask({
-      description: descriptionRef.current.value,
-      dueDate: dueDateRef.current.value,
-      completed: false
-    })
-      .then(result => {
-        dispatch({
-          type: ADD_TASK,
-          task: result.data
-        });
-      })
-      .catch(err => console.log(err));
-    hideTaskForm();
+//   const handleSubmit = e => {
+//     e.preventDefault();
+//     dispatch({ type: LOADING });
+//     API.saveTask({
+//       description: descriptionRef.current.value,
+//       dueDate: dueDateRef.current.value,
+//       completed: false
+//     })
+//       .then(result => {
+//         dispatch({
+//           type: ADD_TASK,
+//           task: result.data
+//         });
+//       })
+//       .catch(err => console.log(err));
+//     hideTaskForm();
 
-    descriptionRef.current.value = "";
-    dueDateRef.current.value = "";
-  };
+//     descriptionRef.current.value = "";
+//     dueDateRef.current.value = "";
+//   };
 
   function hideTaskForm() {
     console.log("button click");
