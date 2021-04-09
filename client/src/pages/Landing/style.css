@@ -132,18 +132,22 @@ p {
 
 /** About Cards **/
 .container {
-  height: 300px;
-  width: 1600px;
+  height: 200px;
+  width: 100px;
   position: relative;
   display: flex;
   justify-content: space-between;
 }
 .container .card {
-  position: relative;   
-  width: 1200px;
-  margin-left: 2px;
-  margin-right: 2px;
+  position: relative;  
+  width: 900px;
+  
 }
+
+.card {
+  width: 100px;
+}
+
 .icon {
   height:80px;
   width: 80px;
@@ -152,8 +156,8 @@ p {
   margin-right: auto;
 }
 .container .card .face {
-  width: 470px;
-  transition: 0.5s;
+  width: 430px;
+  transition: 0.7s;
 }
 .container .card .face.face1 {
   position: relative;

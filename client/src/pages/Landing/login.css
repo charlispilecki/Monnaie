@@ -65,8 +65,9 @@ button:focus {
 }
 
 button.ghost {
-  background-color: #2f3640;
-  border-color: #353b48;
+  background-color: whitesmoke;
+  border-color: whitesmoke;
+  color: #353b48;
 }
 
 form {
