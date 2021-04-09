@@ -32,5 +32,17 @@ export default {
   },
   createPost: function(post) {
     return axios.post("/api/posts", post);
+  },
+  getTasks: function() {
+    return axios.get("/api/tasks");
+  },
+  getTask: function(id) {
+    return axios.get("api/posts/" + id);
+  },
+  deleteTask: function(id) {
+    return axios.delete("/api/posts/" + id);
+  },
+  saveTask: function(taskData) {
+    return axios.post("/api/posts", taskData);
   }
 };
