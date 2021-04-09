@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 #ritzy {
   margin-top: 50px;
@@ -13,10 +14,11 @@
 }
 
 #text {
-  font-size: 25px;
-  letter-spacing: 2px;
+  font-size: 2vw;
+  letter-spacing: 4px;
   color: #E17055;
   font-weight: 600;
+  font-family: 'Anton', sans-serif;
 }
 h1 {
   font-weight: bold;

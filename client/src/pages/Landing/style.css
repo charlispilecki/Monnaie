@@ -152,7 +152,7 @@ p {
   margin-right: auto;
 }
 .container .card .face {
-  width: 470px;
+  width: 450px;
   transition: 0.5s;
 }
 .container .card .face.face1 {
