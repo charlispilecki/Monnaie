@@ -13,6 +13,8 @@ import Footer from "./components/Footer";
 import LoginDemo from "./components/Demo/LoginDemo"
 import Community from "./components/Community"
 import TasksList from "./pages/Tasks";
+import Account from "./components/Account/Account"
+import AccountDetails from "./components/Account/Account";
 
 export default function App() {
     return (
@@ -37,7 +39,7 @@ export default function App() {
                   <TasksList></TasksList>
               </Route>
               <Route path="/">
-                <LoginDemo></LoginDemo>
+                <Account />
               </Route>
             </Switch>
             <Footer></Footer>

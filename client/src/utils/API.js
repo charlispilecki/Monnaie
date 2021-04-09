@@ -19,7 +19,7 @@ export default {
   },
   // Gets the logged in user
   getUser: function() {
-    return axios.get("/api/user");
+    return axios.get("/api/user")
   },
   addBudgetCategory: function(category) {
     return axios.post("/api/categories", category);
@@ -44,5 +44,8 @@ export default {
   },
   saveTask: function(taskData) {
     return axios.post("/api/posts", taskData);
+  },
+  createComment: function(comment) {
+    return axios.post(`/api/posts/${comment.postID}/comments`, comment);
   }
 };

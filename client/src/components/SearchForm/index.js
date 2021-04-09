@@ -9,7 +9,7 @@ function SearchForm(props) {
         <label htmlFor="language"></label>
         <input
           // value={props.search}
-          onChange={props.handleSearchChange}
+          onChange={props.handleInputChange}
           name="term"
           list="term"
           type="text"

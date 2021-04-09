@@ -5,9 +5,9 @@ import { FaPlusCircle } from 'react-icons/fa';
  function ModalVendor({children,handleFormSubmit}){
   return (
    <span>
-  <span role="button" className="fa" data-bs-toggle="modal" data-bs-target="#exampleModal" >
-        <FaPlusCircle />
-        </span>
+        <button className="button fa mt-5 mr-6 is-size-5" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        + 
+        </button>
 
     <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog">

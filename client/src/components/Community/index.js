@@ -6,6 +6,8 @@ export default function() {
 
     const [posts, setPosts] = useState([])
     const [showCreatePostForm, setShowCreatePostForm] = useState(false)
+    const [showCreateCommentForm, setShowCreateCommentForm] = useState(false)
+    const [commentPostID, setCommentPostID] = useState('')
 
     useEffect(() => {
         loadPosts()
@@ -25,10 +27,24 @@ export default function() {
         })
     }
 
+    function saveComment(comment) {
+        comment.postID = commentPostID
+        API.createComment(comment).then(() => {
+            setShowCreateCommentForm(false)
+            loadPosts()
+        })
+    }
+
+    function showCommentForm(postID) {
+        setCommentPostID(postID)
+        setShowCreateCommentForm(true)
+    }
+
     return (
         <div className="container">
 
             {showCreatePostForm && <CreatePostForm setShowCreatePostForm={setShowCreatePostForm} savePost={savePost}></CreatePostForm>}
+            {showCreateCommentForm && <CreateCommentForm setShowCreateCommentForm={setShowCreateCommentForm} saveComment={saveComment}></CreateCommentForm>}
 
             {/* <h1 className="title mt-5">Community Page</h1> */}
             <div className="mt-6 is-size-5">
@@ -45,7 +61,7 @@ export default function() {
             {
                 posts.map(post => {
                     return (
-                        <Post key={post._id} post={post}>
+                        <Post key={post._id} post={post} showCommentForm={showCommentForm}>
                         </Post>
                     )
                 })
@@ -54,7 +70,7 @@ export default function() {
     )
 }
 
-function Post({post}) {
+function Post({post, showCommentForm}) {
     return (
         <div className="box">
             <div className="is-flex is-justify-content-flex-end">
@@ -67,11 +83,30 @@ function Post({post}) {
             <div className="mb-5">
                 <p>{post.body}</p>
             </div>
-            <div className="is-flex is-justify-content-flex-end">
-                <button className="button is-info is-outlined mb-2">
-                    Reply
+            <div className="is-flex is-justify-content-flex-end mb-6">
+                <button onClick={() => showCommentForm(post._id)} className="button is-info is-outlined mb-2">
+                    Reply ({post.comments.length})
                 </button>
             </div>
+            <div>
+                {
+                    post.comments.map(comment => {
+                        return <Comment key={comment._key} comment={comment}></Comment>
+                    })
+                }
+            </div>
+        </div>
+    )
+}
+
+function Comment({comment}) {
+    return (
+        <div>
+            <div className="is-flex is-justify-content-flex-end">
+                <small className="mr-6">Created by: {comment.username}</small>
+                <small className="mr-3">Posted: {moment(comment.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</small>
+            </div>
+            {comment.body}
         </div>
     )
 }
@@ -105,6 +140,37 @@ function CreatePostForm({setShowCreatePostForm, savePost}) {
                 <footer className="modal-card-foot">
                     <button onClick={save} className="button is-success">Save</button>
                     <button onClick={()=>setShowCreatePostForm(false)} className="button">Cancel</button>
+                </footer>
+            </div>
+        </div>
+    )
+}
+
+function CreateCommentForm({setShowCreateCommentForm, saveComment}) {
+
+    const [body, setBody] = useState('')
+
+    function save() {
+        saveComment({
+            body,
+            timestamp: Date.now()
+        })
+    }
+
+    return (
+        <div className="modal is-active is">
+            <div className="modal-background"></div>
+            <div className="modal-card">
+                <header className="modal-card-head">
+                    <p className="modal-card-title">Comment</p>
+                    <button onClick={()=>setShowCreateCommentForm(false)} className="delete" aria-label="close"></button>
+                </header>
+                <section className="modal-card-body">
+                    <textarea value={body} onChange={e=>setBody(e.target.value)} className="textarea mt-3" placeholder="Type your post here"></textarea>
+                </section>
+                <footer className="modal-card-foot">
+                    <button onClick={save} className="button is-success">Save</button>
+                    <button onClick={()=>setShowCreateCommentForm(false)} className="button">Cancel</button>
                 </footer>
             </div>
         </div>
