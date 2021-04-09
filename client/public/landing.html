@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <title>Monnaie | Wedding Budgeting App</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Satisfy&display=swap" rel="stylesheet">
+    <!--Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+            <a class="navbar-item" href=""
+                style="font-family: 'Satisfy', cursive; text-align: center; color: #e17055;">
+                Monnaie
+            </a>
+            
+        </div>
+    </header>
+    <div class="card">
+        <div class="card-image">
+            <figure>
+                <img style="width: 1600px; height: 800px;" src="landing.gif" alt="Placeholder image">
+            </figure>
+        </div>
+    </div>
+    <br>
+        <div class="container">
+            <div class="card">
+                
+                <div class="face face1">
+                    <div class="content">
+                        <img class="icon" src="calculator.png" width="40px">
+                        <h3> Create A Budget</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Stay on track with our budgeting tool.
+                        </p>
+                        <br>
+                        <p>
+                            Monnaie offers an innovative application as a way to create, set and track your budget in detail as your big day approaches.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img class="icon" src="calendar.png" width="80px">
+                        <h3>Assign Tasks</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Create tasks and assign task deadlines to ensure
+                        </p>
+                        <p>
+                            the "to-do's" are completed before the "I do's."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img class="icon" src="chat.png" width="40px">
+                        <h3>Join the Community</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Connect with our community of self-made wedding planners, like yourself! 
+                        </p>
+                        <br>
+                        <p>
+                            You can share your vendors, photos or make a post all of your own to share your experiences, tips and tricks with the community.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+  
+    <div class="container" id="container" style="font-family: 'Bebas Neue'">
+        <div class="form-container sign-up-container">
+            <form action="/signup" method="post">
+                <h1 id="text">Create Account</h1>
+                <br>
+                <input class="form-input" type="text" placeholder="Name" />
+                <br>
+                <input class="form-input" name="email" type="email" placeholder="Email" />
+                <br>
+                <input class="form-input" name="username" type="text" placeholder="Username" />
+                <br>
+                <input class="form-input" name="password" type="password" placeholder="Password" />
+                <br>
+                <input class="submit-button" type="submit">Sign Up</input>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="/login" method="post">
+                <h1 id="text">Sign In</h1>
+                <br>
+                <input class="form-input" name="username" type="text" placeholder="Username" />
+                <br>
+                <input class="form-input" name="password" type="password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <input class="submit-button" type="submit">Sign In</input>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 id="sub-text">Welcome Back!</h1>
+                    <br>
+                    <p id="under-text">
+                        Sign-in to view your budget summary.
+                    </p>
+                    <br>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 id="sub-text">Not a Monnaie user?</h1>
+                    <br>
+                    <p id="under-text"> Sign-Up! It's free!</p>
+                    <br>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Copyright © 2021 Monnaie</strong>
+            <p>Contributors: Kevin Cho, Chad Cook, Katie Cowan, Charli Spilecki and Priya Garg</p>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>

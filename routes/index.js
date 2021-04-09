@@ -32,6 +32,7 @@ router.post('/signup', function(req, res) {
 
 // Login route for the user
 router.post('/login', passport.authenticate('local'), function(req, res) {
+  console.log('Logged in ' + req.user.username)
   res.redirect('/');
 });
 
@@ -113,6 +114,7 @@ router.get("/api/users", (req, res) => {
 
 // gets all the posts
 router.get("/api/posts", (req, res) => {
+  console.log('GET posts')
   Post.find({})
     .then(posts => {
       res.json(posts);
@@ -124,7 +126,7 @@ router.get("/api/posts", (req, res) => {
 
 // adds a post
 router.post("/api/posts", (req, res) => {
-
+  req.body.username = getUserName(req)
   Post.create(req.body)
     .then(posts => {
       res.json(posts);
@@ -133,6 +135,24 @@ router.post("/api/posts", (req, res) => {
       res.json(err);
     });
     
+});
+
+// adds a reply to a post
+router.post("/api/posts/:postID/comments", (req, res) => {
+
+  req.body.username = getUserName(req)
+  Post.findById(req.params.postID)
+    .then(post => {
+      post.comments.push(req.body)
+      return post.save()
+    })
+    .then(user => {
+      res.json(user);
+    })
+    .catch(err => {
+      res.send(err);
+    });
+
 });
 
 //creating a vendor 
