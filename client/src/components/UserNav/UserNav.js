@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import ReactIsStupid from './analytics.png';
+import image from './analytics.png';
 import SimpleFileUpload from 'react-simple-file-upload';
 import clsx from 'clsx';
 import '../../App.css'
@@ -167,7 +167,7 @@ const UserNav = ({ className, ...rest }) => {
                     </List>
                 </Typography>
 
-                <img style={styles.resize} src={ReactIsStupid}></img>
+                <img style={styles.resize} src={image}></img>
                 
                 <Typography
                     color="textSecondary"

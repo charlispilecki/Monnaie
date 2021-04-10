@@ -10,6 +10,7 @@ import PopUpForm from "../../components/PopUpForm";
 import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
 import API from "../../utils/API";
+import SimpleFileUpload from 'react-simple-file-upload';
 import "./style.css";
 
 const styles = {
@@ -72,14 +73,14 @@ function VendorContainer() {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
       }
-      setformInputState([ res.data,...formInputState]);
-      setfilteredVendors([ res.data,...formInputState]);
+      setformInputState([res.data, ...formInputState]);
+      setfilteredVendors([res.data, ...formInputState]);
     });
 
-   inputName.current.value="";
-   inputLocation.current.value="";
-  inputWebsite.current.value="";
-  inputPhoneNo.current.value="";
+    inputName.current.value = "";
+    inputLocation.current.value = "";
+    inputWebsite.current.value = "";
+    inputPhoneNo.current.value = "";
 
   };
 
@@ -92,7 +93,7 @@ function VendorContainer() {
 
   const handleInputChange = event => {
     event.preventDefault();
-    const temp= (event.target.value).toLowerCase();
+    const temp = (event.target.value).toLowerCase();
     setSearchState(temp);
   }
 
@@ -115,44 +116,40 @@ function VendorContainer() {
   //     setSearchState(formInputState);
   //   }
   // }
-
+  const [file, setFile] = useState({
+    file: ''
+  });
 
   return (
-    <div className="container">
-<div className="row"> 
-<div className="col-sm-12 col-md-3 mt-5"> <Profile /></div>
-<div className="col-sm-12 col-md-9 mt-5 text-center"> <h1 className="h1"><strong> Your Vendors  </strong></h1><SmoothScroll>
-  
-        <Jumbotron >
-        
-          <ModalVendor handleFormSubmit={handleFormSubmit}>
-            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
-              inputPhoneNo={inputPhoneNo} />
-          </ModalVendor >
-          <SearchForm handleInputChange={handleInputChange} />
-          <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
-        </Jumbotron >
-      </SmoothScroll>
-      <br></br>
-      <h1 className="h1"><strong> Your Photos </strong></h1>
-      <Carousel /></div>
 
-</div>
-      {/* <Profile />
-      <SmoothScroll>
-        <Jumbotron >
-          <ModalVendor handleFormSubmit={handleFormSubmit}>
-            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
-              inputPhoneNo={inputPhoneNo} />
-          </ModalVendor >
-          <SearchForm handleInputChange={handleInputChange} />
-          <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
-        </Jumbotron >
-      </SmoothScroll>
-      <Carousel />
- */}
+
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12 col-md-3 mt-5"> <Profile /></div>
+        <div className="col-sm-12 col-md-9 mt-5 text-center"> <h1 className="h1"><strong> Your Vendors  </strong></h1><SmoothScroll>
+
+          <Jumbotron >
+
+            <ModalVendor handleFormSubmit={handleFormSubmit}>
+              <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
+                inputPhoneNo={inputPhoneNo} />
+            </ModalVendor >
+            <SearchForm handleInputChange={handleInputChange} />
+            <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
+          </Jumbotron >
+        </SmoothScroll>
+          <br></br>
+          <h1 className="h1"><strong> Your Photos </strong></h1> <SimpleFileUpload
+            apiKey="5e1c52480a8af29dff971c9315d10703"
+            onSuccess={setFile}
+            width="120"
+            height="5"
+          />
+          <Carousel /></div>
 
       </div>
+
+    </div>
   );
 
 }
