@@ -10,7 +10,6 @@ import PopUpForm from "../../components/PopUpForm";
 import Profile from "../../components/UserNav/UserNav";
 import ModalVendor from "../../components/ModalVendor";
 import API from "../../utils/API";
-import SimpleFileUpload from 'react-simple-file-upload';
 import "./style.css";
 
 const styles = {
@@ -116,9 +115,7 @@ function VendorContainer() {
   //     setSearchState(formInputState);
   //   }
   // }
-  const [file, setFile] = useState({
-    file: ''
-  });
+
 
   return (
 
@@ -139,12 +136,7 @@ function VendorContainer() {
           </Jumbotron >
         </SmoothScroll>
           <br></br>
-          <h1 className="h1"><strong> Your Photos </strong></h1> <SimpleFileUpload
-            apiKey="5e1c52480a8af29dff971c9315d10703"
-            onSuccess={setFile}
-            width="120"
-            height="5"
-          />
+          <h1 className="h1"><strong> Your Photos </strong></h1>
           <Carousel /></div>
 
       </div>

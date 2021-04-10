@@ -73,6 +73,22 @@ const UserNav = ({ className, ...rest }) => {
         })
     }, [])
 
+    const handleChange = (event) => {
+        setFile({
+            ...file,
+            [event.target.name]: event.target.value
+        });
+    };
+
+    const saveDetails = () => {
+        API.updateUserDetails(file).then(() => {
+            window.location = '/Profile'
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
+
     return (
         /* Card on the left hand side of the page containing user information */
 
@@ -90,6 +106,8 @@ const UserNav = ({ className, ...rest }) => {
                     <SimpleFileUpload
                         apiKey="5e1c52480a8af29dff971c9315d10703"
                         onSuccess={setFile}
+                        onChange={handleChange}
+                        onClick={saveDetails}
                         width="120"
                         height="5"
                     />
@@ -158,8 +176,7 @@ const UserNav = ({ className, ...rest }) => {
                         <Divider />
                         <ListItem> {moment(user.date).format('MM/DD/YYYY')} </ListItem>
                         <Typography
-                            color="textPrimary"
-                        >
+                            color="textPrimary">
                             Guests: 
                         </Typography>
                         <Divider />
@@ -183,6 +200,7 @@ const UserNav = ({ className, ...rest }) => {
                                 variant="text"
                                 size="5px"
                                 href="/Chart"
+                                
                             >
                                 Your Budget
                            </Button>
