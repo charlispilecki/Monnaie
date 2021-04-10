@@ -42,6 +42,7 @@ After observing the difficulty in finding a suitable wedding budgeter online, or
 - [Google Fonts](https://fonts.google.com/)
 - [Font Awesome](https://fontawesome.com/)
 - [Robo 3T](https://robomongo.org/)
+- [Simple File Upload](https://www.simplefileupload.com/)
 - [W3 Schools](https://www.w3schools.com/)
 - [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
 
