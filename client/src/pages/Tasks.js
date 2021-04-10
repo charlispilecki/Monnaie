@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import 'bulma/css/bulma.css';
 // import "./style.css";
 import TaskCardModal from "../components/cardModal";
-// import Header  from "../components/Header";
-// import Navbar from "../components/Navbar";
 import { CardsWrap, Card, CardHead, CardBody } from "../components/Cards";
 import $ from "jquery";
-
-import Table from "../components/TableItem";
-// import { Table, TableRow, TableHead, TableHeader } from "../components/TableItem";
+import { IncompleteTable, CompleteTable } from "../components/TableItem";
 // import DeleteBtn from "../components/DeleteBtn";
 import AddBtn from "../components/AddBtn";
+import MonnaieContext from "../utils/MonnaieContext";
+import API from "../utils/API";
+// import IncompleteTable from "../components/TableItem";
 
 // class App extends Component {
 //     state = {
-//         tasks: [{}]
+//         tasks: JSON.stringify(globalTasks)
 //     }
 // }
 
@@ -43,36 +42,43 @@ const sampTasks = [
     },
 ];
 
-const test1 = {
-    description: "test1",
-    dueDate: "05/01/2021"
-}
-
-const test2 = {
-    description: "test2",
-    dueDate: "04/01/2021"
-}
-
 
 const TasksList = () => {
 
+    const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
+    
+    useEffect(()=> {
+        loadTasks();
+    }, [])
+
+    const loadTasks = () => {
+        API.getTasks()
+        .then(result => {
+            setGlobalTasks(result.data);
+         })
+        .catch(err => console.log(err));
+    };
+
+    console.log(globalTasks)
+
     return (
         <>
-        <CardsWrap>
-            <Card custStyle="card mr-2 has-background-primary-light">
-                <CardHead>Total # of Tasks</CardHead>
-                <CardBody>Body1</CardBody>
-            </Card>
-            <Card custStyle="card ml-2 has-background-info-light">
-                <CardHead># of Tasks Completed</CardHead>
-                <CardBody>Body2</CardBody>
-            </Card>
-        </CardsWrap>
-        <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
-        <TaskCardModal/>
-        <Table>test1</Table>
-        <Table></Table>
-        <Table></Table>
+            <CardsWrap>
+                <Card custStyle="card mr-2 has-background-primary-light">
+                    <CardHead>Total # of Tasks</CardHead>
+                    <CardBody>{globalTasks.length}</CardBody>
+                </Card>
+                {/* <Card custStyle="card ml-2 has-background-info-light">
+                    <CardHead># of Tasks Completed</CardHead>
+                    <CardBody>{console.log($("#completed").attr("data-number"))}</CardBody>                    
+                </Card> */}
+            </CardsWrap>
+            <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
+            {/* <p>{JSON.stringify(globalTasks)}</p> */}
+
+            <TaskCardModal />
+            <IncompleteTable />
+            <CompleteTable />
         </>
 
     )

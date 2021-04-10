@@ -23,6 +23,7 @@ function ModalVendor({ children, handleFormSubmit }) {
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button onClick={handleFormSubmit} type="button" className="btn btn-primary" data-bs-dismiss="modal">Submit</button>
             </div>
+
           </div>
         </div>
       </div>
@@ -31,10 +32,6 @@ function ModalVendor({ children, handleFormSubmit }) {
   );
 }
 export default ModalVendor;
-
-
-
-
 
 // function ModalVendor({children,handleFormSubmit}){
 //   return (

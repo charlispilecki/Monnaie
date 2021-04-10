@@ -23,7 +23,8 @@ const LoginDemo = () => {
             </div>
             <div className="field is-grouped mt-3 is-flex is-justify-content-center">
                 <div className="control">
-                    <button className="button is-link">Submit</button>
+                    
+                    <button className="button is-link" >Submit</button>
                 </div>
             </div>
         </form>

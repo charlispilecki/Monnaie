@@ -5,6 +5,6 @@ const taskRoutes = require("./tasks")
 // Vendor routes
 router.use("/vendor", vendorRoutes);
 
-router.use("/task", taskRoutes);
+router.use("/tasks", taskRoutes);
 
 module.exports = router;

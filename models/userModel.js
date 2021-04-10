@@ -39,10 +39,9 @@ const UserSchema = new Schema({
         website: String
     }],
     tasks: [{
-        desc: String,
-        dueDate: Number,
-        isComplete: Boolean,
-        
+        description: { type: String, required: true },
+        date: { type: String, required: true },
+        completed: { type: Boolean, default: false }
     }]
 });
 

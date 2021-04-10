@@ -37,7 +37,7 @@ router.post('/signup', function(req, res) {
       // anytime you make another request, it automatically has the username w/o the user providing it
       passport.authenticate('local')(req, res, function () {
         console.log('Authenticated user: ' + req.user.username)
-        res.redirect('/');
+        res.redirect('/Account');
       });
   });
 });
@@ -156,6 +156,7 @@ router.get("/api/users", (req, res) => {
 router.get("/api/posts", (req, res) => {
   console.log('GET posts')
   Post.find({})
+    .sort({ timestamp: -1 })
     .then(posts => {
       res.json(posts);
     })
