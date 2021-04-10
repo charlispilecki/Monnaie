@@ -5,8 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import 'jquery/dist/jquery';
 import logoCrop from '../../assets/logoCrop.png';
+import API from '../../utils/API'
 
 export default function Navbar() {
+
+    function logout(e) {
+        e.preventDefault()
+        API.logout().then(() => {
+            window.location = "landing.html"
+        })
+    }
     return (
         <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,7 +36,7 @@ export default function Navbar() {
                         <li className="nav-item"><Link to="/Budget" className="nav-link">Budget</Link></li>
                        
                     </ul>
-                    <span className="nav-left" > <a href="Logout" className="nav-link">Logout</a>  </span>
+                    <span className="nav-left" > <a onClick={logout} href="" className="nav-link">Logout</a>  </span>
                 </div>
             </div>
         </nav>

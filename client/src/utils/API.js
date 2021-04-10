@@ -19,7 +19,10 @@ export default {
   },
   // Gets the logged in user
   getUser: function() {
-    return axios.get("/api/user");
+    return axios.get("/api/user")
+  },
+  updateUserDetails: function(userDetails) {
+    return axios.put("/api/user", userDetails)
   },
   addBudgetCategory: function(category) {
     return axios.post("/api/categories", category);
@@ -32,5 +35,23 @@ export default {
   },
   createPost: function(post) {
     return axios.post("/api/posts", post);
+  },
+  getTasks: function() {
+    return axios.get("/api/tasks");
+  },
+  getTask: function(id) {
+    return axios.get("api/posts/" + id);
+  },
+  deleteTask: function(id) {
+    return axios.delete("/api/posts/" + id);
+  },
+  saveTask: function(taskData) {
+    return axios.post("/api/posts", taskData);
+  },
+  createComment: function(comment) {
+    return axios.post(`/api/posts/${comment.postID}/comments`, comment);
+  },
+  logout: function() {
+    return axios.get("/logout");
   }
 };

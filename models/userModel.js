@@ -8,9 +8,13 @@ const UserSchema = new Schema({
     username: String,
     password: String,
     venue: String,
-    date: Number,
-    time: Number,
-    numberOfGuests: Number,
+    date: String,
+    name: String,
+    phone: String,
+    city: String,
+    state: String,
+    venue: String,
+    guests: Number,
     goalBudget: Number,
     profilePhoto: {
         // TODO: 

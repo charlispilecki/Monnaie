@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import ReactIsStupid from './analytics.png';
 import SimpleFileUpload from 'react-simple-file-upload';
@@ -17,6 +17,9 @@ import {
     List,
     ListItem
 } from '@material-ui/core';
+import API from "../../utils/API"
+import moment from "moment"
+
 
 const styles = {
     resize: {
@@ -34,7 +37,7 @@ const user = {
 
 const useStyles = makeStyles(() => ({
     root: {
-        backgroundColor: 'red'
+        
     },
     avatar: {
         height: 100,
@@ -52,6 +55,21 @@ const useStyles = makeStyles(() => ({
 const UserNav = ({ className, ...rest }) => {
     const [file, setFile] = useState();
     const classes = useStyles();
+
+    const [user, setUser] = useState({
+        avatar: '',
+        name: '',
+        city: '',
+        venue: '',
+        guests: '',
+        date: ''
+    })
+    
+    useEffect(() => {
+        API.getUser().then(resp => {
+            setUser(resp.data)
+        })
+    }, [])
 
     return (
         /* Card on the left hand side of the page containing user information */
@@ -90,7 +108,7 @@ const UserNav = ({ className, ...rest }) => {
                         color="textSecondary"
                         variant="body1"
                     >
-                        {`${user.city} ${user.country}`}
+                        {`${user.city}`}
                     </Typography>
                     <Typography
                         className={classes.dateText}
@@ -109,6 +127,7 @@ const UserNav = ({ className, ...rest }) => {
                     size="5px"
                     href="/Account"
                 >
+
                     Edit Profile
         </Button>
             </CardActions>
@@ -119,20 +138,31 @@ const UserNav = ({ className, ...rest }) => {
                 flexDirection="column"
             >
                 <Typography
-                    color="textPrimary"
-                    fullWidth
-                    variant="h6"
-                >
-                    Wedding Details
-      </Typography>
-                <Typography
                     color="textSecondary"
                     variant="body1"
                 >
                     <List>
-                        <ListItem> Venue </ListItem>
-                        <ListItem>  Date </ListItem>
-                        <ListItem> Guests </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Venue: 
+                        </Typography>
+                        <Divider />
+                        <ListItem>{user.venue} </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Date: 
+                        </Typography>
+                        <Divider />
+                        <ListItem> {moment(user.date).format('MM/DD/YYYY')} </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Guests: 
+                        </Typography>
+                        <Divider />
+                        <ListItem>{user.guests} </ListItem>
                     </List>
                 </Typography>
 

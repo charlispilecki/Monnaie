@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 
 body {
   margin: 0px;
@@ -56,7 +57,7 @@ body {
   margin-left: 10px;
 }
 
-.center {
+#center {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   margin: 45px;
@@ -65,3 +66,162 @@ body {
 .border-right {
   border-right: 1px solid black;
 }
+
+/* Footer */
+body {
+  margin:0;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight:300;
+  letter-spacing: 2px;
+  font-size:48px;
+}
+p {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  font-size:14px;
+  color: #333333;
+}
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+  height:65vh;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.flex { /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  text-align:center;
+  background-color: #fff;
+}
+
+
+/** About Cards **/
+.container {
+  height: 200px;
+  width: 100px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.container .card {
+  position: relative;  
+  width: 900px;
+  
+}
+
+.card {
+  width: 100px;
+}
+
+.icon {
+  height:80px;
+  width: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container .card .face {
+  width: 450px;
+  transition: 0.5s;
+
+}
+.container .card .face.face1 {
+  position: relative;
+  height: 300px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+.container .card:hover .face.face1 {
+  background: #fff;
+  transform: translateY(0);
+}
+.container .card .face.face1 .content {
+  opacity: 0.2;
+  transition: 0.5s;
+}
+.container .card:hover .face.face1 .content {
+  opacity: 1;
+}
+.container .card .face.face1 .content img {
+  max-width: 100px;
+}
+.container .card .face.face1 .content h3 {
+  margin: 10px 0 0;
+  padding: 0;
+  color: black ;
+  text-align: center;
+  font-size: 1.5em;
+}
+.container .card .face.face2 {
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+  transform: translateY(-100px);
+}
+.container .card:hover .face.face2 {
+  transform: translateY(0);
+}
+.container .card .face.face2 .content p {
+  margin: 0;
+  padding: 0;
+}
+.container .card .face.face2 .content a {
+  margin: 15px 0 0;
+  display: inline-block;
+
+  text-decoration: none;
+  font-weight: 900;
+  color: #333;
+  padding: 5px;
+  border: 1px solid #333; 
+}
+.container .card .face.face2 .content a:hover {
+  background: #333;
+  color: #E17055;
+}
+
+

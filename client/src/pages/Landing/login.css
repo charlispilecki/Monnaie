@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 #ritzy {
   margin-top: 50px;
@@ -12,13 +14,16 @@
 }
 
 #text {
-  font-size: 25px;
-  letter-spacing: 2px;
-  color: #353b48;
+  font-size: 2vw;
+  letter-spacing: 4px;
+  color: #E17055;
+  font-weight: 600;
+  font-family: 'Anton', sans-serif;
 }
 h1 {
   font-weight: bold;
   margin: 0;
+  font-family:" Bebas Neue", sans-serif;
 }
 
 p {
@@ -62,8 +67,9 @@ button:focus {
 }
 
 button.ghost {
-  background-color: transparent;
-  border-color: #ffffff;
+  background-color: whitesmoke;
+  border-color: whitesmoke;
+  color: #353b48;
 }
 
 form {
@@ -109,6 +115,20 @@ input {
   z-index: 2;
 }
 
+#sub-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+#under-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
 .sign-up-container {
   left: 0;
   width: 50%;

@@ -127,7 +127,13 @@ export default function() {
             paidOffAmountTotal += amount
           })
         })
-        let percent = Math.floor((paidOffAmountTotal / getActualTotalCost()) * 100)
+        let actualTotalCost = getActualTotalCost()
+        let percent
+        if (actualTotalCost !== 0) {
+            percent = Math.floor((paidOffAmountTotal / actualTotalCost) * 100)
+        } else {
+            percent = 0
+        }
         return {
             paidOffAmountTotal: paidOffAmountTotal,
             paidOffPercent: percent

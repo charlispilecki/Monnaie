@@ -30,7 +30,7 @@ function VendorContainer() {
   const inputPhoneNo = useRef();
   const inputWebsite = useRef();
 
-  const [searchState, setSearchState] = useState("priya");
+  const [searchState, setSearchState] = useState("");
   const [formInputState, setformInputState] = useState([]);
   const [filteredVendors, setfilteredVendors] = useState([]);
 
@@ -47,12 +47,12 @@ function VendorContainer() {
     }).catch(err => console.log(err));
   };
 
-// Deletes a vendor from the database with a given id, then reloads vendors from the db
-function deleteVendor(id) {
-  API.deleteVendor(id)
-    .then(res => loadVendors())
-    .catch(err => console.log(err));
-}
+  // Deletes a vendor from the database with a given id, then reloads vendors from the db
+  function deleteVendor(id) {
+    API.deleteVendor(id)
+      .then(res => loadVendors())
+      .catch(err => console.log(err));
+  }
   const handleFormSubmit = e => {
     e.preventDefault();
 
@@ -77,38 +77,55 @@ function deleteVendor(id) {
     });
   };
 
-  // useEffect(() => 
-  // {
-  //   setfilteredVendors(formInputState.filter(mySearch => {
-  //         return mySearch.name.includes(searchState))
+  useEffect(() => {
+    setfilteredVendors(formInputState.filter(item => {
+      return item.name.includes(searchState)
+    }))
 
-  // },[searchState,formInputState])
+  }, [searchState, formInputState]);
 
-  // const handleInputChange = event => {
-  //   event.preventDefault();
-  //   setSearchState(event.target.value);
-  // }
-
-  const handleSearchChange = (event) => {
-    const inputSearch = event.target.value; //priya
-    console.log(inputSearch);
-    const results = formInputState.filter(mySearch => {
-      console.log(mySearch.name);
-      return mySearch.name.includes(event.target.value)
-       || mySearch.inputLocation.toLowerCase().includes(event.target.value) || mySearch.inputWebsite.toLowerCase().includes(event.target.value) || mySearch.inputPhoneNo.toLowerCase().includes(event.target.value)
-    });
-    console.log(results);
-
-    if (inputSearch) {
-      console.log("results");
-      setSearchState(results);
-
-    }
-    else {
-      setSearchState(formInputState);
-    }
+  const handleInputChange = event => {
+    event.preventDefault();
+    setSearchState(event.target.value);
   }
 
+  // const handleSearchChange = (event) => {
+  //   const inputSearch = event.target.value; 
+  //   console.log(inputSearch);
+  //   const results = formInputState.filter(mySearch => {
+  //     console.log(mySearch.name);
+  //     return mySearch.name.includes(event.target.value)
+  //      || mySearch.inputLocation.toLowerCase().includes(event.target.value) || mySearch.inputWebsite.toLowerCase().includes(event.target.value) || mySearch.inputPhoneNo.toLowerCase().includes(event.target.value)
+  //   });
+  //   console.log(results);
+
+  //   if (inputSearch) {
+  //     console.log("results");
+  //     setSearchState(results);
+
+  //   }
+  //   else {
+  //     setSearchState(formInputState);
+  //   }
+  // }
+
+
+  return (
+    <>
+      <Profile />
+      <SmoothScroll>
+        <Jumbotron >
+          <ModalVendor handleFormSubmit={handleFormSubmit}>
+            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
+              inputPhoneNo={inputPhoneNo} />
+          </ModalVendor >
+          <SearchForm handleInputChange={handleInputChange} />
+          <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
+        </Jumbotron >
+      </SmoothScroll>
+      <Carousel />
+
+<<<<<<< HEAD
     return (
       <>
       <div className="container row">
@@ -129,6 +146,11 @@ function deleteVendor(id) {
        
       </>
     );
+=======
 
-  }
-  export default VendorContainer;
+    </>
+  );
+>>>>>>> 774accec5da0b50c603aeaa8c3a4722c435fe7c3
+
+}
+export default VendorContainer;
