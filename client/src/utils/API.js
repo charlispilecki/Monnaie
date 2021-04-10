@@ -46,7 +46,7 @@ export default {
     return axios.delete("/api/posts/" + id);
   },
   saveTask: function(taskData) {
-    return axios.post("/api/posts", taskData);
+    return axios.post("/api/tasks", taskData);
   },
   createComment: function(comment) {
     return axios.post(`/api/posts/${comment.postID}/comments`, comment);
