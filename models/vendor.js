@@ -6,7 +6,8 @@ const VendorSchema = new Schema({
   location: { type: String },
   phone_no: { type: String },
   website: { type: String },
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
+  username: { type: String }
 });
 
 const Vendor = mongoose.model("Vendor", VendorSchema);

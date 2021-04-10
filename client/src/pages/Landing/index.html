@@ -10,6 +10,8 @@
     <title>Monnaie | Wedding Budgeting App</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <!--Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
@@ -21,40 +23,132 @@
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
             <a class="navbar-item" href=""
-                style="font-family: 'Berkshire Swash', cursive; text-align: center; color: #e17055;">
+                style="font-family: 'Satisfy', cursive; text-align: center; color: #e17055; font-size: 6vw;">
                 Monnaie
             </a>
+            
         </div>
     </header>
-    <div class="card">
+    <div class="header-card">
         <div class="card-image">
             <figure>
-                <img style="width: 2600px; height: 1250px;" src="Something Borrowed, Something Blue, Something to Budget for You.gif" alt="Placeholder image">
+                <img style="width: 1600px; height: 800px;" src="Something Borrowed, Something Blue, Something to Budget for You.gif" alt="Placeholder image">
             </figure>
         </div>
     </div>
-    <div class="columns-reverse" id="center">
-        <div class="column border-right">
-            <figure>
-                <img  style="float: right;" id="icon" src="laptop.png" alt="">
-            </figure>
-            <!-- <p class="title is-3 is-spaced"><img  style="float: right;" id="icon" src="laptop.png" alt=""></p> -->
-            <p class="subtitle is-5">Plan Your Wedding</p>
-            <p class="center">Start planning by adding your wedding details and creating a budget. </p>
-        </div>
-        <div class="column border-right">
-            <p id="icon"></p>
-            <p class="subtitle is-5">Track Your Tasks</p>
-            <p class="center"> Keep track of your wedding to-do's before the
-                wedding I do's.
-            </p>
-        </div>
-        <div class="column border-right">
-            <p class="title is-3 is-spaced"><img id="icon" src="laptop.png" alt=""></p>
-            <p class="subtitle is-5">Join the Community</p>
-            <p class="center"> Our community board gives our users a platform to  </p>
+    <br>
+        <div class="container">
+            <div class="card">   
+                <div class="face face1">
+                    <div class="content">
+                        <img class="icon" src="calculator (1).png" width="40px">
+                        <h3> Create A Budget</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Stay on track with our budgeting tool.
+                        </p>
+                        <br>
+                        <p>
+                            Monnaie offers an innovative application as a way to create, set and track your budget in detail as your big day approaches.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img class="icon" src="calendar.png" width="80px">
+                        <h3>Assign Tasks</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Create tasks and assign task deadlines to ensure
+                        </p>
+                        <p>
+                            the "to-do's" are completed before the "I do's."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <img class="icon" src="chat.png" width="40px">
+                        <h3>Join the Community</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <p>
+                            Connect with our community of self-made wedding planners, like yourself! 
+                        </p>
+                        <br>
+                        <p>
+                            You can share your vendors, photos or make a post all of your own to share your experiences, tips and tricks with the community.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <br>
+  
+    <div class="container" id="container" style="font-family: 'Bebas Neue'">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1 id="text">SIGN-UP</h1>
+                <br>
+                <input type="text" placeholder="Name" />
+                <br>
+                <input type="email" placeholder="Email" />
+                <br>
+                <input type="password" placeholder="Password" />
+                <br>
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1 id="text">LOGIN</h1>
+                <br>
+                <input type="email" placeholder="Email" />
+                <br>
+                <input type="password" placeholder="Password" />
+                <a href="#">Forgot password?</a>
+                <button> Let's Go! </button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 id="sub-text">Welcome Back!</h1>
+                    <br>
+                    <p id="under-text">
+                        Sign-in to view your budget summary.
+                    </p>
+                    <br>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 id="sub-text">New to Monnaie?</h1>
+                    <br>
+                    <p id="under-text"> Don't get cold feet....</p>
+                    <br>
+                    <p id="under-text"> Create an account for instant access!</p>
+                    <br>
+                    <button class="ghost" id="signUp"> Yes! Sign me up.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+    
     <footer class="footer">
         <div class="content has-text-centered">
             <p>

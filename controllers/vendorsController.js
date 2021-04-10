@@ -3,11 +3,17 @@ const db = require("../models");
 // Defining methods for the vendorsController
 module.exports = {
   findAll: function(req, res) {
-    db.Vendor
-      .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    if (!req.user) {
+      console.log('Not logged in')
+      res.status(422).json('Not logged in')
+    } else {
+      console.log('Getting vendors for ' + req.user.username)
+      db.Vendor
+        .find({username: req.user.username})
+        .sort({ date: -1 })
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    }
   },
   findById: function(req, res) {
     db.Vendor
@@ -16,8 +22,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log('Creating vendor for ' + req.user.username)
+    let vendor = req.body
+    vendor.username = req.user.username
     db.Vendor
-      .create(req.body)
+      .create(vendor)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

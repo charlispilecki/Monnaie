@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Budget from "./components/Budget/index";
 import Chart from "./components/Chart/index";
@@ -14,6 +13,8 @@ import Footer from "./components/Footer";
 import LoginDemo from "./components/Demo/LoginDemo"
 import Community from "./components/Community"
 import TasksList from "./pages/Tasks";
+import Account from "./components/Account/Account"
+import AccountDetails from "./components/Account/Account";
 
 export default function App() {
     return (
@@ -34,11 +35,14 @@ export default function App() {
               <Route path="/Community">
                   <Community></Community>
               </Route>
-              <Route path="/Task">
+              <Route path="/task">
                   <TasksList></TasksList>
               </Route>
+              <Route path="/Account">
+                <Account />
+              </Route>
               <Route path="/">
-                <LoginDemo></LoginDemo>
+                <Profile />
               </Route>
             </Switch>
             <Footer></Footer>
