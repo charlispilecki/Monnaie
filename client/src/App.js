@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,35 +15,44 @@ import Community from "./components/Community"
 import TasksList from "./pages/Tasks";
 import Account from "./components/Account/Account"
 import AccountDetails from "./components/Account/Account";
+import MonnaieContext from "./utils/MonnaieContext";
 
 export default function App() {
+
+    const [globalTasks, setGlobalTasks] = useState([]);
+    
     return (
         <Router>
-          <div>
-            <Header></Header>
-            <Navbar></Navbar>
-            <Switch>
-              <Route path="/Budget">
-                <Budget />
-              </Route>
-              <Route path="/Chart">
-                <Chart />
-              </Route>
-              <Route path="/Profile">
-                <Profile />
-              </Route>
-              <Route path="/Community">
-                  <Community></Community>
-              </Route>
-              <Route path="/task">
-                  <TasksList></TasksList>
-              </Route>
-              <Route path="/">
-                <Account />
-              </Route>
-            </Switch>
-            <Footer></Footer>
-          </div>
+          <MonnaieContext.Provider value={{globalTasks, setGlobalTasks}}>
+            <div>
+              <Header></Header>
+              <Navbar></Navbar>
+              <Switch>
+                <Route path="/Budget">
+                  <Budget />
+                </Route>
+                <Route path="/Chart">
+                  <Chart />
+                </Route>
+                <Route path="/Profile">
+                  <Profile />
+                </Route>
+                <Route path="/Community">
+                    <Community></Community>
+                </Route>
+                <Route path="/task">
+                    <TasksList></TasksList>
+                </Route>
+                <Route path="/Account">
+                  <Account />
+                </Route>
+                <Route path="/">
+                  <Profile />
+                </Route>
+              </Switch>
+              <Footer></Footer>
+            </div>
+          </MonnaieContext.Provider>
         </Router>
     )
 }
