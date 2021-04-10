@@ -141,6 +141,7 @@ p {
 .container .card {
   position: relative;  
   width: 900px;
+  margin: 3px;
   
 }
 
