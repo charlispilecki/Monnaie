@@ -21,7 +21,7 @@ import { FaPlusCircle } from 'react-icons/fa';
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button onClick={handleFormSubmit} type="button" className="btn btn-primary">Submit</button>
+            <button onClick={handleFormSubmit} type="button" className="btn btn-primary" data-bs-dismiss="modal">Submit</button>
           </div>
         </div>
       </div>

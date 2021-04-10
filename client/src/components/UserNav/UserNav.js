@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     card: {
         width: 240,
         height: 425,
-        marginTop: 200,
+        marginTop: 20,
         fontFamily: "Arial"
     }
 
