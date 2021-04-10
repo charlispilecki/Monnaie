@@ -1,21 +1,23 @@
 import React, { useRef, useContext } from "react";
 import $ from "jquery";
-import { useStoreContext } from "../../utils/GlobalState";
-import { ADD_TASK, LOADING } from "../../utils/actions";
+import Moment from 'react-moment';
+// import { useStoreContext } from "../../utils/GlobalState";
+// import { ADD_TASK, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
 import MonnaieContext from "../../utils/MonnaieContext";
 
 
+
 function TaskCardModal() {
   const descriptionRef = useRef();
-  const dueDateRef = useRef();
+  const dateRef = useRef();
   const {globalTasks, setGlobalTasks} = useContext(MonnaieContext);
 
   const handleSubmit = e => {
     e.preventDefault();
     API.saveTask({
       description: descriptionRef.current.value,
-      dueDate: dueDateRef.current.value,
+      date: dateRef.current.value,
       completed: false
     })
       .then(result => {
@@ -23,8 +25,9 @@ function TaskCardModal() {
     })
       .catch(err => console.log(err));
     hideTaskForm();
+    window.location.reload();
     descriptionRef.current.value = "";
-    dueDateRef.current.value = "";
+    dateRef.current.value = "";
   };
 
   function hideTaskForm() {
@@ -43,7 +46,7 @@ function TaskCardModal() {
             <section class="modal-card-body">
                 <form>
                     <input id="description" class="input" placeholder="Description" ref={descriptionRef} />
-                    <input id="date" class="input datepicker" data-provide="datepicker" ref={dueDateRef} placeholder="Date Due" />
+                    <input id="date" class="input datepicker" data-provide="datepicker" ref={dateRef} placeholder="Date Due" />
                 </form>                    
             </section>
             <footer class="modal-card-foot">

@@ -22,7 +22,7 @@ export function CardHead({ children }) {
 
 export function CardBody({ children }) {
     return (
-        <div className="card-content is-flex is-justify-content-center">
+        <div className="card-content is-flex is-justify-content-center" style={{fontSize: "1.5rem"}}>
             <div className="content">{children}</div>
         </div>
     )    

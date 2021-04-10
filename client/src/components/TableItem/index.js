@@ -1,98 +1,242 @@
-import React from "react";
-// import BootstrapTable from "react-bootstrap-table-next";
+import React, { useContext, useEffect } from "react";
+import $ from "jquery";
+import MonnaieContext from "../../utils/MonnaieContext";
+import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
+import Moment from "react-moment";
+import moment from "moment";
+import TasksList from "../../pages/Tasks";
 
 
-// export function Table({ children }) {
-//     return <table className={"table is-bordered is-striped is-narrow is-hoverable is-fullwidth"}>{children}</table>;
+
+// console.log(currentDate)
+
+// export default function() {
+//     const currentDate = moment().format("MM/DD/YYYY");
+
+//     const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
+
+//     useEffect(()=> {
+//         loadTasks();
+//     }, [])
+
+//     const loadTasks = () => {
+//         API.getTasks()
+//         .then(result => {
+//             // console.log(result)
+//             setGlobalTasks(result.data);
+//          })
+//         .catch(err => console.log(err));
+//     };
+
+//     // console.log(globalTasks)
+
+//     // const currentDate = <Moment format="MM/DD/YYYY" />
+
+//     return (
+//         <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+//                {globalTasks.map(function(task) {
+//                 console.log(task)
+//                 // let taskColor
+//                 // if (task.data.date < currentDate ) {
+//                 //     console.log("old date")
+//                 //     taskColor = "black"
+//                 // }
+//                 const taskColor = "color: black";
+//                 return (
+                    
+                    
+//                     <IncompleteTable key={task.desc}
+//                     task={task}
+//                     color={taskColor} />
+//                 )  
+        
+        
+                                                
+//         }
+//     )                        
+//     }
+//     </table>
+//     )
+
+    
+
+// // {
+// //     globalTasks.map(function(index) => {
+// //         console.log(index)
+// //         let taskColor
+// //         if (index % 2 === 0) {
+// //             // Even rows
+// //             taskColor = "#FFB7B2"
+// //         } else {
+// //             // Odd rows
+// //             taskColor = "#FFECF5" 
+// //         }
+// //         return (  
+// //             <IncompleteTable
+// //             // setGlobalTasks={setGlobalTasks}
+// //             // globalTasks={globalTasks}           
+// //             color={taskColor}
+// //             />                
+// //         )
+// //     })
+// // }
 // }
 
-// export function TableHead({ fluid, children }) {
-//     return <thead className={`tableHead${fluid ? "-fluid" : ""}`}>{children}</thead>;
+// const changeTaskColor= (task) => {
+//     console.log(task);
+//     // let taskColor
+//     // if (task.data.date < currentDate ) {
+//     //     console.log("old date")
+//     //     taskColor = "black"
+//     // }
+//     var color = "black";
+//     IncompleteTable(color);
+//     // newTaskColor(color);
 // }
+// const color = black;
 
-// export function TableBody({ fluid, children }) {
-//     return <tbody className={`tableBody${fluid ? "-fluid" : ""}`}>{children}</tbody>;
-// }
+export function IncompleteTable() {
 
-// export function TableRow({ fluid, children }) {
-//     return <table className={`tableRow${fluid ? "-fluid" : ""}`}>{children}</table>;
-// }
+    const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
 
-// export function TableHeader({ fluid, children }) {
-//     return <th className={`tableheader${fluid ? "-fluid" : ""}`}>{children}</th>;
-// }
+    useEffect(()=> {
+        loadTasks();
+    }, [])
 
-// export function TableData({ children }) {
-//     return <td className="is-flex is-justify-content-space-between">{ children }</td>;
-// }
+    const loadTasks = () => {
+        API.getTasks()
+        .then(result => {
+            setGlobalTasks(result.data);
+         })
+        .catch(err => console.log(err));
+    };
 
-// const deleteTask = () => {
-//     dispatch({
-//         type: REMOVE_TASK,
-//         _id: state.currentTask._id
-//     })
-// }
+    function handleClick(taskId) {
+        var id = taskId;
 
-function Table(props) {
+        const taskCompleted = {
+            completed: true};
+
+            $.ajax("/api/tasks/" + id, {
+                type: "PUT",
+                data: taskCompleted
+              }).then(
+                function() {
+                  console.log("changed Completed to true");
+                  // Reload the page to get the updated list
+                  window.location.reload();
+                }
+              );
+        }
+    
+    function deleteTask(id) {
+        console.log(id)
+        API.deleteTask(id)
+        .then(result => {
+            setGlobalTasks([result.data, ...globalTasks]);
+            window.location.reload();
+        })
+    }
+
+    // const currentDate = moment().format("MM/DD/YYYY");
+
+    // function changeTaskColor(task) {
+    //     console.log(task);
+    //     let taskColor
+    //     if (task.data.date < currentDate ) {
+    //         console.log("old date")
+    //         taskColor = "black"
+    //     }
+    //     color = taskColor;
+    //     // newTaskColor(color);
+    // }
+    
+
     return (
-        <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-            <thead>
-                <tr>
-                    <th className="is-flex is-justify-content-space-between">
-                        {props.description}
-                        task
-                        <div className="is-flex is-align-items-center">
-                            <div>{props.dueDate}05/01/2021</div>
-                            <DeleteBtn/>
-                        </div>
-                    </th>
-                </tr>
-            </thead>
-        </table>
+            <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                    {globalTasks.map(function(task) {
+                        // console.log(task);
+                        // changeTaskColor(task);
+                        // function newTaskColor(color) {
+                            if (task.completed == false) {
+                            return (
+                                <tr>
+                                <th id="completed" data-number={task.completed.length} className="is-flex is-justify-content-space-between" style={{backgroundColor: "#FFB7B2", height: '3rem'}}>
+                                    {task.description}
+                                    <div className="is-flex is-align-items-center">
+                                        <div>{task.date}</div>
+                                        <button className="mx-3" onClick={()=>  handleClick(task._id)}>Complete</button>
+                                        <DeleteBtn onClick={() => deleteTask(task._id)} />
+                                    </div>
+                                </th>
+                            </tr>
+                            )                            
+                        }
+                        }
+                    )                        
+                    }
+                </thead>
+            </table>
     )
 }
 
-export default Table;
+export function CompleteTable() {
 
-// export function Table({ style, children }) {
-//     return <table className={style}>{children}</table>;
-// }
+    const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
 
-// export function TableHead({ style, children }) {
-//     return <thead className={style}>{children}</thead>;
-// }
+    useEffect(()=> {
+        loadTasks();
+    }, [])
 
-// export function TableBody({ style, children }) {
-//     return <tbody className={style}>{children}</tbody>;
-// }
+    const loadTasks = () => {
+        API.getTasks()
+        .then(result => {
+            setGlobalTasks(result.data);
+         })
+        .catch(err => console.log(err));
+    };
 
-// export function TableRow({ style, children }) {
-//     return <table className={style}>{children}</table>;
-// }
+    // const taskState = JSON.stringify(globalTasks);
 
-// export function TableHeader({ style, children }) {
-//     return <th className={style}>{children}</th>;
-// }
+    // const sortedGlobalTasks = globalTasks.dueDate.sort();
 
-// export function TableData({ style, children }) {
-//     return <td className={style}>{ children }</td>;
-// }
+    // console.log(globalTasks.dueDate)
 
-// function Table(props) {
-    
-//     return <BootstrapTable 
-//     keyField="id"
-//     data={ props.custData }
-//     columns = { props.columns }
-//     // sort={ [
-//     //     { dataField: "name", order: "asc" },
-//     //     { dataField: "location", order: "asc"},
-//     //     { dataField: "email", order: "asc"}
-//     // ]}
-//     striped
-//     hover    
-//     />
-// }
+    function deleteTask(id) {
+        console.log(id)
+        API.deleteTask(id)
+        .then(result => {
+            setGlobalTasks([result.data, ...globalTasks]);
+            window.location.reload();
+        })
+    }
 
-// export default Table;
+    return (
+            <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                    {globalTasks.map(function(task) {
+                        if (task.completed == true) {
+                            return (
+                                <tr>
+                                <th className="is-flex is-justify-content-space-between" style={{backgroundColor:'lightGray', height: '3rem'}}>
+                                    {task.description}
+                                    <div className="is-flex is-align-items-center">
+                                        <div>{task.date}</div>
+                                        <div>Completed</div>
+                                        <DeleteBtn onClick={() => deleteTask(task._id)} />
+                                        {/* task.completed.length    */}
+                                    </div>
+                                </th>
+                            </tr>
+                            )                            
+                        } 
+                                                        
+                        }
+                    )                     
+                    }
+                </thead>
+            </table>
+    )
+}

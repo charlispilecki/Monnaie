@@ -40,13 +40,16 @@ export default {
     return axios.get("/api/tasks");
   },
   getTask: function(id) {
-    return axios.get("api/posts/" + id);
+    return axios.get("api/tasks/" + id);
   },
   deleteTask: function(id) {
-    return axios.delete("/api/posts/" + id);
+    return axios.delete("/api/tasks/" + id);
   },
   saveTask: function(taskData) {
     return axios.post("/api/tasks", taskData);
+  },
+  updateTaskCompleted: function(taskCompleted) {
+    return axios.put("/api/tasks/"+ taskCompleted)
   },
   createComment: function(comment) {
     return axios.post(`/api/posts/${comment.postID}/comments`, comment);
