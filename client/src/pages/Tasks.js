@@ -1,4 +1,4 @@
-import React,  {useContext} from "react";
+import React, { useContext, useEffect } from "react";
 import 'bulma/css/bulma.css';
 // import "./style.css";
 import TaskCardModal from "../components/cardModal";
@@ -12,6 +12,7 @@ import $ from "jquery";
 // import DeleteBtn from "../components/DeleteBtn";
 import AddBtn from "../components/AddBtn";
 import MonnaieContext from "../utils/MonnaieContext";
+import API from "../utils/API";
 
 // class App extends Component {
 //     state = {
@@ -47,23 +48,36 @@ function showTaskForm() {
 
 const TasksList = () => {
 
-    const {globalTasks, setGlobalTasks} = useContext(MonnaieContext);
+    const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
+    
+    useEffect(()=> {
+        loadTasks();
+    }, [])
+
+    const loadTasks = () => {
+        API.getTasks()
+        .then(result => {
+            setGlobalTasks(result.data);
+         })
+        .catch(err => console.log(err));
+    };
+
 
     return (
         <>
-        <CardsWrap>
-            <Card custStyle="card mr-2 has-background-primary-light">
-                <CardHead>Total # of Tasks</CardHead>
-                <CardBody>Body1</CardBody>
-            </Card>
-            <Card custStyle="card ml-2 has-background-info-light">
-                <CardHead># of Tasks Completed</CardHead>
-                <CardBody>Body2</CardBody>
-            </Card>
-        </CardsWrap>
-        <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
-        <p>{JSON.stringify(globalTasks)}</p>
-        {/* <div class="modal">
+            <CardsWrap>
+                <Card custStyle="card mr-2 has-background-primary-light">
+                    <CardHead>Total # of Tasks</CardHead>
+                    <CardBody>Body1</CardBody>
+                </Card>
+                <Card custStyle="card ml-2 has-background-info-light">
+                    <CardHead># of Tasks Completed</CardHead>
+                    <CardBody>Body2</CardBody>
+                </Card>
+            </CardsWrap>
+            <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
+            <p>{JSON.stringify(globalTasks)}</p>
+            {/* <div class="modal">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
@@ -82,8 +96,8 @@ const TasksList = () => {
                 </footer>
             </div>
         </div> */}
-        <TaskCardModal/>
-        {/* <Table tasks={this.state.tasks}></Table>               */}
+            <TaskCardModal />
+            {/* <Table tasks={this.state.tasks}></Table>               */}
         </>
 
     )

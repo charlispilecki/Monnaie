@@ -19,7 +19,7 @@ function TaskCardModal() {
       completed: false
     })
       .then(result => {
-        setGlobalTasks(result.data);
+        setGlobalTasks([result.data, ...globalTasks]);
     })
       .catch(err => console.log(err));
     hideTaskForm();
