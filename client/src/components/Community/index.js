@@ -41,6 +41,7 @@ export default function() {
     }
 
     return (
+        <div className="">
         <div className="container">
 
             {showCreatePostForm && <CreatePostForm setShowCreatePostForm={setShowCreatePostForm} savePost={savePost}></CreatePostForm>}
@@ -67,11 +68,14 @@ export default function() {
                 })
             }
         </div>
+        </div>
     )
 }
 
 function Post({post, showCommentForm}) {
+    const [showComments, setShowComments] = useState(false)
     return (
+        <div className="mb-6">
         <div className="box">
             <div className="is-flex is-justify-content-flex-end">
                 <small className="mr-6">Created by: {post.username}</small>
@@ -83,30 +87,48 @@ function Post({post, showCommentForm}) {
             <div className="mb-5">
                 <p>{post.body}</p>
             </div>
-            <div className="is-flex is-justify-content-flex-end mb-6">
-                <button onClick={() => showCommentForm(post._id)} className="button is-info is-outlined mb-2">
-                    Reply ({post.comments.length})
+            <div className="is-flex is-justify-content-flex-end">
+
+                {
+                    showComments ? 
+                        <button onClick={() => setShowComments(false)} className="button is-info is-outlined mb-2" style={{width: '150px'}}>
+                            Hide Replies
+                        </button> :
+                        <button onClick={() => setShowComments(true)} className="button is-info is-outlined mb-2" style={{width: '150px'}}>
+                            Show Replies ({post.comments.length})
+                        </button>
+                }
+                
+                
+                <button onClick={() => showCommentForm(post._id)} className="button is-info is-outlined mb-2 ml-3" style={{width: '150px'}}>
+                    Reply
                 </button>
             </div>
-            <div>
-                {
-                    post.comments.map(comment => {
-                        return <Comment key={comment._key} comment={comment}></Comment>
-                    })
-                }
-            </div>
+        </div>
+        {
+            showComments &&
+                <div className="pb-6">
+                    {
+                        post.comments.map(comment => {
+                            return <Comment key={comment._key} comment={comment}></Comment>
+                        })
+                    }
+                </div>
+        }
+        
         </div>
     )
 }
 
 function Comment({comment}) {
     return (
-        <div>
+        <div className="box ml-6 mr-3">
             <div className="is-flex is-justify-content-flex-end">
                 <small className="mr-6">Created by: {comment.username}</small>
                 <small className="mr-3">Posted: {moment(comment.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</small>
             </div>
-            {comment.body}
+            <p className="p-2 mt-3">{comment.body}</p>
+            
         </div>
     )
 }

@@ -38,8 +38,11 @@ export default function App() {
               <Route path="/task">
                   <TasksList></TasksList>
               </Route>
-              <Route path="/">
+              <Route path="/Account">
                 <Account />
+              </Route>
+              <Route path="/">
+                <Profile />
               </Route>
             </Switch>
             <Footer></Footer>
