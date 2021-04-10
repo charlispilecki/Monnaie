@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import './App.css'
+import '../../App.css'
 import {
     Avatar,
     Box,
@@ -15,18 +15,12 @@ import {
     List,
     ListItem
 } from '@material-ui/core';
-
-const user = {
-    avatar: 'https://img1.wsimg.com/isteam/ip/35bece9a-24ba-4602-9b5d-42d937deffd9/0.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25',
-    city: 'Austin',
-    country: 'USA',
-    jobTitle: 'Senior Developer',
-    name: 'Katie Cowan',
-};
+import API from "../../utils/API"
+import moment from "moment"
 
 const useStyles = makeStyles(() => ({
     root: {
-        backgroundColor: 'red'
+        
     },
     avatar: {
         height: 100,
@@ -34,7 +28,7 @@ const useStyles = makeStyles(() => ({
     },
     card: {
         width: 240,
-        height: 425,
+        height: 500,
         marginTop: 200,
         fontFamily: "Arial"
     }
@@ -43,6 +37,21 @@ const useStyles = makeStyles(() => ({
 
 const UserNav = ({ className, ...rest }) => {
     const classes = useStyles();
+
+    const [user, setUser] = useState({
+        avatar: '',
+        name: '',
+        city: '',
+        venue: '',
+        guests: '',
+        date: ''
+    })
+    
+    useEffect(() => {
+        API.getUser().then(resp => {
+            setUser(resp.data)
+        })
+    }, [])
 
     return (
         /* Card on the left hand side of the page containing user information */
@@ -59,7 +68,7 @@ const UserNav = ({ className, ...rest }) => {
                 >
                     <Avatar
                         className={classes.avatar}
-                        src={user.avatar}
+                        src="https://img1.wsimg.com/isteam/ip/35bece9a-24ba-4602-9b5d-42d937deffd9/0.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25"
                     />
                     <br />
                     <Typography
@@ -74,7 +83,7 @@ const UserNav = ({ className, ...rest }) => {
                         color="textSecondary"
                         variant="body1"
                     >
-                        {`${user.city} ${user.country}`}
+                        {`${user.city}`}
                     </Typography>
                     <Typography
                         className={classes.dateText}
@@ -91,7 +100,9 @@ const UserNav = ({ className, ...rest }) => {
                     fullWidth
                     variant="text"
                     size="5px"
+                    href="/Account"
                 >
+
                     Edit Profile
         </Button>
             </CardActions>
@@ -102,20 +113,31 @@ const UserNav = ({ className, ...rest }) => {
                 flexDirection="column"
             >
                 <Typography
-                    color="textPrimary"
-                    fullWidth
-                    variant="h6"
-                >
-                    Wedding Details
-      </Typography>
-                <Typography
                     color="textSecondary"
                     variant="body1"
                 >
                     <List>
-                        <ListItem> Venue </ListItem>
-                        <ListItem>  Date </ListItem>
-                        <ListItem> Guests </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Venue: 
+                        </Typography>
+                        <Divider />
+                        <ListItem>{user.venue} </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Date: 
+                        </Typography>
+                        <Divider />
+                        <ListItem> {moment(user.date).format('MM/DD/YYYY')} </ListItem>
+                        <Typography
+                            color="textPrimary"
+                        >
+                            Guests: 
+                        </Typography>
+                        <Divider />
+                        <ListItem>{user.guests} </ListItem>
                     </List>
                 </Typography>
                 <hr />

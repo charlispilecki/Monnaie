@@ -1,0 +1,13 @@
+.card {
+    margin: 40px;
+    width: 15rem;
+}
+
+.card-header {
+    width: 15rem;
+    max-height: 3rem;
+}
+
+.card-content {
+    height: 5rem;
+}

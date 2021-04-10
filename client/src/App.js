@@ -1,27 +1,58 @@
+import React, {useState} from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Budget from "./components/Budget/index";
+import Chart from "./components/Chart/index";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Profile from "./pages/VendorContainer";
+import Footer from "./components/Footer";
+import LoginDemo from "./components/Demo/LoginDemo"
+import Community from "./components/Community"
+import TasksList from "./pages/Tasks";
+import Account from "./components/Account/Account"
+import AccountDetails from "./components/Account/Account";
+import MonnaieContext from "./utils/MonnaieContext";
 
-import React from 'react';
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import VendorContainer from './pages/VendorContainer/index';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "./App.css";
-// import TasksList from "./pages/Tasks";
-// import AotherComonent from './components/another-component.component.js';
-// import ThreeComponent from './components/three-component.comonent.js';
+export default function App() {
 
-function App() { 
-  return (    
-   
-
-    <Router>
-      
+    const [globalTasks, setGlobalTasks] = useState([]);
     
-     <VendorContainer />
-     
-      {/* <Route path="/budget" exact component = {Budget} /> */}
-      {/* <Route exact path="/task" exact component = {TasksList} /> */}
-      {/* <Route path="/community" exact component = {Community} /> */}
-    </Router>
-  );
+    return (
+        <Router>
+          <MonnaieContext.Provider value={{globalTasks, setGlobalTasks}}>
+            <div>
+              <Header></Header>
+              <Navbar></Navbar>
+              <Switch>
+                <Route path="/Budget">
+                  <Budget />
+                </Route>
+                <Route path="/Chart">
+                  <Chart />
+                </Route>
+                <Route path="/Profile">
+                  <Profile />
+                </Route>
+                <Route path="/Community">
+                    <Community></Community>
+                </Route>
+                <Route path="/task">
+                    <TasksList></TasksList>
+                </Route>
+                <Route path="/Account">
+                  <Account />
+                </Route>
+                <Route path="/">
+                  <Profile />
+                </Route>
+              </Switch>
+              <Footer></Footer>
+            </div>
+          </MonnaieContext.Provider>
+        </Router>
+    )
 }
-
-export default App;

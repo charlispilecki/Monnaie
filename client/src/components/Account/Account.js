@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import {
+import { 
     Box,
     Button,
     Card,
@@ -10,8 +10,9 @@ import {
     Divider,
     Grid,
     TextField,
-    makeStyles
+    makeStyles, 
 } from '@material-ui/core';
+import API from '../../utils/API'
 
 const states = [
     {
@@ -224,16 +225,21 @@ const useStyles = makeStyles(() => ({
 const AccountDetails = ({ className, ...rest }) => {
     const classes = useStyles();
     const [values, setValues] = useState({
-        firstName: 'Katie',
-        lastName: 'Cowan',
-        email: 'kcowan@twu.edu',
+        name: '',
+        email: '',
         phone: '',
-        city: 'Austin',
-        state: 'Texas',
-        venue: 'USA',
-        guests: '100',
-        date: '09-30-2023'
+        city: '',
+        state: '',
+        venue: '',
+        guests: '',
+        date: ''
     });
+
+    useEffect(() => {
+        API.getUser().then(resp => {
+            setValues(resp.data)
+        })
+    }, [])
 
     const handleChange = (event) => {
         setValues({
@@ -241,6 +247,14 @@ const AccountDetails = ({ className, ...rest }) => {
             [event.target.name]: event.target.value
         });
     };
+
+    const saveDetails = () => {
+        API.updateUserDetails(values).then(() => {
+            window.location = '/Profile'
+        }).catch(err => {
+            console.log(err)
+        })
+    }
 
     return (
         <form
@@ -267,27 +281,12 @@ const AccountDetails = ({ className, ...rest }) => {
                         >
                             <TextField
                                 fullWidth
-                                helperText="Please specify the first name"
-                                label="First name"
-                                name="firstName"
+                                helperText="Please specify the name"
+                                label="Name"
+                                name="name"
                                 onChange={handleChange}
                                 required
-                                value={values.firstName}
-                                variant="outlined"
-                            />
-                        </Grid>
-                        <Grid
-                            item
-                            md={6}
-                            xs={12}
-                        >
-                            <TextField
-                                fullWidth
-                                label="Last name"
-                                name="lastName"
-                                onChange={handleChange}
-                                required
-                                value={values.lastName}
+                                value={values.name}
                                 variant="outlined"
                             />
                         </Grid>
@@ -419,6 +418,7 @@ const AccountDetails = ({ className, ...rest }) => {
                     <Button
                         color="primary"
                         variant="contained"
+                        onClick={saveDetails}
                     >
                         Save
           </Button>
