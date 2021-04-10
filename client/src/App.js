@@ -8,6 +8,7 @@ import Budget from "./components/Budget/index";
 import Chart from "./components/Chart/index";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import Landing from "./pages/Landing/testfileforphotos";
 import Profile from "./pages/VendorContainer";
 import Footer from "./components/Footer";
 import LoginDemo from "./components/Demo/LoginDemo"
