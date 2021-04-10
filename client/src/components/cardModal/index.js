@@ -5,30 +5,39 @@ import { ADD_TASK, LOADING } from "../../utils/actions";
 import API from "../../utils/API";
 
 function TaskCardModal() {
-//   const descriptionRef = useRef();
-//   const dueDateRef = useRef();
+  const descriptionRef = useRef();
+  const dateRef = useRef();
+//   const state = useStoreContext();
+  const dispatch = useStoreContext();
 //   const [state, dispatch] = useStoreContext();
 
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     dispatch({ type: LOADING });
-//     API.saveTask({
-//       description: descriptionRef.current.value,
-//       dueDate: dueDateRef.current.value,
-//       completed: false
-//     })
-//       .then(result => {
-//         dispatch({
-//           type: ADD_TASK,
-//           task: result.data
-//         });
-//       })
-//       .catch(err => console.log(err));
-//     hideTaskForm();
+  function handleSubmit(e) {
+      handleFormSubmit(e);
+      console.log(dateRef.current.value);
+      hideTaskForm();
+  }
 
-//     descriptionRef.current.value = "";
-//     dueDateRef.current.value = "";
-//   };
+  const handleFormSubmit = e => {
+    console.log(descriptionRef.current.value, dateRef.current.value);
+    // console.log();
+    hideTaskForm();
+    e.preventDefault();
+    // dispatch({ type: LOADING });
+    API.saveTask({
+      description: descriptionRef.current.value,
+      dueDate: dateRef.current.value,
+      completed: false
+    })
+      .then(result => {
+        dispatch({
+          type: ADD_TASK,
+          task: result.data
+        });
+      })
+      .catch(err => console.log(err));
+    descriptionRef.current.value = "";
+    dateRef.current.value = "";
+  };
 
   function hideTaskForm() {
     console.log("button click");
@@ -36,24 +45,21 @@ function TaskCardModal() {
     }
 
   return (
-    <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Task</p>
-                <button class="delete" aria-label="close" onClick={hideTaskForm}></button>
+    <div className="modal">
+        <div className="modal-background"></div>
+        <div className="modal-card">
+            <header className="modal-card-head">
+                <p className="modal-card-title">Task</p>
+                <button className="delete" aria-label="close" onClick={hideTaskForm}></button>
             </header>
-            <section class="modal-card-body">
-                {/* <form onSubmit={handleSubmit}> */}
-                <form>
-                    <input id="description" class="input" placeholder="Description" />
-                    <input id="date" class="input datepicker" data-provide="datepicker" placeholder="Date Due" />
-                </form>                    
+            <section className="modal-card-body">
+                    <input id="description" className="input" required ref={descriptionRef} placeholder="Description" />
+                    <input id="date" className="input datepicker" data-provide="datepicker" required ref={dateRef} placeholder="Date Due" />
             </section>
-            <footer class="modal-card-foot">
-                {/* <button class="button is-success" disabled={state.loading} type="submit">Save</button> */}
-                <button class="button is-success" type="submit">Save</button>
-                <button class="button" onClick={hideTaskForm}>Cancel</button>
+            <footer className="modal-card-foot">
+                {/* <button className="button is-success" disabled={state.loading} type="submit">Save</button> */}
+                <button className="button is-success" type="submit" onClick={handleFormSubmit}>Save</button>
+                <button className="button" onClick={hideTaskForm}>Cancel</button>
             </footer>
         </div>
     </div>

@@ -7,7 +7,7 @@ import TaskCardModal from "../components/cardModal";
 import { CardsWrap, Card, CardHead, CardBody } from "../components/Cards";
 import $ from "jquery";
 
-// import Table from "../components/TableItem";
+import Table from "../components/TableItem";
 // import { Table, TableRow, TableHead, TableHeader } from "../components/TableItem";
 // import DeleteBtn from "../components/DeleteBtn";
 import AddBtn from "../components/AddBtn";
@@ -23,25 +23,35 @@ function showTaskForm() {
     $(".modal").addClass("is-active");
 }
 
-// const sampTasks = [
-//     {
-//         description: "task1",
-//         dueDate: "05/01/2021",
-//         completed: false,
-//     }, {
-//         description: "task2",
-//         dueDate: "05/02/2021",
-//         completed: false,
-//     }, {
-//         description: "task3",
-//         dueDate: "05/03/2021",
-//         completed: false,
-//     }, {
-//         description: "task4",
-//         dueDate: "05/01/2021",
-//         completed: true,
-//     },
-// ];
+const sampTasks = [
+    {
+        description: "task1",
+        dueDate: "05/01/2021",
+        completed: false,
+    }, {
+        description: "task2",
+        dueDate: "05/02/2021",
+        completed: false,
+    }, {
+        description: "task3",
+        dueDate: "05/03/2021",
+        completed: false,
+    }, {
+        description: "task4",
+        dueDate: "05/01/2021",
+        completed: true,
+    },
+];
+
+const test1 = {
+    description: "test1",
+    dueDate: "05/01/2021"
+}
+
+const test2 = {
+    description: "test2",
+    dueDate: "04/01/2021"
+}
 
 
 const TasksList = () => {
@@ -59,27 +69,10 @@ const TasksList = () => {
             </Card>
         </CardsWrap>
         <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
-        {/* <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title">Task</p>
-                    <button class="delete" aria-label="close" onClick={hideTaskForm}></button>
-                </header>
-                <section class="modal-card-body">
-                    <form onSubmit={handleSubmit}>
-                        <input id="description" class="input" placeholder="Description" />
-                        <input id="date" class="input datepicker" data-provide="datepicker" placeholder="Date Due" />
-                    </form>                    
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button is-success" onClick={saveTask}>Save</button>
-                    <button class="button" onClick={hideTaskForm}>Cancel</button>
-                </footer>
-            </div>
-        </div> */}
         <TaskCardModal/>
-        {/* <Table tasks={this.state.tasks}></Table>               */}
+        <Table>test1</Table>
+        <Table></Table>
+        <Table></Table>
         </>
 
     )
