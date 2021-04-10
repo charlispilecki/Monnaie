@@ -41,8 +41,9 @@ function Table(props) {
                 <tr>
                     <th className="is-flex is-justify-content-space-between">
                         {props.description}
+                        task
                         <div className="is-flex is-align-items-center">
-                            <div>{props.dueDate}</div>
+                            <div>{props.dueDate}05/01/2021</div>
                             <DeleteBtn/>
                         </div>
                     </th>

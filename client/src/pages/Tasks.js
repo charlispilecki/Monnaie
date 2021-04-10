@@ -12,7 +12,7 @@ import API from "../utils/API";
 
 // class App extends Component {
 //     state = {
-//         tasks: [{}]
+//         tasks: JSON.stringify(globalTasks)
 //     }
 // }
 
@@ -103,7 +103,13 @@ const TasksList = () => {
             </div>
         </div> */}
             <TaskCardModal />
-            <Table tasks={this.state.tasks}></Table>              
+            {/* <Table tasks={this.state.tasks}></Table>               */}
+            <Table>
+
+            </Table>
+            <Table>
+                
+            </Table>
         </>
 
     )
