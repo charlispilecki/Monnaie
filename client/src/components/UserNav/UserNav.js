@@ -53,7 +53,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 const UserNav = ({ className, ...rest }) => {
-    const [file, setFile] = useState();
+    const [file, setFile] = useState({
+        file: ''
+    });
     const classes = useStyles();
 
     const [user, setUser] = useState({
@@ -127,7 +129,6 @@ const UserNav = ({ className, ...rest }) => {
                     size="5px"
                     href="/Account"
                 >
-
                     Edit Profile
         </Button>
             </CardActions>

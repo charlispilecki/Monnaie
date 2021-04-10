@@ -110,22 +110,21 @@ function VendorContainer() {
   // }
 
 
-  return (
-    <>
-      <Profile />
-      <SmoothScroll>
-        <Jumbotron >
-          <ModalVendor handleFormSubmit={handleFormSubmit}>
-            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
-              inputPhoneNo={inputPhoneNo} />
-          </ModalVendor >
-          <SearchForm handleInputChange={handleInputChange} />
-          <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
-        </Jumbotron >
-      </SmoothScroll>
-      <Carousel />
+  // return (
+  //   <>
+  //     <Profile />
+  //     <SmoothScroll>
+  //       <Jumbotron >
+  //         <ModalVendor handleFormSubmit={handleFormSubmit}>
+  //           <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
+  //             inputPhoneNo={inputPhoneNo} />
+  //         </ModalVendor >
+  //         <SearchForm handleInputChange={handleInputChange} />
+  //         <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
+  //       </Jumbotron >
+  //     </SmoothScroll>
+  //     <Carousel />
 
-<<<<<<< HEAD
     return (
       <>
       <div className="container row">
@@ -136,7 +135,7 @@ function VendorContainer() {
               <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
                 inputPhoneNo={inputPhoneNo} />
             </ModalVendor >
-            <SearchForm handleSearchChange={handleSearchChange} />
+                    <SearchForm handleInputChange={handleInputChange} />
             <TableVendor results={formInputState} deleteVendor={deleteVendor}/>
           </Jumbotron >
         </SmoothScroll>
@@ -146,11 +145,9 @@ function VendorContainer() {
        
       </>
     );
-=======
 
-    </>
-  );
->>>>>>> 774accec5da0b50c603aeaa8c3a4722c435fe7c3
+  //   </>
+  // );
 
 }
 export default VendorContainer;
