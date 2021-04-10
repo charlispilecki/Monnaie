@@ -11,6 +11,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <!--Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
@@ -22,13 +23,13 @@
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
             <a class="navbar-item" href=""
-                style="font-family: 'Satisfy', cursive; text-align: center; color: #e17055;">
+                style="font-family: 'Satisfy', cursive; text-align: center; color: #e17055; font-size: 6vw;">
                 Monnaie
             </a>
             
         </div>
     </header>
-    <div class="card">
+    <div class="header-card">
         <div class="card-image">
             <figure>
                 <img style="width: 1600px; height: 800px;" src="landing.gif" alt="Placeholder image">
@@ -38,7 +39,7 @@
     <br>
         <div class="container">
             <div class="card">
-                
+
                 <div class="face face1">
                     <div class="content">
                         <img class="icon" src="calculator.png" width="40px">
@@ -101,28 +102,28 @@
     <div class="container" id="container" style="font-family: 'Bebas Neue'">
         <div class="form-container sign-up-container">
             <form action="/signup" method="post">
-                <h1 id="text">Create Account</h1>
+                <h1 id="text">SIGN-UP</h1>
                 <br>
-                <input class="form-input" name="name" type="text" placeholder="Name" />
+                <input class="form-input" name="name" type="text" placeholder="Name" required/>
                 <br>
-                <input class="form-input" name="email" type="email" placeholder="Email" />
+                <input class="form-input" name="email" type="email" placeholder="Email" required/>
                 <br>
-                <input class="form-input" name="username" type="text" placeholder="Username" />
+                <input class="form-input" name="username" type="text" placeholder="Username" required/>
                 <br>
-                <input class="form-input" name="password" type="password" placeholder="Password" />
+                <input class="form-input" name="password" type="password" placeholder="Password" required/>
                 <br>
                 <input class="submit-button" type="submit">Sign Up</input>
             </form>
         </div>
         <div class="form-container sign-in-container">
             <form action="/login" method="post">
-                <h1 id="text">Sign In</h1>
+                <h1 id="text">LOGIN</h1>
                 <br>
-                <input class="form-input" name="username" type="text" placeholder="Username" />
+                <input class="form-input" name="username" type="text" placeholder="Username" required/>
                 <br>
-                <input class="form-input" name="password" type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <input class="submit-button" type="submit">Sign In</input>
+                <input class="form-input" name="password" type="password" placeholder="Password" required/>
+                <a href="#">Forgot password?</a>
+                <input class="submit-button" type="submit"> Let's Go! </input>
             </form>
         </div>
         <div class="overlay-container">
@@ -137,11 +138,13 @@
                     <button class="ghost" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1 id="sub-text">Not a Monnaie user?</h1>
+                    <h1 id="sub-text">New to Monnaie?</h1>
                     <br>
-                    <p id="under-text"> Sign-Up! It's free!</p>
+                    <p id="under-text"> Don't get cold feet....</p>
                     <br>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <p id="under-text"> Create an account for instant access!</p>
+                    <br>
+                    <button class="ghost" id="signUp"> Yes! Sign me up.</button>
                 </div>
             </div>
         </div>
