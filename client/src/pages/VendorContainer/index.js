@@ -72,21 +72,28 @@ function VendorContainer() {
       if (res.data.status === "error") {
         throw new Error(res.data.message);
       }
-      setformInputState([...formInputState, res.data]);
-      setfilteredVendors([...formInputState, res.data]);
+      setformInputState([ res.data,...formInputState]);
+      setfilteredVendors([ res.data,...formInputState]);
     });
+
+   inputName.current.value="";
+   inputLocation.current.value="";
+  inputWebsite.current.value="";
+  inputPhoneNo.current.value="";
+
   };
 
   useEffect(() => {
     setfilteredVendors(formInputState.filter(item => {
-      return item.name.includes(searchState)
+      return item.name.toLowerCase().includes(searchState)
     }))
 
   }, [searchState, formInputState]);
 
   const handleInputChange = event => {
     event.preventDefault();
-    setSearchState(event.target.value);
+    const temp= (event.target.value).toLowerCase();
+    setSearchState(temp);
   }
 
   // const handleSearchChange = (event) => {
@@ -110,44 +117,43 @@ function VendorContainer() {
   // }
 
 
-  // return (
-  //   <>
-  //     <Profile />
-  //     <SmoothScroll>
-  //       <Jumbotron >
-  //         <ModalVendor handleFormSubmit={handleFormSubmit}>
-  //           <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
-  //             inputPhoneNo={inputPhoneNo} />
-  //         </ModalVendor >
-  //         <SearchForm handleInputChange={handleInputChange} />
-  //         <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
-  //       </Jumbotron >
-  //     </SmoothScroll>
-  //     <Carousel />
-
-    return (
-      <>
-      <div className="container row">
-        <Profile style={styles.marginTen}/>
-        <SmoothScroll >
-          <Jumbotron className="col-lg" >
-            <ModalVendor handleFormSubmit={handleFormSubmit}>
-              <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
-                inputPhoneNo={inputPhoneNo} />
-            </ModalVendor >
-                    <SearchForm handleInputChange={handleInputChange} />
-            <TableVendor results={formInputState} deleteVendor={deleteVendor}/>
-          </Jumbotron >
-        </SmoothScroll>
-        <Carousel />
-        </div>
+  return (
+    <div className="container">
+<div className="row"> 
+<div className="col-sm-12 col-md-3 mt-5"> <Profile /></div>
+<div className="col-sm-12 col-md-9 mt-5 text-center"> <h1 className="h1"><strong> Your Vendors  </strong></h1><SmoothScroll>
+  
+        <Jumbotron >
         
-       
-      </>
-    );
+          <ModalVendor handleFormSubmit={handleFormSubmit}>
+            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
+              inputPhoneNo={inputPhoneNo} />
+          </ModalVendor >
+          <SearchForm handleInputChange={handleInputChange} />
+          <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
+        </Jumbotron >
+      </SmoothScroll>
+      <br></br>
+      <h1 className="h1"><strong> Your Photos </strong></h1>
+      <Carousel /></div>
 
-  //   </>
-  // );
+</div>
+      {/* <Profile />
+      <SmoothScroll>
+        <Jumbotron >
+          <ModalVendor handleFormSubmit={handleFormSubmit}>
+            <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
+              inputPhoneNo={inputPhoneNo} />
+          </ModalVendor >
+          <SearchForm handleInputChange={handleInputChange} />
+          <TableVendor results={filteredVendors} deleteVendor={deleteVendor} />
+        </Jumbotron >
+      </SmoothScroll>
+      <Carousel />
+ */}
+
+      </div>
+  );
 
 }
 export default VendorContainer;

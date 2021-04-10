@@ -1,5 +1,5 @@
 module.exports = {
-    Vendor: require("./Vendor"),
-    // User: require("./User")
+    Vendor: require("./vendor"),
+    Task: require("./task")
   };
   
