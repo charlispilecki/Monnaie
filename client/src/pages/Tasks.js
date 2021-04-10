@@ -1,4 +1,4 @@
-import React from "react";
+import React,  {useContext} from "react";
 import 'bulma/css/bulma.css';
 // import "./style.css";
 import TaskCardModal from "../components/cardModal";
@@ -11,6 +11,7 @@ import $ from "jquery";
 // import { Table, TableRow, TableHead, TableHeader } from "../components/TableItem";
 // import DeleteBtn from "../components/DeleteBtn";
 import AddBtn from "../components/AddBtn";
+import MonnaieContext from "../utils/MonnaieContext";
 
 // class App extends Component {
 //     state = {
@@ -46,6 +47,8 @@ function showTaskForm() {
 
 const TasksList = () => {
 
+    const {globalTasks, setGlobalTasks} = useContext(MonnaieContext);
+
     return (
         <>
         <CardsWrap>
@@ -59,6 +62,7 @@ const TasksList = () => {
             </Card>
         </CardsWrap>
         <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
+        <p>{JSON.stringify(globalTasks)}</p>
         {/* <div class="modal">
             <div class="modal-background"></div>
             <div class="modal-card">
