@@ -255,15 +255,20 @@ function LineItem({
     category, lineItem, deleteLineItem, updateLineItem
 }) {
 
-    const [desc, setDesc] = useState(lineItem.desc)
-    const [vendor, setVendor] = useState(lineItem.vendor)
-    const [estimatedCost, setEstimatedCost] = useState(lineItem.estimatedCost)
-    const [actualCost, setActualCost] = useState(lineItem.actualCost)
-    const [paidOffAmount, setPaidOffAmount] = useState(lineItem.paidOffAmount)
+    const [desc, setDesc] = useState(lineItem.desc || '')
+    const [vendor, setVendor] = useState(lineItem.vendor || '')
+    const [estimatedCost, setEstimatedCost] = useState(lineItem.estimatedCost || 0)
+    const [actualCost, setActualCost] = useState(lineItem.actualCost || 0)
+    const [paidOffAmount, setPaidOffAmount] = useState(lineItem.paidOffAmount || 0)
 
     function getPaidOffTooltip() {
         let remaining = actualCost - paidOffAmount
-        let percent = Math.floor((remaining / actualCost) * 100)
+        let percent
+        if (actualCost > 0) {
+            percent = Math.floor((remaining / actualCost) * 100)
+        } else {
+            percent = 0
+        }
         return `Remainder to pay: $${remaining.toLocaleString()} (${percent}%)`
     }
 

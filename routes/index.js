@@ -156,6 +156,7 @@ router.get("/api/users", (req, res) => {
 router.get("/api/posts", (req, res) => {
   console.log('GET posts')
   Post.find({})
+    .sort({ timestamp: -1 })
     .then(posts => {
       res.json(posts);
     })
