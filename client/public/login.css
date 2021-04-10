@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 #ritzy {
   margin-top: 50px;
@@ -13,10 +14,11 @@
 }
 
 #text {
-  font-size: 25px;
-  letter-spacing: 2px;
+  font-size: 2vw;
+  letter-spacing: 4px;
   color: #E17055;
   font-weight: 600;
+  font-family: 'Anton', sans-serif;
 }
 h1 {
   font-weight: bold;
@@ -60,6 +62,16 @@ button:active {
   transform: scale(0.95);
 }
 
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: whitesmoke;
+  border-color: whitesmoke;
+  color: #353b48;
+}
+
 .submit-button {
   border-radius: 20px;
   border-color: none;
@@ -77,13 +89,14 @@ button:active {
   transform: scale(0.95);
 }
 
-button:focus {
+.submit-button:focus {
   outline: none;
 }
 
-button.ghost {
-  background-color: #2f3640;
-  border-color: #353b48;
+.submit-button.ghost {
+  background-color: whitesmoke;
+  border-color: whitesmoke;
+  color: #353b48;
 }
 
 form {
@@ -97,7 +110,7 @@ form {
   text-align: center;
 }
 
-.form-input  {
+input:not(.submit-button) {
   background-color: #eee;
   border-color: rgba(0, 0, 0, 0.3);
   padding: 12px 15px;
