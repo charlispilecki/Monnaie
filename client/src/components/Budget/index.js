@@ -255,15 +255,21 @@ function LineItem({
     category, lineItem, deleteLineItem, updateLineItem
 }) {
 
-    const [desc, setDesc] = useState(lineItem.desc)
-    const [vendor, setVendor] = useState(lineItem.vendor)
+    const [desc, setDesc] = useState(lineItem.desc || '')
+    const [vendor, setVendor] = useState(lineItem.vendor || '')
     const [estimatedCost, setEstimatedCost] = useState(lineItem.estimatedCost)
     const [actualCost, setActualCost] = useState(lineItem.actualCost)
     const [paidOffAmount, setPaidOffAmount] = useState(lineItem.paidOffAmount)
 
     function getPaidOffTooltip() {
         let remaining = actualCost - paidOffAmount
-        let percent = Math.floor((remaining / actualCost) * 100)
+        remaining = remaining || 0
+        let percent
+        if (actualCost > 0) {
+            percent = Math.floor((remaining / actualCost) * 100)
+        } else {
+            percent = 0
+        }
         return `Remainder to pay: $${remaining.toLocaleString()} (${percent}%)`
     }
 
@@ -363,7 +369,7 @@ function LineItemForm({
                 <input value={paidOffAmount} onChange={e=>setPaidOffAmount(e.target.value)} className="input" type="number" min="0.00" step="1.00" placeholder="Paid Off"/>
             </section>
             <footer className="modal-card-foot">
-                <button onClick={() => saveLineItem(category, {desc, vendor, estimatedCost, actualCost})} className="button is-success">Save</button>
+                <button onClick={() => saveLineItem(category, {desc, vendor, estimatedCost, actualCost, paidOffAmount})} className="button is-success">Save</button>
                 <button onClick={() => setShowLineItemForm(false)} className="button">Cancel</button>
             </footer>
         </div>

@@ -174,7 +174,7 @@ const UserNav = ({ className, ...rest }) => {
                             Date: 
                         </Typography>
                         <Divider />
-                        <ListItem> {moment(user.date).format('MM/DD/YYYY')} </ListItem>
+                        <ListItem> {user.date ? moment(user.date).format('MM/DD/YYYY') : ''} </ListItem>
                         <Typography
                             color="textPrimary">
                             Guests: 
