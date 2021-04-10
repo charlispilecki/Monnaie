@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 const SmoothScroll = (props) => {
-  const scrollContainerStyle = { width: "800px", maxHeight: "400px" };
+  const scrollContainerStyle = { width: "100%", maxHeight: "400px" };
   return (
     <div className="scrollbar scrollbar-primary" style={scrollContainerStyle}>
       {props.children}
