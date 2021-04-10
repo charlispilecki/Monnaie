@@ -15,6 +15,12 @@ import "./style.css";
 const styles = {
   paddingUp: {
     paddingTop: "100px"
+  },
+  containment: {
+
+  },
+  marginTen: {
+    margin: "10px"
   }
 }
 
@@ -103,14 +109,12 @@ function deleteVendor(id) {
     }
   }
 
-
-  
-
     return (
       <>
-        <Profile />
-        <SmoothScroll>
-          <Jumbotron >
+      <div className="container row">
+        <Profile style={styles.marginTen}/>
+        <SmoothScroll >
+          <Jumbotron className="col-lg" >
             <ModalVendor handleFormSubmit={handleFormSubmit}>
               <PopUpForm inputName={inputName} inputLocation={inputLocation} inputWebsite={inputWebsite}
                 inputPhoneNo={inputPhoneNo} />
@@ -120,6 +124,7 @@ function deleteVendor(id) {
           </Jumbotron >
         </SmoothScroll>
         <Carousel />
+        </div>
         
        
       </>

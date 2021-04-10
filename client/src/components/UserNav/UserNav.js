@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import ReactIsStupid from './analytics.png';
+import SimpleFileUpload from 'react-simple-file-upload';
 import clsx from 'clsx';
 import '../../App.css'
 import {
@@ -15,6 +17,12 @@ import {
     List,
     ListItem
 } from '@material-ui/core';
+
+const styles = {
+    resize: {
+        width: "50%"
+    }
+}
 
 const user = {
     avatar: 'https://img1.wsimg.com/isteam/ip/35bece9a-24ba-4602-9b5d-42d937deffd9/0.jpeg/:/cr=t:0%25,l:0%25,w:100%25,h:100%25',
@@ -33,8 +41,8 @@ const useStyles = makeStyles(() => ({
         width: 100
     },
     card: {
-        width: 240,
-        height: 425,
+        width: 200,
+        height: 620,
         marginTop: 200,
         fontFamily: "Arial"
     }
@@ -42,10 +50,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 const UserNav = ({ className, ...rest }) => {
+    const [file, setFile] = useState();
     const classes = useStyles();
 
     return (
         /* Card on the left hand side of the page containing user information */
+
         <Card
             className={clsx(classes.card, className,)}
             {...rest}
@@ -57,9 +67,15 @@ const UserNav = ({ className, ...rest }) => {
                     display="flex"
                     flexDirection="column"
                 >
+                    <SimpleFileUpload
+                        apiKey="5e1c52480a8af29dff971c9315d10703"
+                        onSuccess={setFile}
+                        width="120"
+                        height="5"
+                    />
                     <Avatar
                         className={classes.avatar}
-                        src={user.avatar}
+                        src={file}
                     />
                     <br />
                     <Typography
@@ -119,9 +135,34 @@ const UserNav = ({ className, ...rest }) => {
                         <ListItem> Guests </ListItem>
                     </List>
                 </Typography>
-                <hr />
+
+                <img style={styles.resize} src={ReactIsStupid}></img>
+                
+                <Typography
+                    color="textSecondary"
+                    variant="body1"
+                >
+                    <List>
+                        
+                        <ListItem>
+                            
+                            <Button
+                                color="primary"
+                                fullWidth
+                                variant="text"
+                                size="5px"
+                                href="/Chart"
+                            >
+                                Your Budget
+                           </Button>
+                        </ListItem>
+
+                    </List>
+                </Typography>
+
             </Box>
         </Card>
+
     );
 };
 
