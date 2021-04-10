@@ -156,8 +156,9 @@ p {
   margin-right: auto;
 }
 .container .card .face {
-  width: 430px;
-  transition: 0.7s;
+  width: 450px;
+  transition: 0.5s;
+
 }
 .container .card .face.face1 {
   position: relative;
