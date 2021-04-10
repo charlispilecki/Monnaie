@@ -5,9 +5,9 @@ import VendorContext from "../../utils/MonnaieContext";
 function PopUpForm(props) {
   return (
     <div className="container-vendor">
-      <form>
-        <h3><u>Vendor Details</u></h3>
-
+      <form className="formAlign">
+        {/* <h3><u>Vendor Details</u></h3> */}
+       
         <div className="form-group">
           <label htmlFor="inputName"></label>
           <input
@@ -19,6 +19,7 @@ function PopUpForm(props) {
             placeholder="vendor name"
           />
         </div>
+       
 
         <div className="form-group">
           <label htmlFor="inputLocation"></label>

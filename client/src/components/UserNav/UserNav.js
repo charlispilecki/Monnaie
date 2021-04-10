@@ -44,6 +44,7 @@ const useStyles = makeStyles(() => ({
         width: 100
     },
     card: {
+
         width: 200,
         height: 620,
         marginTop: 200,

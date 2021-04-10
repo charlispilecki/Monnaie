@@ -31,7 +31,14 @@ function VendorContainer() {
   const inputWebsite = useRef();
 
   const [searchState, setSearchState] = useState("");
-  const [formInputState, setformInputState] = useState([]);
+  const [formInputState, setformInputState] = useState([
+    // {
+    //   inputName: "Priya",
+    //   inputLocation: "San Antonio",
+    //   inputPhoneNo:"210-876-0000",
+    //   inputWebsite:"Priya@gmail.com"
+    // }
+  ]);
   const [filteredVendors, setfilteredVendors] = useState([]);
 
 

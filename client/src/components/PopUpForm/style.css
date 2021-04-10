@@ -5,17 +5,27 @@ body {
 
 .container-vendor{
      
-    height:400px; 
-    width:300px;
+    /* height:400px; 
+    width:300px; */
     background-color: #e17055;
     display:flex;
     direction:column;
 }
 
 .form-group {
-    padding-left: 10px;
+    padding-left: 80px;
 }
 
 form {
     padding-top: 15px;
+}
+
+
+/* .container-vendor .form-group{
+    text-align: center;
+} */
+
+.formAlign{
+    width: 90%;
+    text-align: center;
 }
