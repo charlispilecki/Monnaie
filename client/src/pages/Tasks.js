@@ -2,13 +2,9 @@ import React from "react";
 import 'bulma/css/bulma.css';
 // import "./style.css";
 import TaskCardModal from "../components/cardModal";
-// import Header  from "../components/Header";
-// import Navbar from "../components/Navbar";
 import { CardsWrap, Card, CardHead, CardBody } from "../components/Cards";
 import $ from "jquery";
-
 import Table from "../components/TableItem";
-// import { Table, TableRow, TableHead, TableHeader } from "../components/TableItem";
 // import DeleteBtn from "../components/DeleteBtn";
 import AddBtn from "../components/AddBtn";
 
@@ -70,7 +66,7 @@ const TasksList = () => {
         </CardsWrap>
         <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
         <TaskCardModal/>
-        <Table>test1</Table>
+        <Table></Table>
         <Table></Table>
         <Table></Table>
         </>
