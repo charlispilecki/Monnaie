@@ -3,101 +3,9 @@ import $ from "jquery";
 import MonnaieContext from "../../utils/MonnaieContext";
 import API from "../../utils/API";
 import DeleteBtn from "../DeleteBtn";
-import Moment from "react-moment";
 import moment from "moment";
-import TasksList from "../../pages/Tasks";
 
-
-
-// console.log(currentDate)
-
-// export default function() {
-//     const currentDate = moment().format("MM/DD/YYYY");
-
-//     const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
-
-//     useEffect(()=> {
-//         loadTasks();
-//     }, [])
-
-//     const loadTasks = () => {
-//         API.getTasks()
-//         .then(result => {
-//             // console.log(result)
-//             setGlobalTasks(result.data);
-//          })
-//         .catch(err => console.log(err));
-//     };
-
-//     // console.log(globalTasks)
-
-//     // const currentDate = <Moment format="MM/DD/YYYY" />
-
-//     return (
-//         <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-//                {globalTasks.map(function(task) {
-//                 console.log(task)
-//                 // let taskColor
-//                 // if (task.data.date < currentDate ) {
-//                 //     console.log("old date")
-//                 //     taskColor = "black"
-//                 // }
-//                 const taskColor = "color: black";
-//                 return (
-                    
-                    
-//                     <IncompleteTable key={task.desc}
-//                     task={task}
-//                     color={taskColor} />
-//                 )  
-        
-        
-                                                
-//         }
-//     )                        
-//     }
-//     </table>
-//     )
-
-    
-
-// // {
-// //     globalTasks.map(function(index) => {
-// //         console.log(index)
-// //         let taskColor
-// //         if (index % 2 === 0) {
-// //             // Even rows
-// //             taskColor = "#FFB7B2"
-// //         } else {
-// //             // Odd rows
-// //             taskColor = "#FFECF5" 
-// //         }
-// //         return (  
-// //             <IncompleteTable
-// //             // setGlobalTasks={setGlobalTasks}
-// //             // globalTasks={globalTasks}           
-// //             color={taskColor}
-// //             />                
-// //         )
-// //     })
-// // }
-// }
-
-// const changeTaskColor= (task) => {
-//     console.log(task);
-//     // let taskColor
-//     // if (task.data.date < currentDate ) {
-//     //     console.log("old date")
-//     //     taskColor = "black"
-//     // }
-//     var color = "black";
-//     IncompleteTable(color);
-//     // newTaskColor(color);
-// }
-// const color = black;
-
-export function IncompleteTable() {
-
+export default function Table() {
     const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
 
     useEffect(()=> {
@@ -131,7 +39,7 @@ export function IncompleteTable() {
         }
     
     function deleteTask(id) {
-        console.log(id)
+        // console.log(id)
         API.deleteTask(id)
         .then(result => {
             setGlobalTasks([result.data, ...globalTasks]);
@@ -139,31 +47,39 @@ export function IncompleteTable() {
         })
     }
 
-    // const currentDate = moment().format("MM/DD/YYYY");
+    // console.log(globalTasks)
 
-    // function changeTaskColor(task) {
-    //     console.log(task);
-    //     let taskColor
-    //     if (task.data.date < currentDate ) {
-    //         console.log("old date")
-    //         taskColor = "black"
-    //     }
-    //     color = taskColor;
-    //     // newTaskColor(color);
-    // }
-    
+    const currentDate = moment().format("MM/DD/YYYY");
 
     return (
-            <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                <thead>
-                    {globalTasks.map(function(task) {
-                        // console.log(task);
-                        // changeTaskColor(task);
-                        // function newTaskColor(color) {
-                            if (task.completed == false) {
-                            return (
-                                <tr>
-                                <th id="completed" data-number={task.completed.length} className="is-flex is-justify-content-space-between" style={{backgroundColor: "#FFB7B2", height: '3rem'}}>
+        <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+                {globalTasks
+                .sort(function(a, b) {
+                    let c = new Date(a.date);
+                    let d = new Date(b.date);
+                    return c - d;
+                })
+                .sort((a, b) => a.completed - b.completed)
+                .map(function(task) {
+                    let taskColor;
+                    let a = moment();
+                    let b = new Date(task.date);
+                    let dateDiff = (a.diff(b, 'days'));
+                    console.log(dateDiff)
+                    if (task.date < currentDate) {
+                        taskColor = "#FF6961";
+                    } else if (dateDiff > -6) {
+                        taskColor = "#FDFD96";
+                    } else {
+                        taskColor = "#94FA92";
+                    }
+                    let color = taskColor;
+
+                    if (task.completed == false) {
+                        return (                            
+                            <tr>
+                                <th id="completed" data-number={task.completed.length} className="is-flex is-justify-content-space-between is-align-items-center" style={{backgroundColor: color, color: "black", height: '3.2rem'}}>
                                     {task.description}
                                     <div className="is-flex is-align-items-center">
                                         <div>{task.date}</div>
@@ -171,72 +87,27 @@ export function IncompleteTable() {
                                         <DeleteBtn onClick={() => deleteTask(task._id)} />
                                     </div>
                                 </th>
-                            </tr>
-                            )                            
-                        }
-                        }
-                    )                        
-                    }
-                </thead>
-            </table>
-    )
-}
-
-export function CompleteTable() {
-
-    const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
-
-    useEffect(()=> {
-        loadTasks();
-    }, [])
-
-    const loadTasks = () => {
-        API.getTasks()
-        .then(result => {
-            setGlobalTasks(result.data);
-         })
-        .catch(err => console.log(err));
-    };
-
-    // const taskState = JSON.stringify(globalTasks);
-
-    // const sortedGlobalTasks = globalTasks.dueDate.sort();
-
-    // console.log(globalTasks.dueDate)
-
-    function deleteTask(id) {
-        console.log(id)
-        API.deleteTask(id)
-        .then(result => {
-            setGlobalTasks([result.data, ...globalTasks]);
-            window.location.reload();
-        })
-    }
-
-    return (
-            <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                <thead>
-                    {globalTasks.map(function(task) {
-                        if (task.completed == true) {
-                            return (
-                                <tr>
-                                <th className="is-flex is-justify-content-space-between" style={{backgroundColor:'lightGray', height: '3rem'}}>
+                            </tr>                            
+                        )                            
+                    } else {
+                        return (
+                            <tr>
+                                <th className="is-flex is-justify-content-space-between is-align-items-center" style={{backgroundColor:'lightGray', color: "black", height: '3rem'}}>
                                     {task.description}
                                     <div className="is-flex is-align-items-center">
                                         <div>{task.date}</div>
-                                        <div>Completed</div>
-                                        <DeleteBtn onClick={() => deleteTask(task._id)} />
-                                        {/* task.completed.length    */}
+                                        <div className="mx-3">Completed</div>
+                                        <DeleteBtn onClick={() => deleteTask(task._id)} />  
                                     </div>
                                 </th>
                             </tr>
-                            )                            
-                        } 
-                                                        
-                        }
-                    )                     
+                        )
                     }
-                </thead>
-            </table>
+                                                    
+                    }
+                )                     
+                }
+            </thead>
+        </table>
     )
 }
