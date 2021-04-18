@@ -41,28 +41,6 @@ const reducer = (state, action) => {
       })
     };
 
-  // case ADD_FAVORITE:
-  //   return {
-  //     ...state,
-  //     favorites: [action.post, ...state.favorites],
-  //     loading: false
-  //   };
-
-  // case UPDATE_FAVORITES:
-  //   return {
-  //     ...state,
-  //     favorites: [...state.favorites],
-  //     loading: false
-  //   };
-
-  // case REMOVE_FAVORITE:
-  //   return {
-  //     ...state,
-  //     favorites: state.favorites.filter((post) => {
-  //       return post._id !== action._id; 
-  //     })
-  //   };
-
   case LOADING:
     return {
       ...state,

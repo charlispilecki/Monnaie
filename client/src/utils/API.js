@@ -48,8 +48,8 @@ export default {
   saveTask: function(taskData) {
     return axios.post("/api/tasks", taskData);
   },
-  updateTaskCompleted: function(taskCompleted) {
-    return axios.put("/api/tasks/"+ taskCompleted)
+  updateTaskCompleted: function(id, taskCompleted) {
+    return axios.put("/api/tasks/"+ id + taskCompleted)
   },
   createComment: function(comment) {
     return axios.post(`/api/posts/${comment.postID}/comments`, comment);

@@ -4,7 +4,7 @@ import 'bulma/css/bulma.css';
 import TaskCardModal from "../components/cardModal";
 import { CardsWrap, Card, CardHead, CardBody } from "../components/Cards";
 import $ from "jquery";
-import { IncompleteTable, CompleteTable } from "../components/TableItem";
+import Table from "../components/TableItem";
 // import DeleteBtn from "../components/DeleteBtn";
 import AddBtn from "../components/AddBtn";
 import MonnaieContext from "../utils/MonnaieContext";
@@ -22,27 +22,6 @@ function showTaskForm() {
     $(".modal").addClass("is-active");
 }
 
-const sampTasks = [
-    {
-        description: "task1",
-        dueDate: "05/01/2021",
-        completed: false,
-    }, {
-        description: "task2",
-        dueDate: "05/02/2021",
-        completed: false,
-    }, {
-        description: "task3",
-        dueDate: "05/03/2021",
-        completed: false,
-    }, {
-        description: "task4",
-        dueDate: "05/01/2021",
-        completed: true,
-    },
-];
-
-
 const TasksList = () => {
 
     const { globalTasks, setGlobalTasks } = useContext(MonnaieContext);
@@ -59,7 +38,8 @@ const TasksList = () => {
         .catch(err => console.log(err));
     };
 
-    console.log(globalTasks)
+    let completeTask = globalTasks.filter(task => task.completed == true);
+    console.log(completeTask.length)
 
     return (
         <>
@@ -68,17 +48,14 @@ const TasksList = () => {
                     <CardHead>Total # of Tasks</CardHead>
                     <CardBody>{globalTasks.length}</CardBody>
                 </Card>
-                {/* <Card custStyle="card ml-2 has-background-info-light">
+                <Card custStyle="card ml-2 has-background-info-light">
                     <CardHead># of Tasks Completed</CardHead>
-                    <CardBody>{console.log($("#completed").attr("data-number"))}</CardBody>                    
-                </Card> */}
+                    <CardBody>{completeTask.length}</CardBody>                    
+                </Card>
             </CardsWrap>
             <AddBtn handleClick={showTaskForm}>Add Task</AddBtn>
-            {/* <p>{JSON.stringify(globalTasks)}</p> */}
-
             <TaskCardModal />
-            <IncompleteTable />
-            <CompleteTable />
+            <Table />
         </>
 
     )
