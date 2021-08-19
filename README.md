@@ -18,9 +18,9 @@ After observing the difficulty in finding a suitable wedding budgeter online, or
 
 ## Links
 
-- GitHub Repo
+- [GitHub Repo](https://github.com/charlispilecki/Monnaie)
 - GitHub Pages
-- Heroku
+- [Heroku](https://monnaie-v2.herokuapp.com/)
 
 ## Screenshots
 
