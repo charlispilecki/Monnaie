@@ -16,16 +16,13 @@ After observing the difficulty in finding a suitable wedding budgeter online, or
 - JavaScript
 - JSX
 
-## Links
+## Deployment
 
-- [GitHub Repo](https://github.com/charlispilecki/Monnaie)
-- GitHub Pages
 - [Heroku](https://monnaie-v2.herokuapp.com/)
 
 ## Screenshots
 
-  <img src="">
-
+  ![Image of the starting page](https://github.com/charlispilecki/Monnaie/blob/main/client/public/landing.gif)
 
 ## Reference
 
